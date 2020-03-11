@@ -1,0 +1,165 @@
+@media only screen and (max-width: 576px) {
+  .content-box {
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    margin-right: 30px;
+  }
+  .input-div {
+    width: 200px;
+    margin: 30px auto;
+  }
+  .latest {
+    max-width: 90%;
+    margin: 40px auto;
+  }
+  .articles {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-row-gap: 4em;
+  }
+  .subscribe {
+    font-weight: 300;
+    font-size: 1.7rem;
+    margin-top: 80px;
+  }
+  .footer {
+    padding-bottom: 60px;
+  }
+  .links {
+    text-align: left;
+  }
+  .h2-margin {
+    margin-top: 70px;
+  }
+  .pagination-subscribe {
+    margin-top: 40px;
+  }
+  .subscription-before-margin {
+    margin-top: 15px;
+  }
+  h1 {
+    font-size: 1.7rem;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
+  .main-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .latest {
+    margin-top: 60px;
+  }
+  .content-box {
+    margin-left: 25px;
+    margin-bottom: 30px;
+  }
+  .articles {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-row-gap: 4em;
+  }
+  input[type=submit] {
+    width: 30%;
+  }
+  .subscriber-container {
+    margin-top: 30px;
+  }
+  .enter-email {
+    width: 70%;
+    margin: auto;
+  }
+  .links {
+    text-align: left;
+  }
+  .footer {
+    padding-bottom: 60px;
+  }
+  header {
+    width: 90%;
+  }
+  .main-nav li {
+    list-style-type: disc;
+    display: block;
+    text-align: right;
+  }
+  .main-nav li:not(:last-child) {
+    padding-bottom: 10px;
+    padding-right: 0;
+  }
+}
+
+@media only screen and (width: 768px) {
+  .subscriber-container {
+    margin-top: 0;
+  }
+  input[type=submit] {
+    width: 100%;
+  }
+  .enter-email {
+    width: 100%;
+    margin: auto;
+  }
+  .content-box {
+    margin-left: 25px;
+    margin-right: 5px;
+  }
+  .links {
+    text-align: right;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .background {
+    height: 90%;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  .content-box {
+    margin-left: 0;
+    margin-right: 20px;
+  }
+  .latest {
+    height: 600px;
+  }
+  .articles {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    grid-row-gap: 4em;
+  }
+  header {
+    width: 90%;
+  }
+}
+
+@media only screen and (width: 992px) {
+  .latest {
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  header {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .background {
+    height: 481px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .background {
+    height: 453px;
+  }
+}
+/*# sourceMappingURL=queries.css.map */

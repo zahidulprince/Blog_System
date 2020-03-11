@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--    Animate.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"
+      integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk="
+      crossorigin="anonymous"
+    />
+    <!--    Icons-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--    Bootstrap-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <title>Blog of Zahid Prince</title>
+    </head>
+    <body>
+        <div class="mt-5">
+          <div class="backdrop" id="menu" style="display: none;">
+            <ul class="mb-0 hidden-list">
+              <li>
+                <a class="read-more-hover" href="#"
+                  >HOME
+                  
+                </a>
+              </li>
+              <li>
+                <a class="read-more-hover" href="categories.html"
+                  >CATEGORIES
+                  
+                </a>
+              </li>
+              <li>
+                <a class="read-more-hover" href="https://zahidprince.com" target="_blank"
+                  >ABOUT ME
+                  
+                </a>
+              </li>
+            </ul>
+    
+            <p class="mt-5" id="menuClose">
+              <i class="fas fa-times fa-2x"></i>
+            </p>
+          </div>
+            <header class="d-flex align-items-center">
+                <!-- Nav Bar -->
+                <div>
+                  <!-- Nav Bar Logo -->
+                  <a href="index.html">
+                    <img src="/img/Logo.svg" alt="Blog Logo" class="logo" />
+                  </a>
+                </div>
+        
+                <div class="ml-auto">
+                  <!-- Nav Bar Buttons -->
+                  <ul class="main-nav mb-0">
+                    <li>
+                      <a href="index.html"
+                        >HOME
+                        <div class="circle"></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html"
+                        >CATEGORIES
+                        <div class="circle"></div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://zahidprince.com" target="_blank"
+                        >ABOUT ME
+                        <div class="circle"></div>
+                      </a>
+                    </li>
+                  </ul>
+                  <a href="#" class="check-nav" id="js-mobile-nav"><i class="fas fa-bars mobile-nav-icon"></i></a>
+                </div>
+              </header>
+
+              <section class="container-c mt-5">
+
+                <div class="row h-100">
+                  <!-- Category and Title -->
+                    <div class="col-md-2" style="margin-top: 10px;">
+                      <a href="categories.html" class="read-more-hover category-article">
+                        TV SERIES
+                      </a> 
+                    </div>
+                    <!-- <span>&#124;</span> -->
+                    
+                    <div class="col-md-10 post-title">
+                      <div class="mid-bar"></div>
+                      <div class="article-name">
+                        {{ post.getDescription() }}
+                      </div>
+                      
+                    </div>
+
+                </div>
+
+                <div class="post-date mt-5">
+                  <!-- Post Date -->
+                  March 01, 2020
+                </div>
+
+                <div class="mt-2" style="font-size: 1.24rem; line-height: 1.7;">
+                  <!-- Post Body -->
+
+                  <img class="post-image" src="https://images.hdqwalls.com/download/breaking-bad-fan-art-1280x960.jpg" alt="post-background">
+
+                  <p class="article-body">
+                    <span class="post-first-letter">R</span> exquisite set arranging sex him houshold had. Months had too ham remove far spirit. She procuring the why performed continual improving. Civil songs so large shade in cause. Lady an mr here must neat sold. Children greatest ye extended delicate of. No elderly passage earnest as in removed winding or. Resources exquisite set arranging moonlight sex him household had. Months had too ham cousin remove far spirit. She procuring the why performed continual improving. Civil songs so large shade in cause. Lady an mr here must neat sold. Children greatest ye extended delicate of. No elderly passage earnest as in removed winding or.<br><br>Written enquire painful ye to offices forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered. On ye position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid blush songs begin. Nor but mean time one over. <br><br> Instrument cultivated alteration any favourable expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity. Inhabit her manners adapted age certain. Debating offended at branched striking be subjects. <br><br> In by an appetite no humoured returned informed. Possession so comparison inquietude he he conviction no decisively. Marianne jointure attended she hastened surprise but she. Ever lady son yet you very paid form away. He advantage of exquisite resolving if on tolerably. Become sister on in garden it barton waited on.<br><br>When be draw drew ye. Defective in do recommend suffering. House it seven in spoil tiled court. Sister others marked fat missed did out use. Alteration possession dispatched collecting instrument travelling he or on. Snug give made at spot or late that mr.<br><br>Two exquisite objection delighted deficient yet its contained. Cordial because are account evident its subject but eat. Can properly followed learning prepared you doubtful yet him. Over many our good lady feet ask that. Expenses own moderate day fat trifling stronger sir domestic feelings. Itself at be answer always exeter up do. Though or my plenty uneasy do. Friendship so considered remarkably be to sentiments. Offered mention greater fifteen one promise because nor. Why denoting speaking fat indulged saw dwelling raillery.<br><br>Admiration we surrounded possession frequently he. Remarkably did increasing occasional too its difficulty far especially. Known tiled but sorry joy balls. Bed sudden manner indeed fat now feebly. Face do with in need of wife paid that be. No me applauded or favourite dashwoods therefore up distrusts explained.<br><br>She who arrival end how fertile enabled. Brother she add yet see minuter natural smiling article painted. Themselves at dispatched interested insensible am be prosperous reasonably it. In either so spring wished. Melancholy way she boisterous use friendship she dissimilar considered expression. Sex quick arose mrs lived. Mr things do plenty others an vanity myself waited to. Always parish tastes at as mr father dining at.<br><br>As collected deficient objection by it discovery sincerity curiosity. Quiet decay who round three world whole has mrs man. Built the china there tried jokes which gay why. Assure in adieus wicket it is. But spoke round point and one joy. Offending her moonlight men sweetness see unwilling. Often of it tears whole oh balls share an.<br><br>Sportsman do offending supported extremity breakfast by listening. Decisively advantages nor expression unpleasing she led met. Estate was tended ten boy nearer seemed. As so seeing latter he should thirty whence. Steepest speaking up attended it as. Made neat an on be gave show snug tore.
+
+                  </p>
+
+
+                </div>
+
+                <div>
+                  <img class="discuss" src="/img/Image 3.jpg" alt="discuss">
+                </div>
+                           
+              </section>
+
+              
+
+              <footer class="footer">
+                <div class="footer-container">
+                  <div class="row">
+                    <div class="col-md-6 mt-5 order-1 order-md-0">
+                      <div class="footer-section about">
+                        <div>
+                          <a href="index.html">
+                            <img
+                            src="/img/Logo-footer.svg"
+                            alt="Blog Logo"
+                            class="footer-logo mb-3"
+                          />
+                          </a>
+                        </div>
+                        <div class="mt-3">
+                          <p class="animated fadeInUp mb-0">
+                            Connect With Me
+                          </p>
+                          <div class="animated fadeInUp social-icons">
+                            <a
+                              href="https://www.linkedin.com/in/zi-prince-/"
+                              target="_blank"
+                              referrerpolicy="no-referrer"
+                            >
+                              <i class="fab fa-linkedin"></i>
+                            </a>
+                      
+                            <a
+                              href="https://www.facebook.com/izahidprince"
+                              target="_blank"
+                              referrerpolicy="no-referrer"
+                            >
+                              <i class="fab fa-facebook-square"></i>
+                            </a>
+                      
+                            <a
+                              href="https://www.instagram.com/zi_prince_/"
+                              target="_blank"
+                              referrerpolicy="no-referrer"
+                            >
+                              <i class="fab fa-instagram"></i>
+                            </a>
+                      
+                            <a
+                              href="https://twitter.com/zahid_prince_"
+                              target="_blank"
+                              referrerpolicy="no-referrer"
+                            >
+                              <i class="fab fa-twitter-square"></i>
+                            </a>
+                      
+                            <a
+                              href="mailto: zahidulisprince@gmail.com"
+                              target="_blank"
+                              referrerpolicy="no-referrer"
+                            >
+                              <i class="fas fa-envelope-square"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mt-5 order-0 order-md-1 text-left">
+                      <div class="footer-section links">
+                        <ul class="footer-nav mb-0">
+                          <li>
+                            <a href="index.html"
+                              >HOME
+                              <div class="footer-circle"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="categories.html"
+                              >CATEGORIES
+                              <div class="footer-circle"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="https://zahidprince.com" target="_blank"
+                              >ABOUT ME
+                              <div class="footer-circle"></div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#"
+                              >SUBSCRIBE
+                              <div class="footer-circle"></div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>        
+                </div>
+              </footer>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/script.js"></script>
+    </body>
+</html>
