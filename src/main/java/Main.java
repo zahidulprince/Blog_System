@@ -122,7 +122,7 @@ public class Main {
 
             try {
                 Session session = dbController.sf.openSession();
-                renderArticles = (List<Articles>) session.createQuery("FROM Articles", Articles.class).getResultList();
+                renderArticles = (List<Articles>) session.createQuery("FROM Articles", Articles.class).setMaxResults(2).getResultList();
                 renderData.put("articles", renderArticles);
 
                 ctx.render("templates/test.html.pebble", renderData);
