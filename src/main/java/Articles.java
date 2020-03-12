@@ -33,10 +33,6 @@ public class Articles {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -58,8 +54,10 @@ public class Articles {
     }
 
     public void setDate(Date date) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        DateFormat dateFormat = new SimpleDateFormat("dd MMMM, yyyy");
+        dateFormat.format(date);
         this.date = date;
+        System.out.println(date);
     }
 
     public Category getCategory() {
