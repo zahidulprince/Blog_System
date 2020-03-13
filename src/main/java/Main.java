@@ -1,5 +1,8 @@
 import io.javalin.Javalin;
+
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
+import org.hibernate.query.Query;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -104,6 +107,12 @@ public class Main {
 
 
                 ctx.render("templates/categories.html.pebble", renderData);
+
+                Query query = session.createQuery("select count(*) from Category");
+
+                long maxRow = (long) query.uniqueResult();
+                System.out.println(maxRow);
+
                 session.close();
 
             } catch ( Exception e ) {
