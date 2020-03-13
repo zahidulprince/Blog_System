@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class Main {
 
     static DatabaseController dbController;
@@ -82,50 +83,27 @@ public class Main {
 
         });
 
-        app.get("/blog", ctx -> {
+        app.get("/categories/:pn", ctx -> {
 
-            HashMap<String, Articles> renderData = new HashMap<>();
-
-            Articles articlesAndCategory = null;
-            Articles articlesAndCategory2 = null;
-
-            try {
-                Session session = dbController.sf.openSession();
-
-                articlesAndCategory = (Articles) session.load(Articles.class, 1);
-                articlesAndCategory2 = (Articles) session.load(Articles.class, 2);
-
-
-                renderData.put("articleAndCategory", articlesAndCategory);
-                renderData.put("articleAndCategory2", articlesAndCategory2);
-
-
-                ctx.render("templates/categories.html.pebble", renderData);
-
-
-                session.close();
-
-            } catch (Exception e) {
-                System.out.println("Error in data");
-                e.printStackTrace();
-            }
-
-        });
-
-        app.get("/test", ctx -> {
-
-            List<Articles> renderArticles = new ArrayList<>();
+            List<Category> renderCategory = new ArrayList<>();
 
             HashMap<String, Object> renderData = new HashMap<>();
 
-            Articles articles = null;
+            Category category = null;
 
             try {
-                Session session = dbController.sf.openSession();
-                renderArticles = (List<Articles>) session.createQuery("FROM Articles", Articles.class).setMaxResults(2).getResultList();
-                renderData.put("articles", renderArticles);
+                String str = ctx.pathParam("pn");
+                int pn = Integer.parseInt(str);
 
-                ctx.render("templates/test.html.pebble", renderData);
+                Session session = dbController.sf.openSession();
+
+                renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult((pn-1)*2).setMaxResults(2).getResultList();
+
+                renderData.put("categories", renderCategory);
+                renderData.put("pn", pn);
+
+
+                ctx.render("templates/categories.html.pebble", renderData);
                 session.close();
 
             } catch ( Exception e ) {
@@ -133,10 +111,6 @@ public class Main {
                 e.printStackTrace();
             }
 
-
         });
-
-
-
     }
 }

@@ -120,21 +120,17 @@
                         style="margin-bottom: 12px;"
                 >
                     <div class="inside-pagination d-flex align-items-center">
-                        <div
-                                class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
-                                style="left: -20px;"
-                        >
-                            1
+                        <a href="http://localhost:7000/categories/{{ pn-1 }}">
+                            <i class="fas fa-arrow-circle-left" style="color: #0066FF; font-size: 1.3rem;"></i>
+                        </a>
+
+                        <div style="font-size: 1.3rem; color: #0066FF; margin-top: -5px;">
+                            {{ pn }}
                         </div>
-                        <div>
-                            {{ pn+1 }}
-                        </div>
-                        <div class="mx-2">
-                            . . . .
-                        </div>
-                        <div>
-                            Last
-                        </div>
+
+                        <a href="http://localhost:7000/categories/{{ pn+1 }}">
+                            <i class="fas fa-arrow-circle-right" style="color: #0066FF; font-size: 1.3rem;"></i>
+                        </a>
                     </div>
                 </div>
             </div>
