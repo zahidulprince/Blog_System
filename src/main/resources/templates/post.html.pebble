@@ -3,7 +3,7 @@
 
     <section class="container-c mt-5">
 
-        <div class="row h-100 animated fadeInUp">
+        <div class="row h-100 animated fadeIn">
             <!-- Category and Title -->
             <div class="col-md-2" style="margin-top: 10px;">
                 <a href="localhost:7000/categories" class="read-more-hover category-article">

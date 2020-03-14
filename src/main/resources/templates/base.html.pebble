@@ -68,13 +68,13 @@
             <li>
                 <a href="index.html"
                 >HOME
-                    <div class="circle"></div>
+                    <div class="circle {% block homeActive %}{% endblock homeActive %}"></div>
                 </a>
             </li>
             <li>
                 <a href="categories.html"
                 >CATEGORIES
-                    <div class="circle circle-active"></div>
+                    <div class="circle {% block categoriesActive %}{% endblock categoriesActive %}"></div>
                 </a>
             </li>
             <li>
@@ -159,13 +159,13 @@
                         <li>
                             <a href="#"
                             >HOME
-                                <div class="footer-circle"></div>
+                                <div class="footer-circle {% block FhomeActive %}{% endblock FhomeActive %}"></div>
                             </a>
                         </li>
                         <li>
                             <a href="categories.html"
                             >CATEGORIES
-                                <div class="footer-circle footer-circle-active"></div>
+                                <div class="footer-circle {% block FcategoriesActive %}{% endblock FcategoriesActive %}"></div>
                             </a>
                         </li>
                         <li>
