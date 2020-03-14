@@ -146,14 +146,16 @@
 }
 
 @media only screen and (min-width: 992px) {
-  header {
-    width: 90%;
-  }
+
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .background {
     height: 481px;
+  }
+
+  header {
+    width: 90%;
   }
 }
 

@@ -26,7 +26,4 @@ $(document).ready(function() {
             paddingBottom: 'hide'
         })
     })
-
-    
-
 });

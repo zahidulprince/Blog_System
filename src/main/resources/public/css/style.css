@@ -292,10 +292,10 @@ h1 {
 }
 
 .pagination {
-  /*background-color: #F2F2F2;*/
-  color: #B9B9B9;
+  background-color: #F2F2F2;
+  color: #0066FF;
   height: 57px;
-  width: 120px;
+  width: 150px;
   border-radius: 33px;
   font-weight: 400;
   font-size: 1.1em;
@@ -1137,4 +1137,3 @@ header {
     width: 90% !important;
   }
 }
-/*# sourceMappingURL=style.css.map */

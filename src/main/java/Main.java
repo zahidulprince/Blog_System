@@ -56,36 +56,6 @@ public class Main {
 
         });
 
-        app.get("/categories", ctx -> {
-
-            HashMap<String, Articles> renderData = new HashMap<>();
-
-            Articles articlesAndCategory = null;
-            Articles articlesAndCategory2 = null;
-
-            try {
-                Session session = dbController.sf.openSession();
-
-                articlesAndCategory = (Articles) session.load(Articles.class, 1);
-                articlesAndCategory2 = (Articles) session.load(Articles.class, 2);
-
-
-                renderData.put("articleAndCategory", articlesAndCategory);
-                renderData.put("articleAndCategory2", articlesAndCategory2);
-
-
-                ctx.render("templates/categories.html.pebble", renderData);
-
-
-                session.close();
-
-            } catch (Exception e) {
-                System.out.println("Error in data");
-                e.printStackTrace();
-            }
-
-        });
-
         app.get("/categories/:pn", ctx -> {
 
             List<Category> renderCategory = new ArrayList<>();
@@ -112,6 +82,30 @@ public class Main {
 
                 long maxRow = (long) query.uniqueResult();
                 System.out.println(maxRow);
+
+
+
+                session.close();
+
+            } catch ( Exception e ) {
+                System.out.println("check again");
+                e.printStackTrace();
+            }
+
+        });
+
+        app.get("/home", ctx -> {
+
+            try {
+
+                Session session = dbController.sf.openSession();
+
+
+
+
+
+                ctx.render("templates/index.html.pebble");
+
 
                 session.close();
 
