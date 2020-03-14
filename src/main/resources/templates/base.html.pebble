@@ -52,12 +52,12 @@
         <i class="fas fa-times fa-2x"></i>
     </p>
 </div>
-<header class="d-flex align-items-center">
+<header class="d-flex align-items-center mt-5">
     <!-- Nav Bar -->
     <div>
         <!-- Nav Bar Logo -->
         <a href="index.html">
-            <img src="img/Logo.svg" alt="Blog Logo" class="logo"/>
+            <img src="/img/Logo.svg" alt="Blog Logo" class="logo"/>
         </a>
 
     </div>
@@ -87,7 +87,9 @@
         <a href="#" class="check-nav" id="js-mobile-nav"><i class="fas fa-bars mobile-nav-icon"></i></a>
     </div>
 </header>
+{% block content %}
 
+{% endblock %}
 <footer class="footer">
     <div class="footer-container">
         <div class="row">
@@ -96,7 +98,7 @@
                     <div>
                         <a href="index.html">
                             <img
-                                    src="img/Logo-footer.svg"
+                                    src="/img/Logo-footer.svg"
                                     alt="Blog Logo"
                                     class="footer-logo mb-3"
                             />
@@ -184,6 +186,7 @@
         </div>
     </div>
 </footer>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>
