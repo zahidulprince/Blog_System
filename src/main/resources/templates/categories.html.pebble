@@ -12,7 +12,7 @@
         </div>
 
         {% for category in categories %}
-            <div class="technology-class animated fadeInUp">
+            <div class="technology-class animated fadeIn">
                 <div>
                 {{ category.getName() }}
                 </div>
@@ -40,28 +40,21 @@
             <div class="inside-pagination d-flex align-items-center">
 
 
-                <button href="http://localhost:7000/categories/{{ pn-1 }}" type="button {{ pn == 1 ? "disabled" : ""}}"
-                        class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
-                        style="left: -12px; border: none">
-                {#                        <a>#}
-                    <div>
-                        <i class="fas fa-caret-left" style="padding-right: 3px;"></i>
-                    </div>
-                {#                        </a>#}
-                </button>
 
-                {#                    <a href="http://localhost:7000/categories/{{ pn-1 }}" {{ pn == 1 ? "disabled" : ""}}>#}
-                {#                        <div#}
-                {#                                class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"#}
-                {#                                style="left: -12px;"#}
-                {#                        >#}
-                {#                            <i class="fas fa-caret-left" style="padding-right: 3px;"></i>#}
-                {#                        </div>#}
-                {#                    </a>#}
+
+                <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/' + (pn - 1) }}" class="{{ pn==1 ? 'isDisabled' : ""}}">
+                    <div
+                            class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
+                            style="left: -12px;"
+                    >
+                        <i class="fas fa-caret-left" style="padding-right: 4px;"></i>
+                    </div>
+                </a>
+
                 <div style="font-size: 1.3rem;">
                 {{ pn }}
                 </div>
-                <a href="http://localhost:7000/categories/{{ pn+1 }}">
+                <a href=" {{ (lastCheckRow/lastCheckTake==pn) ? '#' : 'http://localhost:7000/categories/' + (pn + 1) }}" class="{{ (lastCheckRow/lastCheckTake==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
                             style="right: -12px;"

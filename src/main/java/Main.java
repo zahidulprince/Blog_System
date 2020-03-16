@@ -1,21 +1,19 @@
 import io.javalin.Javalin;
 
 import org.hibernate.Session;
-import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 
 public class Main {
 
     static DatabaseController dbController;
 
-    public static <renderArticles> void main(String[]args){
+    public static <renderArticles> void main(String[] args) {
 
         Javalin app = Javalin.create(javalinConfig -> {
             javalinConfig.addStaticFiles("/public");
@@ -70,38 +68,44 @@ public class Main {
 
                 Session session = dbController.sf.openSession();
 
-                renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult((pn-1)*2).setMaxResults(2).getResultList();
+                Query query = session.createQuery("select count(*) from Category");
+                long maxRow = (long) query.uniqueResult();
+                System.out.println(maxRow);
+
+                int maxTake = 2;
+
+                renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult((pn - 1) * 2).setMaxResults(maxTake).getResultList();
 
                 renderData.put("categories", renderCategory);
                 renderData.put("pn", pn);
+                renderData.put("lastCheckRow", maxRow);
+                renderData.put("lastCheckTake", maxTake);
+
 
 
                 ctx.render("templates/categories.html.pebble", renderData);
 
-                Query query = session.createQuery("select count(*) from Category");
-
-                long maxRow = (long) query.uniqueResult();
-                System.out.println(maxRow);
-
-
 
                 session.close();
 
-            } catch ( Exception e ) {
+            } catch (Exception e) {
                 System.out.println("check again");
                 e.printStackTrace();
             }
 
         });
 
-        app.get("/home", ctx -> {
+        app.get("/blog", ctx -> {
+
+            List<Articles> renderArticles = new ArrayList<>();
+
+            HashMap<String, Object> renderData = new HashMap<>();
+
+            Articles articles = null;
 
             try {
 
                 Session session = dbController.sf.openSession();
-
-
-
 
 
                 ctx.render("templates/index.html.pebble");
@@ -109,7 +113,7 @@ public class Main {
 
                 session.close();
 
-            } catch ( Exception e ) {
+            } catch (Exception e) {
                 System.out.println("check again");
                 e.printStackTrace();
             }

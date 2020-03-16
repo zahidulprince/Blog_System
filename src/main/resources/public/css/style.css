@@ -1137,3 +1137,10 @@ header {
     width: 90% !important;
   }
 }
+
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}

@@ -26,4 +26,8 @@ $(document).ready(function() {
             paddingBottom: 'hide'
         })
     })
+
+    $("a.isDisabled").on('click', function (e) {
+        e.preventDefault();
+    })
 });

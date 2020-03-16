@@ -2,457 +2,459 @@
 {% block homeActive %}circle-active{% endblock homeActive %}
 {% block FhomeActive %}footer-circle-active{% endblock FhomeActive %}
 {% block content %}
-      <!-- Featured Article -->
-      <section class="latest animated fadeIn">
-        <div class="row h-100">
-          <div class="col-md-6 h-100">
+<!-- Featured Article -->
+<section class="latest animated fadeIn">
+    <div class="row h-100">
+        <div class="col-md-6 h-100">
             <!-- Featured Article Cover -->
             <div class="background"></div>
-          </div>
+        </div>
 
-          <div class="col-md-6">
+        <div class="col-md-6">
             <!-- Featured Article Content -->
             <div class="d-flex h-100 align-items-center content-box">
-              <div>
-                <div
-                  class="latest-article text-center d-flex align-items-center justify-content-center"
-                  style="margin-bottom: 12px;"
-                >
-                  <!-- Latest Article Box -->
-                  <div>
-                    <i class="fas fa-bookmark mr-1"></i>
-                    Latest Article
-                  </div>
-                </div>
-
-                <div class="d-flex mb-2">
-                  <!-- Category and Date -->
-                  <div>
-                    <i
-                      class="fas fa-archive mr-1 position-relative"
-                      style="font-size: 0.9rem; top: -0.5px;"
-                    ></i>
-                    <span class="font-weight-medium">TV Series</span>
-                  </div>
-                  <div class="ml-4">
-                    <i
-                      class="far fa-calendar-alt mr-1 position-relative"
-                      style="font-size: 0.9rem; top: -1px;"
-                    ></i>
-                    <span class="font-weight-medium">March 20, 2020</span>
-                  </div>
-                </div>
-
-                <a href="post.html" class="read-more-hover">
-                  <h1 class="mb-2 mt-0">
-                    <!-- Heading of the Articlle -->
-                    Scarface, Tyler Durden & Crystal Meth amounts to being  Heisenberg
-                  </h1>
-                </a>
-                <p class="description">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Dolor veritatis fugit voluptatibus eligendi? Qui vel quasi
-                  dolor inventore? Tempore laborum ullam officiis eligendi neque
-                  aliquid explicabo inventore qui doloremque! Libero Lorem,
-                  ipsum dolor sit amet consectetur adipisicing elit. Debitis,
-                  amet ad
-                </p>
-
-                <a href="post.html" class="read-more-hover">
-                  <!-- Read More Link -->
-                  <p class="font-weight-medium  mt-4">
-                    Read More
-                    <i
-                      class="fas fa-external-link-alt position-relative"
-                      style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                <div>
+                    <div
+                            class="latest-article text-center d-flex align-items-center justify-content-center"
+                            style="margin-bottom: 12px;"
                     >
-                    </i>
-                  </p>
-                </a>
-              </div>
+                        <!-- Latest Article Box -->
+                        <div>
+                            <i class="fas fa-bookmark mr-1"></i>
+                            Latest Article
+                        </div>
+                    </div>
+
+                    <div class="d-flex mb-2">
+                        <!-- Category and Date -->
+                        <div>
+                            <i
+                                    class="fas fa-archive mr-1 position-relative"
+                                    style="font-size: 0.9rem; top: -0.5px;"
+                            ></i>
+                            <span class="font-weight-medium">TV Series</span>
+                        </div>
+                        <div class="ml-4">
+                            <i
+                                    class="far fa-calendar-alt mr-1 position-relative"
+                                    style="font-size: 0.9rem; top: -1px;"
+                            ></i>
+                            <span class="font-weight-medium">March 20, 2020</span>
+                        </div>
+                    </div>
+
+                    <a href="post.html" class="read-more-hover">
+                        <h1 class="mb-2 mt-0">
+                            <!-- Heading of the Articlle -->
+                            Scarface, Tyler Durden & Crystal Meth amounts to being Heisenberg
+                        </h1>
+                    </a>
+                    <p class="description">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Dolor veritatis fugit voluptatibus eligendi? Qui vel quasi
+                        dolor inventore? Tempore laborum ullam officiis eligendi neque
+                        aliquid explicabo inventore qui doloremque! Libero Lorem,
+                        ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+                        amet ad
+                    </p>
+
+                    <a href="post.html" class="read-more-hover">
+                        <!-- Read More Link -->
+                        <p class="font-weight-medium  mt-4">
+                            Read More
+                            <i
+                                    class="fas fa-external-link-alt position-relative"
+                                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                            >
+                            </i>
+                        </p>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
-      <div class="col-md-12 h2-margin animated fadeIn">
-        <!-- More Article Heading -->
-        <h2>
-          More Articles
-        </h2>
-      </div>
-      <!-- More Articles Section -->
-      <section
+<div class="col-md-12 h2-margin animated fadeIn">
+    <!-- More Article Heading -->
+    <h2>
+        More Articles
+    </h2>
+</div>
+<!-- More Articles Section -->
+<section
         class="more-articles-sec-1 d-flex align-items-center justify-content-center mt-5"
-      >
-        <!-- All Articles -->
+>
+    <!-- All Articles -->
 
-        <div class="articles animated slideInUp">
-          <!-- Articles Cards -->
-          <div class="box">
+    <div class="articles animated fadeInUp">
+        <!-- Articles Cards -->
+        <div class="box">
             <!-- Article 1 -->
             <div class="article-background-1"></div>
             <div class="contents mt-4">
-              <div>
-                <div class="card-cat-date-size">
-                  <div>
-                    <!-- Article 1 Category -->
-                    <i
-                      class="fas fa-archive mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -0.5px;"
-                    ></i>
-                    <span class="font-weight-medium mr-5">JavaScript</span>
-                  </div>
-                  <div>
-                    <!-- Article 1 Publish Date -->
-                    <i
-                      class="far fa-calendar-alt mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -1px;"
-                    ></i>
-                    <span class="font-weight-medium">March 20, 2020</span>
-                  </div>
+                <div>
+                    <div class="card-cat-date-size">
+                        <div>
+                            <!-- Article 1 Category -->
+                            <i
+                                    class="fas fa-archive mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -0.5px;"
+                            ></i>
+                            <span class="font-weight-medium mr-5">JavaScript</span>
+                        </div>
+                        <div>
+                            <!-- Article 1 Publish Date -->
+                            <i
+                                    class="far fa-calendar-alt mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -1px;"
+                            ></i>
+                            <span class="font-weight-medium">March 20, 2020</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <!--Article 1 Heading-->
-                <h3 class="mb-2 mt-2">
-                  Scarface + Tyler Durden + Crystal Meth = Heisenberg
-                </h3>
-              </div>
-              <div class="description">
-                <!-- Article 1 Description -->
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-                veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
-                dolor sit amet
-              </div>
-              <a href="post.html">
-                <!-- Article 1 Read More -->
-                <p class="font-weight-medium mt-3 card-read-more">
-                  Read More
-                  <i
-                    class="fas fa-external-link-alt position-relative"
-                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
-                  ></i>
-                </p>
-              </a>
+                <div>
+                    <!--Article 1 Heading-->
+                    <h3 class="mb-2 mt-2">
+                        Scarface + Tyler Durden + Crystal Meth = Heisenberg
+                    </h3>
+                </div>
+                <div class="description">
+                    <!-- Article 1 Description -->
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
+                    dolor sit amet
+                </div>
+                <a href="post.html">
+                    <!-- Article 1 Read More -->
+                    <p class="font-weight-medium mt-3 card-read-more">
+                        Read More
+                        <i
+                                class="fas fa-external-link-alt position-relative"
+                                style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                        ></i>
+                    </p>
+                </a>
             </div>
-          </div>
+        </div>
 
-          <div class="box">
+        <div class="box">
             <!-- Article 2 -->
             <div class="article-background-2"></div>
             <div class="contents mt-4">
-              <div>
-                <div class="card-cat-date-size">
-                  <div>
-                    <!-- Article 2 Category -->
-                    <i
-                      class="fas fa-archive mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -0.5px;"
-                    ></i>
-                    <span class="font-weight-medium mr-5">JavaScript</span>
-                  </div>
-                  <div>
-                    <!-- Article 2 Publish Date -->
-                    <i
-                      class="far fa-calendar-alt mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -1px;"
-                    ></i>
-                    <span class="font-weight-medium">March 20, 2020</span>
-                  </div>
+                <div>
+                    <div class="card-cat-date-size">
+                        <div>
+                            <!-- Article 2 Category -->
+                            <i
+                                    class="fas fa-archive mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -0.5px;"
+                            ></i>
+                            <span class="font-weight-medium mr-5">JavaScript</span>
+                        </div>
+                        <div>
+                            <!-- Article 2 Publish Date -->
+                            <i
+                                    class="far fa-calendar-alt mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -1px;"
+                            ></i>
+                            <span class="font-weight-medium">March 20, 2020</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <!--Article 2 Heading-->
-                <h3 class="mb-2 mt-2">
-                  Scarface + Tyler Durden + Crystal Meth = Heisenberg
-                </h3>
-              </div>
-              <div class="description">
-                <!-- Article 2 Description -->
+                <div>
+                    <!--Article 2 Heading-->
+                    <h3 class="mb-2 mt-2">
+                        Scarface + Tyler Durden + Crystal Meth = Heisenberg
+                    </h3>
+                </div>
+                <div class="description">
+                    <!-- Article 2 Description -->
 
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-                veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem quasi Lorem Lorem ipsum dolor sit, 
-              </div>
-              <a href="post.html">
-                <!-- Article 2 Read More -->
-                <p class="font-weight-medium mt-3 card-read-more">
-                  Read More
-                  <i
-                    class="fas fa-external-link-alt position-relative"
-                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
-                  ></i>
-                </p>
-              </a>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem quasi Lorem Lorem ipsum dolor sit,
+                </div>
+                <a href="post.html">
+                    <!-- Article 2 Read More -->
+                    <p class="font-weight-medium mt-3 card-read-more">
+                        Read More
+                        <i
+                                class="fas fa-external-link-alt position-relative"
+                                style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                        ></i>
+                    </p>
+                </a>
             </div>
-          </div>
+        </div>
 
-          <div class="box">
+        <div class="box">
             <!-- Article 3 -->
             <div class="article-background-3"></div>
             <div class="contents mt-4">
-              <div class="card-cat-date-size">
-                <div>
-                  <!-- Article 3 Category -->
-                  <i
-                    class="fas fa-archive mr-1 position-relative"
-                    style="font-size: 0.7rem; top: -0.5px;"
-                  ></i>
-                  <span class="font-weight-medium mr-5">JavaScript</span>
+                <div class="card-cat-date-size">
+                    <div>
+                        <!-- Article 3 Category -->
+                        <i
+                                class="fas fa-archive mr-1 position-relative"
+                                style="font-size: 0.7rem; top: -0.5px;"
+                        ></i>
+                        <span class="font-weight-medium mr-5">JavaScript</span>
+                    </div>
+                    <div>
+                        <!-- Article 3 Publish Date -->
+                        <i
+                                class="far fa-calendar-alt mr-1 position-relative"
+                                style="font-size: 0.7rem; top: -1px;"
+                        ></i>
+                        <span class="font-weight-medium">March 20, 2020</span>
+                    </div>
                 </div>
                 <div>
-                  <!-- Article 3 Publish Date -->
-                  <i
-                    class="far fa-calendar-alt mr-1 position-relative"
-                    style="font-size: 0.7rem; top: -1px;"
-                  ></i>
-                  <span class="font-weight-medium">March 20, 2020</span>
+                    <!--Article 3 Heading-->
+                    <h3 class="mb-2 mt-2">
+                        Scarface + Tyler Durden + Crystal Meth = Heisenberg
+                    </h3>
                 </div>
-              </div>
-              <div>
-                <!--Article 3 Heading-->
-                <h3 class="mb-2 mt-2">
-                  Scarface + Tyler Durden + Crystal Meth = Heisenberg
-                </h3>
-              </div>
-              <div class="description">
-                <!-- Article 3 Description -->
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-                veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
-                dolor sit amet
-              </div>
-              <a href="post.html">
-                <!-- Article 3 Read More -->
-                <p class="font-weight-medium mt-3 card-read-more">
-                  Read More
-                  <i
-                    class="fas fa-external-link-alt position-relative"
-                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
-                  ></i>
-                </p>
-              </a>
+                <div class="description">
+                    <!-- Article 3 Description -->
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
+                    dolor sit amet
+                </div>
+                <a href="post.html">
+                    <!-- Article 3 Read More -->
+                    <p class="font-weight-medium mt-3 card-read-more">
+                        Read More
+                        <i
+                                class="fas fa-external-link-alt position-relative"
+                                style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                        ></i>
+                    </p>
+                </a>
             </div>
-          </div>
+        </div>
 
-          <div class="box">
+        <div class="box">
             <!-- Article 4 -->
             <div class="article-background-4"></div>
             <div class="contents mt-4">
-              <div>
-                <div class="card-cat-date-size">
-                  <div>
-                    <!-- Article 4 Category -->
-                    <i
-                      class="fas fa-archive mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -0.5px;"
-                    ></i>
-                    <span class="font-weight-medium mr-5">JavaScript</span>
-                  </div>
-                  <div>
-                    <!-- Article 4 Publish Date -->
-                    <i
-                      class="far fa-calendar-alt mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -1px;"
-                    ></i>
-                    <span class="font-weight-medium">March 20, 2020</span>
-                  </div>
+                <div>
+                    <div class="card-cat-date-size">
+                        <div>
+                            <!-- Article 4 Category -->
+                            <i
+                                    class="fas fa-archive mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -0.5px;"
+                            ></i>
+                            <span class="font-weight-medium mr-5">JavaScript</span>
+                        </div>
+                        <div>
+                            <!-- Article 4 Publish Date -->
+                            <i
+                                    class="far fa-calendar-alt mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -1px;"
+                            ></i>
+                            <span class="font-weight-medium">March 20, 2020</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <!--Article 4 Heading-->
-                <h3 class="mb-2 mt-2">
-                  Scarface + Tyler Durden + Crystal Meth = Heisenberg
-                </h3>
-              </div>
-              <div class="description">
-                <!-- Article 4 Description -->
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-                veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
-                dolor sit amet
-              </div>
-              <a href="post.html">
-                <!-- Article 4 Read More -->
-                <p class="font-weight-medium mt-3 card-read-more">
-                  Read More
-                  <i
-                    class="fas fa-external-link-alt position-relative"
-                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
-                  ></i>
-                </p>
-              </a>
+                <div>
+                    <!--Article 4 Heading-->
+                    <h3 class="mb-2 mt-2">
+                        Scarface + Tyler Durden + Crystal Meth = Heisenberg
+                    </h3>
+                </div>
+                <div class="description">
+                    <!-- Article 4 Description -->
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
+                    dolor sit amet
+                </div>
+                <a href="post.html">
+                    <!-- Article 4 Read More -->
+                    <p class="font-weight-medium mt-3 card-read-more">
+                        Read More
+                        <i
+                                class="fas fa-external-link-alt position-relative"
+                                style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                        ></i>
+                    </p>
+                </a>
             </div>
-          </div>
+        </div>
 
-          <div class="box">
+        <div class="box">
             <!-- Article 5 -->
             <div class="article-background-5"></div>
             <div class="contents mt-4">
-              <div>
-                <div class="card-cat-date-size">
-                  <div>
-                    <!-- Article 5 Category -->
-                    <i
-                      class="fas fa-archive mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -0.5px;"
-                    ></i>
-                    <span class="font-weight-medium mr-5">JavaScript</span>
-                  </div>
-                  <div>
-                    <!-- Article 5 Publish Date -->
-                    <i
-                      class="far fa-calendar-alt mr-1 position-relative"
-                      style="font-size: 0.7rem; top: -1px;"
-                    ></i>
-                    <span class="font-weight-medium">March 20, 2020</span>
-                  </div>
+                <div>
+                    <div class="card-cat-date-size">
+                        <div>
+                            <!-- Article 5 Category -->
+                            <i
+                                    class="fas fa-archive mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -0.5px;"
+                            ></i>
+                            <span class="font-weight-medium mr-5">JavaScript</span>
+                        </div>
+                        <div>
+                            <!-- Article 5 Publish Date -->
+                            <i
+                                    class="far fa-calendar-alt mr-1 position-relative"
+                                    style="font-size: 0.7rem; top: -1px;"
+                            ></i>
+                            <span class="font-weight-medium">March 20, 2020</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div>
-                <!--Article 5 Heading-->
-                <h3 class="mb-2 mt-2">
-                  Scarface + Tyler Durden + Crystal Meth = Heisenberg
-                </h3>
-              </div>
-              <div class="description">
-                <!-- Article 5 Description -->
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-                veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
-                dolor sit amet
-              </div>
-              <a href="post.html">
-                <!-- Article 5 Read More -->
-                <p class="font-weight-medium mt-3 card-read-more">
-                  Read More
-                  <i
-                    class="fas fa-external-link-alt position-relative"
-                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
-                  ></i>
-                </p>
-              </a>
+                <div>
+                    <!--Article 5 Heading-->
+                    <h3 class="mb-2 mt-2">
+                        Scarface + Tyler Durden + Crystal Meth = Heisenberg
+                    </h3>
+                </div>
+                <div class="description">
+                    <!-- Article 5 Description -->
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
+                    dolor sit amet
+                </div>
+                <a href="post.html">
+                    <!-- Article 5 Read More -->
+                    <p class="font-weight-medium mt-3 card-read-more">
+                        Read More
+                        <i
+                                class="fas fa-external-link-alt position-relative"
+                                style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                        ></i>
+                    </p>
+                </a>
             </div>
-          </div>
+        </div>
 
-          <div class="box">
+        <div class="box">
             <!-- Article 6 -->
             <div class="article-background-6"></div>
             <div class="contents mt-4">
-              <div class="card-cat-date-size">
-                <div>
-                  <!-- Article 6 Category -->
-                  <i
-                    class="fas fa-archive mr-1 position-relative"
-                    style="font-size: 0.7rem; top: -0.5px;"
-                  ></i>
-                  <span class="font-weight-medium mr-5">JavaScript</span>
+                <div class="card-cat-date-size">
+                    <div>
+                        <!-- Article 6 Category -->
+                        <i
+                                class="fas fa-archive mr-1 position-relative"
+                                style="font-size: 0.7rem; top: -0.5px;"
+                        ></i>
+                        <span class="font-weight-medium mr-5">JavaScript</span>
+                    </div>
+                    <div>
+                        <!-- Article 6 Publish Date -->
+                        <i
+                                class="far fa-calendar-alt mr-1 position-relative"
+                                style="font-size: 0.7rem; top: -1px;"
+                        ></i>
+                        <span class="font-weight-medium">March 20, 2020</span>
+                    </div>
                 </div>
                 <div>
-                  <!-- Article 6 Publish Date -->
-                  <i
-                    class="far fa-calendar-alt mr-1 position-relative"
-                    style="font-size: 0.7rem; top: -1px;"
-                  ></i>
-                  <span class="font-weight-medium">March 20, 2020</span>
+                    <!--Article 6 Heading-->
+                    <h3 class="mb-2 mt-2">
+                        Scarface + Tyler Durden + Crystal Meth = Heisenberg
+                    </h3>
                 </div>
-              </div>
-              <div>
-                <!--Article 6 Heading-->
-                <h3 class="mb-2 mt-2">
-                  Scarface + Tyler Durden + Crystal Meth = Heisenberg
-                </h3>
-              </div>
-              <div class="description">
-                <!-- Article 6 Description -->
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
-                veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
-                dolor sit amet
-              </div>
-              <a href="post.html">
-                <!-- Article 6 Read More -->
-                <p class="font-weight-medium mt-3 card-read-more">
-                  Read More
-                  <i
-                    class="fas fa-external-link-alt position-relative"
-                    style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
-                  ></i>
-                </p>
-              </a>
+                <div class="description">
+                    <!-- Article 6 Description -->
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor
+                    veritatis fugit voluptatibus eligendi? Qui vel quasi Lorem ipsum
+                    dolor sit amet
+                </div>
+                <a href="post.html">
+                    <!-- Article 6 Read More -->
+                    <p class="font-weight-medium mt-3 card-read-more">
+                        Read More
+                        <i
+                                class="fas fa-external-link-alt position-relative"
+                                style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
+                        ></i>
+                    </p>
+                </a>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
-      <section class="pagination-subscribe">
-        <!-- Pagination And Subscribe -->
-        <div class="d-flex align-items-center justify-content-center" style="margin-top: 70px;">
-          <!-- Pagination -->
-          <div
-                  class="pagination text-center d-flex align-items-center"
-                  style="margin-bottom: 12px;"
-          >
+<section class="pagination-subscribe">
+    <!-- Pagination And Subscribe -->
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: 70px;">
+        <!-- Pagination -->
+        <div
+                class="pagination text-center d-flex align-items-center"
+                style="margin-bottom: 12px;"
+        >
             <div class="inside-pagination d-flex align-items-center">
-              <a href="#">
-                <div
-                        class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
-                        style="left: -12px;"
-                >
-                  <i class="fas fa-caret-left" style="padding-right: 3px;"></i>
+                <a href="#">
+                    <div
+                            class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
+                            style="left: -12px;"
+                    >
+                        <i class="fas fa-caret-left" style="padding-right: 3px;"></i>
+                    </div>
+                </a>
+                <div style="font-size: 1.3rem;">
+                    1
                 </div>
-              </a>
-              <div style="font-size: 1.3rem;">
-                1
-              </div>
-              <a href="#">
-                <div
-                        class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
-                        style="right: -12px;"
-                >
-                  <i class="fas fa-caret-right" style="padding-left: 3px;"></i>
-                </div>
-              </a>
+                <a href="#">
+                    <div
+                            class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
+                            style="right: -12px;"
+                    >
+                        <i class="fas fa-caret-right" style="padding-left: 3px;"></i>
+                    </div>
+                </a>
 
             </div>
-          </div>
         </div>
+    </div>
 
-        <div class="subscription-before-margin">
-          <!-- Subscribe Heading -->
-          <h2 class="subscribe">
+    <div class="subscription-before-margin">
+        <!-- Subscribe Heading -->
+        <h2 class="subscribe">
             <span style="font-weight: bold;"
-              ><b><i>Subscribe</i></b></span
+            ><b><i>Subscribe</i></b></span
             >
             to Get <br>My Latest Updates
-          </h2>
-        </div>
-        <div>
-          <!-- Subscription Box -->
-          <div class="d-flex justify-content-center mb-5 subscription-box-before-margin">
+        </h2>
+    </div>
+    <div>
+        <!-- Subscription Box -->
+        <div class="d-flex justify-content-center mb-5 subscription-box-before-margin">
             <div class="subscriber-container">
-              <form method="POST" action="#" class="subscription-form">
-                <div class="row">
-                  <div class="col-md-9">
-                    <div
-                      class="enter-email text-center d-flex align-items-center justify-content-center"
-                    >                
-                      <div
-                        class="inside-enter-email d-flex
+                <form method="POST" action="#" class="subscription-form">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div
+                                    class="enter-email text-center d-flex align-items-center justify-content-center"
+                            >
+                                <div
+                                        class="inside-enter-email d-flex
                                       justify-content-start align-items-center">
-                        <div class="d-flex justify-content-start align-items-center text-center" style="width: 558px;">
-                          <input class="pl-5" type="email" name="name" id="email" placeholder="Please, enter your email . . ." required>
+                                    <div class="d-flex justify-content-start align-items-center text-center"
+                                         style="width: 558px;">
+                                        <input class="pl-5" type="email" name="name" id="email"
+                                               placeholder="Please, enter your email . . ." required>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-md-3 mt-md-0 text-center d-flex align-items-center justify-content-center input-div">
+                            <div class="subscriber-container text-center d-flex align-text-center justify-content-center">
+                                <input type="submit" value="Send">
+                            </div>
+                        </div>
                     </div>
-                  </div>                  
-                  <div class="col-md-3 mt-md-0 text-center d-flex align-items-center justify-content-center input-div">
-                    <div class="subscriber-container text-center d-flex align-text-center justify-content-center">
-                      <input type="submit" value="Send">
-                    </div>                                       
-                  </div>
-                </div>                    
-              </form>              
+                </form>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
 
 {% endblock %}
 

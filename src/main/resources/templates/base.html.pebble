@@ -22,6 +22,7 @@
     />
     <!-- Style -->
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/queries.css"/>
 
     <title>Blog of Zahid Prince</title>
 </head>
@@ -29,13 +30,13 @@
 <div class="backdrop" id="menu" style="display: none;">
     <ul class="mb-0 hidden-list">
         <li>
-            <a class="read-more-hover" href="#"
+            <a class="read-more-hover" href="http://localhost:7000/blog"
             >HOME
 
             </a>
         </li>
         <li>
-            <a class="read-more-hover" href="categories.html"
+            <a class="read-more-hover" href="http://localhost:7000/categories/1"
             >CATEGORIES
 
             </a>
@@ -56,7 +57,7 @@
     <!-- Nav Bar -->
     <div>
         <!-- Nav Bar Logo -->
-        <a href="index.html">
+        <a href="http://localhost:7000/blog">
             <img src="/img/Logo.svg" alt="Blog Logo" class="logo"/>
         </a>
 
@@ -66,13 +67,13 @@
         <!-- Nav Bar Buttons -->
         <ul class="main-nav mb-0">
             <li>
-                <a href="index.html"
+                <a href="http://localhost:7000/blog"
                 >HOME
                     <div class="circle {% block homeActive %}{% endblock homeActive %}"></div>
                 </a>
             </li>
             <li>
-                <a href="categories.html"
+                <a href="http://localhost:7000/categories/1"
                 >CATEGORIES
                     <div class="circle {% block categoriesActive %}{% endblock categoriesActive %}"></div>
                 </a>
@@ -96,7 +97,7 @@
             <div class="col-md-6 mt-5 order-1 order-md-0">
                 <div class="footer-section about">
                     <div>
-                        <a href="index.html">
+                        <a href="http://localhost:7000/blog">
                             <img
                                     src="/img/Logo-footer.svg"
                                     alt="Blog Logo"
@@ -157,13 +158,13 @@
                 <div class="footer-section links">
                     <ul class="footer-nav mb-0">
                         <li>
-                            <a href="#"
+                            <a href="http://localhost:7000/blog"
                             >HOME
                                 <div class="footer-circle {% block FhomeActive %}{% endblock FhomeActive %}"></div>
                             </a>
                         </li>
                         <li>
-                            <a href="categories.html"
+                            <a href="http://localhost:7000/categories/1"
                             >CATEGORIES
                                 <div class="footer-circle {% block FcategoriesActive %}{% endblock FcategoriesActive %}"></div>
                             </a>
@@ -175,7 +176,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="http://localhost:7000/blog"
                             >SUBSCRIBE
                                 <div class="footer-circle"></div>
                             </a>
