@@ -7,7 +7,7 @@
             <!-- Category and Title -->
             <div class="col-md-2" style="margin-top: 10px;">
                 <a href="localhost:7000/categories" class="read-more-hover category-article">
-                {{ articles.getCategory().getName() }}
+                {{ post.getCategory().getName() }}
                 </a>
             </div>
             <!-- <span>&#124;</span> -->
@@ -16,7 +16,7 @@
                 <div class="mid-bar"></div>
                 <div class="article-name">
 
-                {{ articles.getDescription() }}
+                {{ post.getDescription() }}
                 </div>
 
             </div>

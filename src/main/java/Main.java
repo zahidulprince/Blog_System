@@ -40,7 +40,7 @@ public class Main {
 
                 articles = (Articles) session.load(Articles.class, 1);
 
-                renderData.put("articles", articles);
+                renderData.put("post", articles);
 
                 ctx.render("templates/post.html.pebble", renderData);
                 System.out.println(articles);
@@ -72,19 +72,17 @@ public class Main {
                 long maxRow = (long) query.uniqueResult();
                 System.out.println(maxRow);
 
-                int maxTake = 2;
+                double maxTake = 2;
 
-                renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult((pn - 1) * 2).setMaxResults(maxTake).getResultList();
+                double lastPageCheck = Math.ceil(maxRow/maxTake);
+
+                renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult(((pn - 1) * 2)).setMaxResults((int)maxTake).getResultList();
 
                 renderData.put("categories", renderCategory);
                 renderData.put("pn", pn);
-                renderData.put("lastCheckRow", maxRow);
-                renderData.put("lastCheckTake", maxTake);
-
-
+                renderData.put("lastPageCheck", lastPageCheck);
 
                 ctx.render("templates/categories.html.pebble", renderData);
-
 
                 session.close();
 
@@ -95,7 +93,7 @@ public class Main {
 
         });
 
-        app.get("/blog", ctx -> {
+        app.get("/blog/:pn", ctx -> {
 
             List<Articles> renderArticles = new ArrayList<>();
 
@@ -104,11 +102,35 @@ public class Main {
             Articles articles = null;
 
             try {
+                String str = ctx.pathParam("pn");
+                int pn = Integer.parseInt(str);
 
                 Session session = dbController.sf.openSession();
 
+                Query query = session.createQuery("select count(*) from Articles");
+                long maxRow = (long) query.uniqueResult();
+                System.out.println(maxRow);
 
-                ctx.render("templates/index.html.pebble");
+                double maxTake = 6;
+
+                double lastPageCheck = Math.ceil(maxRow/maxTake);
+
+                Query query1 = session.createQuery("select max(id) from Articles");
+                int article = (int) query1.uniqueResult();
+                System.out.println(article);
+
+                articles = (Articles) session.load(Articles.class, article);
+
+
+                renderArticles = (List<Articles>) session.createQuery("FROM Articles order by id desc", Articles.class).setFirstResult(((pn - 1) * 6)+1).setMaxResults((int)maxTake).getResultList();
+
+                renderData.put("articles", articles);
+                renderData.put("moreArticles", renderArticles);
+                renderData.put("pn", pn);
+                renderData.put("lastPageCheck", lastPageCheck);
+
+                ctx.render("templates/index.html.pebble", renderData);
+                System.out.println(lastPageCheck);
 
 
                 session.close();

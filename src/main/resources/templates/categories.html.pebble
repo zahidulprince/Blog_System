@@ -31,16 +31,13 @@
         {% endfor %}
     </div>
 
-    <div class="d-flex align-items-center justify-content-center" style="margin-top: 70px;">
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: 50px;">
         <!-- Pagination -->
         <div
                 class="pagination text-center d-flex align-items-center"
                 style="margin-bottom: 12px;"
         >
             <div class="inside-pagination d-flex align-items-center">
-
-
-
 
                 <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/' + (pn - 1) }}" class="{{ pn==1 ? 'isDisabled' : ""}}">
                     <div
@@ -51,10 +48,10 @@
                     </div>
                 </a>
 
-                <div style="font-size: 1.3rem;">
+                <div style="font-size: 1.3rem; font-family: 'Times New Roman', sans-serif">
                 {{ pn }}
                 </div>
-                <a href=" {{ (lastCheckRow/lastCheckTake==pn) ? '#' : 'http://localhost:7000/categories/' + (pn + 1) }}" class="{{ (lastCheckRow/lastCheckTake==pn) ? 'isDisabled' : ""}}">
+                <a href=" {{ ( lastPageCheck==pn) ? '#' : 'http://localhost:7000/categories/' + (pn + 1) }}" class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
                             style="right: -12px;"
