@@ -1,9 +1,11 @@
+import com.github.javafaker.Faker;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.Date;
+import java.util.Random;
 
 
 public class DatabaseController{
@@ -12,7 +14,8 @@ public class DatabaseController{
 
     SessionFactory sf = config.buildSessionFactory();
 
-
+    Faker faker = new Faker();
+    Random random = new Random();
     public void addData() {
 
         Session s = sf.openSession();
@@ -51,17 +54,18 @@ public class DatabaseController{
         Articles articles2 = new Articles();
         Articles articles3 = new Articles();
 
-        articles.setTitle("How Heisenberg is Scarface");
+
+        articles.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles.setDate(new Date());
-        articles.setDescription("Scarface, Tyler Durden & Crystal Meth amounts to being Heisenberg");
+        articles.setDescription(faker.lorem().sentence(250+random.nextInt(1000)));
 
-        articles2.setTitle("Game of Thrones or Shame of Thrones");
+        articles2.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles2.setDate(new Date());
-        articles2.setDescription("Shame of Thrones");
+        articles2.setDescription(faker.lorem().sentence(250+random.nextInt(1000)));
 
-        articles3.setTitle("Prison Break");
+        articles3.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles3.setDate(new Date());
-        articles3.setDescription("Michael");
+        articles3.setDescription(faker.lorem().sentence(250+random.nextInt(1000)));
 
         s.save(articles);
         s.save(articles2);

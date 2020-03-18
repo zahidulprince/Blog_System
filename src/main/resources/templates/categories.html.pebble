@@ -8,18 +8,18 @@
 <section class="container-categories" style="max-width: 90%;">
     <div>
         <div class="categories-title">
-            Categories
+        {{ pageName }}
         </div>
-
         {% for category in categories %}
             <div class="technology-class animated fadeIn">
-                <div>
-                {{ category.getName() }}
-                </div>
+                <a href="{{ 'http://localhost:7000/test/' + category.getId() + '/1' }}">
+                    <div>
+                    {{ category.getName() }}
+                    </div>
+                </a>
                 {% for article in category.getArticles() %}
                     <div class="d-flex" style="margin-top: 10px;">
                         <div class="bullet-point">
-
                             <div class="point"></div>
                         </div>
                         <div class="article-title">
@@ -29,6 +29,7 @@
                 {% endfor %}
             </div>
         {% endfor %}
+
     </div>
 
     <div class="d-flex align-items-center justify-content-center" style="margin-top: 50px;">
@@ -39,24 +40,49 @@
         >
             <div class="inside-pagination d-flex align-items-center">
 
-                <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/' + (pn - 1) }}" class="{{ pn==1 ? 'isDisabled' : ""}}">
+
+                <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/1' }}"
+                   class="{{ pn==1 ? 'isDisabled' : ""}}">
                     <div
-                            class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
-                            style="left: -12px;"
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="left: -12px; font-size: 1rem; color: #838383;"
                     >
-                        <i class="fas fa-caret-left" style="padding-right: 4px;"></i>
+                        First
+                    </div>
+                </a>
+                <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/' + (pn-1) }}"
+                   class="{{ pn==1 ? 'isDisabled' : ""}}">
+                    <div
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="left: -10px;"
+                    >
+                        <i class="fas fa-caret-left" style="font-size: 1.8rem; color: #0066FF"></i>
                     </div>
                 </a>
 
-                <div style="font-size: 1.3rem; font-family: 'Times New Roman', sans-serif">
+                <div class="pagination-circle text-center d-flex align-items-center justify-content-center"
+                     style="font-size: 1.5rem; font-family: 'Times New Roman', sans-serif">
                 {{ pn }}
                 </div>
-                <a href=" {{ ( lastPageCheck==pn) ? '#' : 'http://localhost:7000/categories/' + (pn + 1) }}" class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
+
+                <a href=" {{ (lastPageCheck==pn) ? '#' : 'http://localhost:7000/categories/' + (pn+1) }}"
+                   class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
                     <div
-                            class="pagination-circle text-center d-flex align-items-center justify-content-center position-relative"
-                            style="right: -12px;"
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="right: -8px;"
                     >
-                        <i class="fas fa-caret-right" style="padding-left: 3px;"></i>
+                        <i class="fas fa-caret-right" style="font-size: 1.8rem; color: #0066FF"></i>
+                    </div>
+                </a>
+
+                <a href=" {{ (lastPageCheck==pn) ? '#' : 'http://localhost:7000/categories/' + (goToLastPage) }}"
+                   class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
+                    <div
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="right: -12px; font-size: 1rem; color: #838383;"
+                    >
+                        Last
+
                     </div>
                 </a>
 

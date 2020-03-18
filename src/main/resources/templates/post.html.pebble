@@ -1,92 +1,75 @@
 {% extends "templates/base.html.pebble" %}
+{% block title %}{{ post.getTitle() }}{% endblock title %}
 {% block content %}
 
-    <section class="container-c mt-5">
+<section class="container-c mt-5">
 
-        <div class="row h-100 animated fadeIn">
-            <!-- Category and Title -->
-            <div class="col-md-2" style="margin-top: 10px;">
-                <a href="localhost:7000/categories" class="read-more-hover category-article">
-                {{ post.getCategory().getName() }}
-                </a>
+    <div class="row h-100 animated fadeIn">
+        <!-- Category and Title -->
+        <div class="col-md-2" style="margin-top: 10px;">
+            <a href="{{ 'http://localhost:7000/test/' + post.getCategory().getId() + '/1' }}"
+               class="read-more-hover category-article">
+            {{ post.getCategory().getName() }}
+            </a>
+        </div>
+        <!-- <span>&#124;</span> -->
+
+        <div class="col-md-10 post-title">
+            <div class="mid-bar"></div>
+            <div class="article-name">
+                {{ post.getTitle() }}
             </div>
-            <!-- <span>&#124;</span> -->
-
-            <div class="col-md-10 post-title">
-                <div class="mid-bar"></div>
-                <div class="article-name">
-
-                {{ post.getDescription() }}
-                </div>
-
-            </div>
-
         </div>
 
-        <div class="post-date mt-5  animated fadeIn">
-            <!-- Post Date -->
+    </div>
 
-            {{ post.getDate() | date("MMMM dd, yyyy", existingFormat="yyyy-MM-dd") }}
-        </div>
+    <div class="post-date mt-5  animated fadeIn">
+        <!-- Post Date -->
+        {{ post.getDate() | date("MMMM dd, yyyy", existingFormat="yyyy-MM-dd") }}
+    </div>
 
-        <div class="mt-2 animated fadeIn" style="font-size: 1.24rem; line-height: 1.7;">
-            <!-- Post Body -->
+    <div class="mt-2 animated fadeIn" style="font-size: 1.24rem; line-height: 1.7;">
+        <!-- Post Body -->
 
-            <img class="post-image" src="https://images.hdqwalls.com/download/breaking-bad-fan-art-1280x960.jpg"
-                 alt="post-background">
+        <img class="post-image" src="https://images.hdqwalls.com/download/breaking-bad-fan-art-1280x960.jpg"
+             alt="post-background">
 
-            <p class="article-body">
-                <span class="post-first-letter">R</span> exquisite set arranging sex him houshold had. Months had too
-                ham remove far spirit. She procuring the why performed continual improving. Civil songs so large shade
-                in cause. Lady an mr here must neat sold. Children greatest ye extended delicate of. No elderly passage
-                earnest as in removed winding or. Resources exquisite set arranging moonlight sex him household had.
-                Months had too ham cousin remove far spirit. She procuring the why performed continual improving. Civil
-                songs so large shade in cause. Lady an mr here must neat sold. Children greatest ye extended delicate
-                of. No elderly passage earnest as in removed winding or.<br><br>Written enquire painful ye to offices
-                forming it. Then so does over sent dull on. Likewise offended humoured mrs fat trifling answered. On ye
-                position greatest so desirous. So wound stood guest weeks no terms up ought. By so these am so rapid
-                blush songs begin. Nor but mean time one over. <br><br> Instrument cultivated alteration any favourable
-                expression law far nor. Both new like tore but year. An from mean on with when sing pain. Oh to as
-                principles devonshire companions unsatiable an delightful. The ourselves suffering the sincerity.
-                Inhabit her manners adapted age certain. Debating offended at branched striking be subjects. <br><br> In
-                by an appetite no humoured returned informed. Possession so comparison inquietude he he conviction no
-                decisively. Marianne jointure attended she hastened surprise but she. Ever lady son yet you very paid
-                form away. He advantage of exquisite resolving if on tolerably. Become sister on in garden it barton
-                waited on.<br><br>When be draw drew ye. Defective in do recommend suffering. House it seven in spoil
-                tiled court. Sister others marked fat missed did out use. Alteration possession dispatched collecting
-                instrument travelling he or on. Snug give made at spot or late that mr.<br><br>Two exquisite objection
-                delighted deficient yet its contained. Cordial because are account evident its subject but eat. Can
-                properly followed learning prepared you doubtful yet him. Over many our good lady feet ask that.
-                Expenses own moderate day fat trifling stronger sir domestic feelings. Itself at be answer always exeter
-                up do. Though or my plenty uneasy do. Friendship so considered remarkably be to sentiments. Offered
-                mention greater fifteen one promise because nor. Why denoting speaking fat indulged saw dwelling
-                raillery.<br><br>Admiration we surrounded possession frequently he. Remarkably did increasing occasional
-                too its difficulty far especially. Known tiled but sorry joy balls. Bed sudden manner indeed fat now
-                feebly. Face do with in need of wife paid that be. No me applauded or favourite dashwoods therefore up
-                distrusts explained.<br><br>She who arrival end how fertile enabled. Brother she add yet see minuter
-                natural smiling article painted. Themselves at dispatched interested insensible am be prosperous
-                reasonably it. In either so spring wished. Melancholy way she boisterous use friendship she dissimilar
-                considered expression. Sex quick arose mrs lived. Mr things do plenty others an vanity myself waited to.
-                Always parish tastes at as mr father dining at.<br><br>As collected deficient objection by it discovery
-                sincerity curiosity. Quiet decay who round three world whole has mrs man. Built the china there tried
-                jokes which gay why. Assure in adieus wicket it is. But spoke round point and one joy. Offending her
-                moonlight men sweetness see unwilling. Often of it tears whole oh balls share an.<br><br>Sportsman do
-                offending supported extremity breakfast by listening. Decisively advantages nor expression unpleasing
-                she led met. Estate was tended ten boy nearer seemed. As so seeing latter he should thirty whence.
-                Steepest speaking up attended it as. Made neat an on be gave show snug tore.
-
-            </p>
+        <p class="article-body">
+            <span class="post-first-letter">{{ post.getDescription() | slice(0,1) }}</span>{{ post.getDescription() | slice(1) }}
+        </p>
 
 
-        </div>
+    </div>
 
-        <div>
-            <div id="disqus_thread"></div>
+    <div>
+        <div id="disqus_thread"></div>
 
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
-                by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered
+            by Disqus.</a></noscript>
 
-        </div>
+    </div>
 
-    </section>
+</section>
+
 {% endblock %}
+
+{% block disqus %}
+<script>
+
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://EXAMPLE.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+{% endblock disqus %}

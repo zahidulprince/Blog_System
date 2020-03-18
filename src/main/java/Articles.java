@@ -2,6 +2,7 @@ import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.lang.String;
 
 @Entity
 public class Articles {
@@ -10,6 +11,8 @@ public class Articles {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
+
+    @Lob
     private String description;
 
     @Temporal(TemporalType.DATE)
@@ -42,6 +45,7 @@ public class Articles {
     }
 
     public String getDescription() {
+
         return description;
     }
 

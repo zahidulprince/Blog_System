@@ -24,13 +24,13 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="/css/queries.css"/>
 
-    <title>Blog of Zahid Prince</title>
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
 <div class="backdrop" id="menu" style="display: none;">
     <ul class="mb-0 hidden-list">
         <li>
-            <a class="read-more-hover" href="http://localhost:7000/blog"
+            <a class="read-more-hover" href="http://localhost:7000/blog/1"
             >HOME
 
             </a>
@@ -57,7 +57,7 @@
     <!-- Nav Bar -->
     <div>
         <!-- Nav Bar Logo -->
-        <a href="http://localhost:7000/blog">
+        <a href="http://localhost:7000/blog/1">
             <img src="/img/Logo.svg" alt="Blog Logo" class="logo"/>
         </a>
 
@@ -67,7 +67,7 @@
         <!-- Nav Bar Buttons -->
         <ul class="main-nav mb-0">
             <li>
-                <a href="http://localhost:7000/blog"
+                <a href="http://localhost:7000/blog/1"
                 >HOME
                     <div class="circle {% block homeActive %}{% endblock homeActive %}"></div>
                 </a>
@@ -97,7 +97,7 @@
             <div class="col-md-6 mt-5 order-1 order-md-0">
                 <div class="footer-section about">
                     <div>
-                        <a href="http://localhost:7000/blog">
+                        <a href="http://localhost:7000/blog/1">
                             <img
                                     src="/img/Logo-footer.svg"
                                     alt="Blog Logo"
@@ -158,7 +158,7 @@
                 <div class="footer-section links">
                     <ul class="footer-nav mb-0">
                         <li>
-                            <a href="http://localhost:7000/blog"
+                            <a href="http://localhost:7000/blog/1"
                             >HOME
                                 <div class="footer-circle {% block FhomeActive %}{% endblock FhomeActive %}"></div>
                             </a>
@@ -187,7 +187,6 @@
         </div>
     </div>
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/js/script.js"></script>
+{% block disqus %}{% endblock disqus %}
 </body>
 </html>
