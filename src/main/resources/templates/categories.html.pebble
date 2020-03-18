@@ -13,7 +13,7 @@
         {% for category in categories %}
             <div class="technology-class animated fadeIn">
                 <a href="{{ 'http://localhost:7000/test/' + category.getId() + '/1' }}">
-                    <div>
+                    <div style="font-size: 1.4rem" class="read-more-hover">
                     {{ category.getName() }}
                     </div>
                 </a>
@@ -22,9 +22,12 @@
                         <div class="bullet-point">
                             <div class="point"></div>
                         </div>
-                        <div class="article-title">
-                        {{ article.getTitle() }}
-                        </div>
+                        <a class="article-title read-more-hover" href="http://localhost:7000/article/{{ article.getID()}}">
+
+                            {{ article.getTitle() }}
+
+                        </a>
+
                     </div>
                 {% endfor %}
             </div>

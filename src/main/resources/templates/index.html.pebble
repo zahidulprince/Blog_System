@@ -58,16 +58,16 @@
                     {{ latestArticle.getDescription() | slice(0,300) }}
                     </p>
 
-                    <a href="http://localhost:7000/article/{{ latestArticle.getID()}}" class="read-more-hover">
+                    <a href="http://localhost:7000/article/{{ latestArticle.getID()}}" class="read-more-hover font-weight-medium  mt-4">
                         <!-- Read More Link -->
-                        <p class="font-weight-medium  mt-4">
+
                             Read More
                             <i
                                     class="fas fa-external-link-alt position-relative"
                                     style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
                             >
                             </i>
-                        </p>
+
                     </a>
                 </div>
             </div>
@@ -123,19 +123,19 @@
                         {{ articlePrint.getTitle() }}
                         </h3>
                     </div>
-                    <div class="description">
+                    <div class="description mb-3">
                         <!-- Article 1 Description -->
                         {{ articlePrint.getDescription() | slice(0,100) }}
                     </div>
-                    <a href="http://localhost:7000/article/{{ articlePrint.getID()}}">
+                    <a href="http://localhost:7000/article/{{ articlePrint.getID()}}"
+                       class="font-weight-medium card-read-more"
+                    >
                         <!-- Article 1 Read More -->
-                        <p class="font-weight-medium mt-3 card-read-more">
                             Read More
                             <i
                                     class="fas fa-external-link-alt position-relative"
                                     style="font-size: 0.7rem; top: -1.25px; margin-left: 2px;"
                             ></i>
-                        </p>
                     </a>
                 </div>
             </div>
