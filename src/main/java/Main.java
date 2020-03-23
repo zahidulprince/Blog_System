@@ -90,17 +90,12 @@ public class Main {
                 double lastPageCheck = Math.ceil(maxRow / maxTake);
                 int LastPage = (int) lastPageCheck;
 
-                String pageName = "Categories";
-
                 renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult(((pn - 1) * 2)).setMaxResults((int) maxTake).getResultList();
-
 
                 renderData.put("categories", renderCategory);
                 renderData.put("pn", pn);
                 renderData.put("lastPageCheck", lastPageCheck);
                 renderData.put("goToLastPage", LastPage);
-                renderData.put("pageName", pageName);
-
 
                 ctx.render("templates/categories.html.pebble", renderData);
 
