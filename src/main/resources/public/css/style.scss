@@ -166,7 +166,7 @@ h3 {
 .box {
     //-webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
     //box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255);
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -208,7 +208,9 @@ h1 {
     max-width: 90%;
     margin: 80px auto;
     -webkit-box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.09);
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.09);
+    //box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.09);
+    box-shadow: 9px 9px 16px rgba(163, 177, 196, 0.6), -9px -9px 16px rgb(255, 255, 255);
+    border-radius: 10px;
 }
 
 .background {
@@ -230,6 +232,7 @@ h1 {
     color: white;
     font-size: 0.8rem;
     font-weight: 500;
+    box-shadow: 3px 3px 16px rgba(0, 102, 255, 0.6), -3px -3px 16px rgb(255, 255, 255);
 }
 
 .font-weight-medium {
@@ -262,7 +265,7 @@ h1 {
 }
 
 .pagination {
-    background-color: #F2F2F2;
+    //background-color: #F2F2F2;
     color: #0066FF;
     height: 57px;
     width: 315px;
@@ -272,6 +275,7 @@ h1 {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    box-shadow: 9px 9px 16px rgba(163,177,198, 0.6), -9px -9px 16px rgb(255, 255, 255);
 }
 
 .inside-pagination {
@@ -319,6 +323,11 @@ input[type=email] {
     max-width: 558px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255);
+}
+
+input[type=email]:focus {
+    box-shadow: inset -9px -9px 16px rgb(255, 255, 255), inset 6px 6px 16px rgba(163,177,198,0.6) ;
 }
 
 input[type=submit] {
@@ -457,6 +466,7 @@ input[type=email]::placeholder {
     color: white;
     font-weight: 500;
     font-size: 1.1em;
+    box-shadow: 3px 3px 10px rgba(0, 102, 255, 0.6), -3px -3px 10px rgb(255, 255, 255);
 }
 
 .footer-nav {

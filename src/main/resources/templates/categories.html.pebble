@@ -11,7 +11,7 @@
         {{ pageName }}
         </div>
         {% for category in categories %}
-            <div class="technology-class animated fadeIn">
+            <div class="technology-class animated fadeIn" style="box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255); border-radius: 10px;">
                 <a href="{{ 'http://localhost:7000/test/' + category.getId() + '/1' }}">
                     <div style="font-size: 1.4rem" class="read-more-hover">
                     {{ category.getName() }}
