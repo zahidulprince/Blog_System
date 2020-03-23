@@ -95,7 +95,6 @@ public class Main {
                 renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult(((pn - 1) * 2)).setMaxResults((int) maxTake).getResultList();
 
 
-
                 renderData.put("categories", renderCategory);
                 renderData.put("pn", pn);
                 renderData.put("lastPageCheck", lastPageCheck);
@@ -205,7 +204,6 @@ public class Main {
                 double lastPageCheck = Math.ceil(listSize / maxTake);
                 int LastPage = (int) lastPageCheck;
 
-
                 String path = String.format("%s/test/%d/", domain, ctgID);
 
                 renderData.put("pn", pn);
@@ -216,8 +214,7 @@ public class Main {
                 renderData.put("listSize", listSize);
 
                 ctx.render("templates/index.html.pebble", renderData);
-                System.out.println(lastPageCheck);
-                System.out.println(listSize);
+
                 session.close();
 
             } catch (Exception e) {
