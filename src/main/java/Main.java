@@ -52,7 +52,6 @@ public class Main {
                 renderData.put("des", descriptions);
 
                 ctx.render("templates/post.html.pebble", renderData);
-                System.out.println(articles);
 
                 session.close();
 
@@ -126,11 +125,10 @@ public class Main {
 
                 articles = (Articles) session.load(Articles.class, article);
 
-
                 //Getting how many rows are in there
                 Query query = session.createQuery("select count(*) from Articles");
                 long maxRow = (long) query.uniqueResult();
-                System.out.println(maxRow);
+
 
                 double maxTake = 6;
 
@@ -143,8 +141,6 @@ public class Main {
                 //showing all the articles
                 renderArticles = (List<Articles>) session.createQuery("FROM Articles order by id desc", Articles.class).setFirstResult(((pn - 1) * 6) + 1).setMaxResults((int) maxTake).getResultList();
 
-
-
                 renderData.put("latestArticle", articles);
                 renderData.put("moreArticles", renderArticles);
                 renderData.put("pn", pn);
@@ -154,11 +150,7 @@ public class Main {
                 renderData.put("subscription", true);
                 renderData.put("path", path);
 
-
-
                 ctx.render("templates/index.html.pebble", renderData);
-                System.out.println(lastPageCheck);
-
 
                 session.close();
 
