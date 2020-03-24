@@ -2,10 +2,6 @@ import io.javalin.Javalin;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import org.hibernate.query.internal.QueryImpl;
-
-import javax.persistence.criteria.From;
-import java.sql.Connection;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -164,10 +164,11 @@ h3 {
 }
 
 .box {
-    -webkit-box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255);
-    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255);
+    -webkit-box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
+    box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
     border-radius: 10px;
     overflow: hidden;
+    //border: #c2c2c2 1px solid;
 }
 
 .contents {
@@ -274,7 +275,7 @@ h1 {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    box-shadow: 9px 9px 16px rgba(163,177,198, 0.6), -9px -9px 16px rgb(255, 255, 255);
+    box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
 }
 
 .inside-pagination {
@@ -322,11 +323,15 @@ input[type=email] {
     max-width: 558px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgb(255, 255, 255);
+    box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70),
+    inset 6px 6px 16px rgba(163, 177, 198, 0), inset -9px -9px 16px rgba(255, 255, 255, 0);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 input[type=email]:focus {
-    box-shadow: inset -9px -9px 16px rgb(255, 255, 255), inset 6px 6px 16px rgba(163,177,198,0.6) ;
+    box-shadow: 9px 9px 16px rgba(163,177,198,0), -9px -9px 16px rgba(255, 255, 255,0),
+    inset 6px 6px 16px rgba(163, 177, 198, 0.6), inset -9px -9px 16px rgb(255, 255, 255);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 input[type=submit] {
