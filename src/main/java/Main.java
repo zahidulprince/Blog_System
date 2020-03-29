@@ -65,7 +65,6 @@ public class Main {
         app.get("/categories/:pn", ctx -> {
 
             List<Category> renderCategory = new ArrayList<>();
-
             HashMap<String, Object> renderData = new HashMap<>();
 
             Category category = null;
@@ -78,7 +77,8 @@ public class Main {
 
                 Query query = session.createQuery("select count(*) from Category");
                 long maxRow = (long) query.uniqueResult();
-                System.out.println(maxRow);
+
+                String originalDomain = domain;
 
                 double maxTake = 2;
 
@@ -91,6 +91,7 @@ public class Main {
                 renderData.put("pn", pn);
                 renderData.put("lastPageCheck", lastPageCheck);
                 renderData.put("goToLastPage", LastPage);
+                renderData.put("originalDomain", originalDomain);
 
                 ctx.render("templates/categories.html.pebble", renderData);
 
@@ -137,6 +138,7 @@ public class Main {
                 int LastPage = (int) lastPageCheck;
 
                 String originalDomain = domain;
+
 
                 String path = String.format("%s/blog/", domain);
 

@@ -12,7 +12,7 @@
         </div>
         {% for category in categories %}
             <div class="technology-class animated fadeIn" style=" box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70); border-radius: 10px;">
-                <a href="{{ 'http://localhost:7000/category/' + category.getId() + '/1' }}">
+                <a href="{{ originalDomain + '/category/' + category.getId() + '/1' }}">
                     <div style="font-size: 1.4rem" class="read-more-hover">
                     {{ category.getName() }}
                     </div>
@@ -22,7 +22,7 @@
                         <div class="bullet-point">
                             <div class="point"></div>
                         </div>
-                        <a class="article-title read-more-hover" href="http://localhost:7000/article/{{ article.getID()}}">
+                        <a class="article-title read-more-hover" href="{{ originalDomain + '/article/' + article.getID()}}">
 
                             {{ article.getTitle() }}
 
@@ -44,7 +44,7 @@
             <div class="inside-pagination d-flex align-items-center">
 
 
-                <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/1' }}"
+                <a href="{{ pn==1 ? '#' : originalDomain + '/categories/1' }}"
                    class="{{ pn==1 ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
@@ -53,7 +53,7 @@
                         First
                     </div>
                 </a>
-                <a href="{{ pn==1 ? '#' : 'http://localhost:7000/categories/' + (pn-1) }}"
+                <a href="{{ pn==1 ? '#' : originalDomain + '/categories/' + (pn-1) }}"
                    class="{{ pn==1 ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
@@ -68,7 +68,7 @@
                 {{ pn }}
                 </div>
 
-                <a href=" {{ (lastPageCheck==pn) ? '#' : 'http://localhost:7000/categories/' + (pn+1) }}"
+                <a href=" {{ (lastPageCheck==pn) ? '#' : originalDomain + '/categories/' + (pn+1) }}"
                    class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
@@ -78,7 +78,7 @@
                     </div>
                 </a>
 
-                <a href=" {{ (lastPageCheck==pn) ? '#' : 'http://localhost:7000/categories/' + (goToLastPage) }}"
+                <a href=" {{ (lastPageCheck==pn) ? '#' : originalDomain + '/categories/' + (goToLastPage) }}"
                    class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
