@@ -33,7 +33,7 @@
                     <div class="d-flex mb-2">
                         <!-- Category and Date -->
 
-                        <a href="{{ 'http://localhost:7000/test/' + latestArticle.getCategory().getId() + '/1' }}"
+                        <a href="{{ originalDomain + '/category/' + latestArticle.getCategory().getId() + '/1' }}"
                            class="noHoverColorChange">
                             <div>
                                 <i
@@ -52,7 +52,7 @@
                         </div>
                     </div>
 
-                    <a href="http://localhost:7000/article/{{ latestArticle.getID()}}" class="read-more-hover">
+                    <a href="{{ originalDomain + '/article/' + latestArticle.getID() }}" class="read-more-hover">
                         <h1 class="mb-2 mt-0">
                             <!-- Heading of the Articlle -->
                             {{ latestArticle.getTitle() }}
@@ -62,7 +62,7 @@
                     {{ latestArticle.getDescription() | slice(0,300) }}
                     </p>
 
-                    <a href="http://localhost:7000/article/{{ latestArticle.getID()}}"
+                    <a href=" {{ originalDomain + '/article/' + latestArticle.getID() }}"
                        class="read-more-hover font-weight-medium  mt-4">
                         <!-- Read More Link -->
 
@@ -106,7 +106,7 @@
                 <div class="contents mt-4">
                     <div>
                         <div class="card-cat-date-size">
-                            <a href="{{ 'http://localhost:7000/test/' + articlePrint.getCategory().getId() + '/1' }}"
+                            <a href="{{ originalDomain + '/category/' + articlePrint.getCategory().getId() + '/1' }}"
                                class="noHoverColorChange">
                                 <div>
                                     <!-- Article 1 Category -->
@@ -137,7 +137,7 @@
                         <!-- Article 1 Description -->
                         {{ articlePrint.getDescription() | slice(0,100) }}
                     </div>
-                    <a href="http://localhost:7000/article/{{ articlePrint.getID()}}"
+                    <a href=" {{ originalDomain + '/article/' +  articlePrint.getID() }}"
                        class="font-weight-medium card-read-more"
                     >
                         <!-- Article 1 Read More -->

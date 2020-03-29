@@ -136,6 +136,8 @@ public class Main {
 
                 int LastPage = (int) lastPageCheck;
 
+                String originalDomain = domain;
+
                 String path = String.format("%s/blog/", domain);
 
                 //showing all the articles
@@ -149,6 +151,7 @@ public class Main {
                 renderData.put("index", true);
                 renderData.put("subscription", true);
                 renderData.put("path", path);
+                renderData.put("originalDomain", originalDomain);
 
                 ctx.render("templates/index.html.pebble", renderData);
 
@@ -161,7 +164,7 @@ public class Main {
 
         });
 
-        app.get("/test/:ctgn/:pn", ctx -> {
+        app.get("/category/:ctgn/:pn", ctx -> {
 
             List<Articles> renderArticles = new ArrayList<>();
             List<Articles> numOfArticles = new ArrayList<>();
@@ -187,7 +190,7 @@ public class Main {
                 double lastPageCheck = Math.ceil(listSize / maxTake);
                 int LastPage = (int) lastPageCheck;
 
-                String path = String.format("%s/test/%d/", domain, ctgID);
+                String path = String.format("%s/category/%d/", domain, ctgID);
 
                 renderData.put("pn", pn);
                 renderData.put("moreArticles", renderArticles);
