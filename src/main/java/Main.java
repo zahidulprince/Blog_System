@@ -42,6 +42,8 @@ public class Main {
                 String str = ctx.pathParam("pn");
                 int pn = Integer.parseInt(str);
 
+                String originalDomain = domain;
+
                 String descriptions = "check";
 
                 Session session = dbController.sf.openSession();
@@ -50,6 +52,7 @@ public class Main {
 
                 renderData.put("post", articles);
                 renderData.put("des", descriptions);
+                renderData.put("originalDomain", originalDomain);
 
                 ctx.render("templates/post.html.pebble", renderData);
 
