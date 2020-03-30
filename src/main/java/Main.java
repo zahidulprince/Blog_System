@@ -3,7 +3,6 @@ import io.javalin.Javalin;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,14 +13,14 @@ public class Main {
 
     static DatabaseController dbController;
 
-    public static <renderArticles> void main(String[] args) {
+    public static void main(String[] args) {
 
 
 
         Javalin app = Javalin.create(javalinConfig -> {
             javalinConfig.addStaticFiles("/public");
         });
-//
+
         dbController = new DatabaseController();
 
         app.start(7000);
@@ -36,7 +35,7 @@ public class Main {
 
             HashMap<String, Object> renderData = new HashMap<>();
 
-            Articles articles = null;
+            Articles articles;
 
             try {
                 String str = ctx.pathParam("pn");
@@ -48,7 +47,7 @@ public class Main {
 
                 Session session = dbController.sf.openSession();
 
-                articles = (Articles) session.load(Articles.class, pn);
+                articles = session.load(Articles.class, pn);
 
                 renderData.put("post", articles);
                 renderData.put("des", descriptions);
@@ -67,10 +66,8 @@ public class Main {
 
         app.get("/categories/:pn", ctx -> {
 
-            List<Category> renderCategory = new ArrayList<>();
+            List<Category> renderCategory;
             HashMap<String, Object> renderData = new HashMap<>();
-
-            Category category = null;
 
             try {
                 String str = ctx.pathParam("pn");
@@ -88,7 +85,7 @@ public class Main {
                 double lastPageCheck = Math.ceil(maxRow / maxTake);
                 int LastPage = (int) lastPageCheck;
 
-                renderCategory = (List<Category>) session.createQuery("FROM Category order by id desc", Category.class).setFirstResult(((pn - 1) * 2)).setMaxResults((int) maxTake).getResultList();
+                renderCategory = session.createQuery("FROM Category order by id desc", Category.class).setFirstResult(((pn - 1) * 2)).setMaxResults((int) maxTake).getResultList();
 
                 renderData.put("categories", renderCategory);
                 renderData.put("pn", pn);
@@ -108,13 +105,11 @@ public class Main {
         });
 
         app.get("/blog/:pn", ctx -> {
-
-            List<Articles> renderDescription = new ArrayList<>();
-            List<Articles> renderArticles = new ArrayList<>();
+            List<Articles> renderArticles;
 
             HashMap<String, Object> renderData = new HashMap<>();
 
-            Articles articles = null;
+            Articles articles;
 
             try {
                 String str = ctx.pathParam("pn");
@@ -127,11 +122,12 @@ public class Main {
                 int article = (int) query1.uniqueResult();
                 System.out.println(article);
 
-                articles = (Articles) session.load(Articles.class, article);
+                articles = session.load(Articles.class, article);
 
                 //Getting how many rows are in there
                 Query query = session.createQuery("select count(*) from Articles");
-                long maxRow = (long) query.uniqueResult();
+                long maxRowNT = (long) query.uniqueResult();
+                long maxRow = maxRowNT - 1;
 
 
                 double maxTake = 6;
@@ -158,6 +154,7 @@ public class Main {
                 renderData.put("path", path);
                 renderData.put("originalDomain", originalDomain);
 
+
                 ctx.render("templates/index.html.pebble", renderData);
 
                 session.close();
@@ -170,9 +167,8 @@ public class Main {
         });
 
         app.get("/category/:ctgn/:pn", ctx -> {
-
-            List<Articles> renderArticles = new ArrayList<>();
-            List<Articles> numOfArticles = new ArrayList<>();
+            List<Articles> renderArticles;
+            List<Articles> numOfArticles;
 
             HashMap<String, Object> renderData = new HashMap<>();
 
@@ -187,8 +183,8 @@ public class Main {
 
                 String query = "FROM Articles E where E.category=" + ctgID;
 
-                renderArticles = (List<Articles>) session.createQuery(query, Articles.class).setFirstResult((pn-1)*6).setMaxResults(6).getResultList();
-                numOfArticles = (List<Articles>) session.createQuery(query, Articles.class).getResultList();
+                renderArticles = session.createQuery(query, Articles.class).setFirstResult((pn-1)*6).setMaxResults(6).getResultList();
+                numOfArticles = session.createQuery(query, Articles.class).getResultList();
 
                 double listSize = numOfArticles.size();
                 double maxTake = 6;
@@ -196,6 +192,7 @@ public class Main {
                 int LastPage = (int) lastPageCheck;
 
                 String path = String.format("%s/category/%d/", domain, ctgID);
+                String originalDomain = domain;
 
                 renderData.put("pn", pn);
                 renderData.put("moreArticles", renderArticles);
@@ -203,6 +200,7 @@ public class Main {
                 renderData.put("goToLastPage", LastPage);
                 renderData.put("lastPageCheck", lastPageCheck);
                 renderData.put("listSize", listSize);
+                renderData.put("originalDomain", originalDomain);
 
                 ctx.render("templates/index.html.pebble", renderData);
 

@@ -34,8 +34,6 @@ public class DatabaseController{
         s.save(category2);
         s.save(category3);
 
-
-
         User user = new User();
         UserName username = new UserName();
 

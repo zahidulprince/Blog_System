@@ -106,7 +106,7 @@
                 <div class="contents mt-4">
                     <div>
                         <div class="card-cat-date-size">
-                            <a href="{{ originalDomain + '/category/' + articlePrint.getCategory().getId() + '/1' }}"
+                            <a href="{{  originalDomain + '/category/' + articlePrint.getCategory().getId() + '/1' }}"
                                class="noHoverColorChange">
                                 <div>
                                     <!-- Article 1 Category -->

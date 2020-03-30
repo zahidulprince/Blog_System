@@ -1,4 +1,5 @@
 {% extends "templates/base.html.pebble" %}
+{% block title %}Categories{% endblock title %}
 {% block categoriesActive %}circle-active{% endblock categoriesActive %}
 {% block FcategoriesActive %}footer-circle-active{% endblock FcategoriesActive %}
 {% block content %}
