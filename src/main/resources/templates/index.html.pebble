@@ -225,7 +225,7 @@
             <!-- Subscription Box -->
             <div class="d-flex justify-content-center mb-5 subscription-box-before-margin">
                 <div class="subscriber-container">
-                    <form method="POST" action="#" class="subscription-form">
+                    <form method="post" action="http://localhost:7000/subscribed" class="subscription-form">
                         <div class="row">
                             <div class="col-md-9">
                                 <div
@@ -236,7 +236,7 @@
                                       justify-content-start align-items-center">
                                         <div class="d-flex justify-content-start align-items-center text-center"
                                              style="width: 558px;">
-                                            <input class="pl-5" type="email" name="name" id="email"
+                                            <input class="pl-5" type="email" name="email" id="email"
                                                    placeholder="Please, enter your email . . ." required>
                                         </div>
                                     </div>

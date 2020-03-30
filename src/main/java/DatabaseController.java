@@ -10,12 +10,25 @@ import java.util.Random;
 
 public class DatabaseController{
 
-    Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(UserName.class);
+    Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(UserName.class).addAnnotatedClass(Email.class);
 
     SessionFactory sf = config.buildSessionFactory();
 
     Faker faker = new Faker();
     Random random = new Random();
+
+    public void addEmail (String givenEmail) {
+        Session s = sf.openSession();
+        Transaction tx = s.beginTransaction();
+
+        Email email = new Email();
+        email.setEmailID(givenEmail);
+        s.save(email);
+
+        tx.commit();
+        s.close();
+    }
+
     public void addData() {
 
         Session s = sf.openSession();

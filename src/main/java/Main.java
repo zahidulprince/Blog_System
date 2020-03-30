@@ -38,6 +38,7 @@ public class Main {
             Articles articles;
 
             try {
+
                 String str = ctx.pathParam("pn");
                 int pn = Integer.parseInt(str);
 
@@ -163,6 +164,12 @@ public class Main {
                 System.out.println("check again");
                 e.printStackTrace();
             }
+        });
+
+        app.post("/subscribed", ctx -> {
+            String emailID = ctx.formParam("email");
+            dbController.addEmail(emailID);
+            ctx.result("Congratulations! You'll the first to know when there's a new article. Thank you!");
 
         });
 
