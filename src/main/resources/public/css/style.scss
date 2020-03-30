@@ -118,15 +118,6 @@ li:hover, a:hover {
     font-size: 1.8rem;
 }
 
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 500;
-    background-color: white;
-}
 
 .article-background-1 {
     height: 265px;
@@ -187,8 +178,8 @@ h3 {
     font-size: 15px;
 }
 
-.more-articles-sec-2 {
-    margin-top: 100px;
+.more-articles-sec-1 {
+    min-height: 15.3vh;
 }
 
 .card-read-more:hover {
@@ -218,10 +209,6 @@ h1 {
     background-image: url("https://images.hdqwalls.com/download/breaking-bad-fan-art-1280x960.jpg");
     background-size: cover;
     background-position: center;
-}
-
-.primaryColor {
-    color: #191919;
 }
 
 .latest-article {
@@ -410,58 +397,6 @@ input[type=email]::placeholder {
     transition: color 0.3s;
 }
 
-.circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border-color: #191919;
-    border: 1px solid #191919;
-    position: absolute;
-    top: 5px;
-    right: -5px;
-    opacity: 0;
-    -webkit-transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s, -webkit-transform 0.4s;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-}
-
-.circle-active {
-    opacity: 1;
-    top: -5px;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    right: -13px;
-}
-
-.footer-circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border-color: #F2F2F2;
-    border: 1px solid #F2F2F2;
-    position: absolute;
-    top: 5px;
-    right: -5px;
-    opacity: 0;
-    -webkit-transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s, -webkit-transform 0.4s;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-}
-
-.footer-circle-active {
-    opacity: 1;
-    top: -5px;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    right: -13px;
-}
-
 .pagination-circle {
     width: 43px;
     height: 43px;
@@ -471,6 +406,19 @@ input[type=email]::placeholder {
     font-weight: 500;
     font-size: 1.1em;
     box-shadow: 3px 3px 6px rgba(0, 102, 255, 0.4), -9px -7px 7px rgba(255, 255, 255, 1);
+}
+
+.backdrop {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    background-color: white;
 }
 
 .footer-nav {
@@ -568,21 +516,7 @@ input[type=email]::placeholder {
     font-size: 1.8rem;
 }
 
-.backdrop {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    z-index: 500;
-    background-color: white;
-}
+
 
 #menuClose {
     position: absolute;
@@ -777,57 +711,8 @@ input[type=email]::placeholder {
     }
 }
 
-.circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border-color: #191919;
-    border: 1px solid #191919;
-    position: absolute;
-    top: 5px;
-    right: -5px;
-    opacity: 0;
-    -webkit-transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s, -webkit-transform 0.4s;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-}
 
-.circle-active {
-    opacity: 1;
-    top: -5px;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    right: -13px;
-}
 
-.footer-circle {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border-color: #F2F2F2;
-    border: 1px solid #F2F2F2;
-    position: absolute;
-    top: 5px;
-    right: -5px;
-    opacity: 0;
-    -webkit-transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s;
-    transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s, -webkit-transform 0.4s;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-}
-
-.footer-circle-active {
-    opacity: 1;
-    top: -5px;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    right: -13px;
-}
 
 .pagination-circle {
     width: 40px;
@@ -895,19 +780,10 @@ li:hover, a:hover {
     font-size: 1.8rem;
 }
 
-.backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 500;
-    background-color: white;
-}
-
 .container-categories {
     width: 800px;
     margin: auto;
+    min-height: 46.4vh;
 }
 
 .point {
@@ -965,21 +841,7 @@ li:hover, a:hover {
     font-size: 1.8rem;
 }
 
-.backdrop {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    z-index: 500;
-    background-color: white;
-}
+
 
 #menuClose {
     position: absolute;
@@ -1112,8 +974,8 @@ header {
 
 #menuClose {
     position: absolute;
-    right: 25px;
-    top: 7px;
+    right: 20px;
+    top: 5px;
 }
 
 .hidden-list {
