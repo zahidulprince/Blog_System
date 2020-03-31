@@ -237,7 +237,9 @@
                                         <div class="d-flex justify-content-start align-items-center text-center"
                                              style="width: 558px;">
                                             <input class="pl-5" type="email" name="email" id="email"
-                                                   placeholder="Please, enter your email . . ." pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?" required>
+                                                   placeholder="Please, enter your email . . ."
+                                                   pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?"
+                                                   required>
                                         </div>
                                     </div>
                                 </div>

@@ -640,9 +640,7 @@ input[type=email]::placeholder {
     margin-top: 10px;
 }
 
-.technology-class,
-.tv-class,
-.human-class {
+.technology-class {
     -webkit-box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.09);
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.09);
     padding: 40px 30px;
@@ -696,9 +694,7 @@ input[type=email]::placeholder {
 
     .article-title { font-size: 1rem; }
 
-    .technology-class,
-    .tv-class,
-    .human-class {
+    .technology-class{
         font-size: 1.2rem;
         margin-top: 2.5rem;
     }
