@@ -169,8 +169,7 @@ public class Main {
         app.post("/subscribed", ctx -> {
             String emailID = ctx.formParam("email");
             dbController.addEmail(emailID);
-            ctx.result("Congratulations! You'll the first to know when there's a new article. Thank you!");
-
+            ctx.render("templates/subscribed.html.pebble");
         });
 
         app.get("/category/:ctgn/:pn", ctx -> {

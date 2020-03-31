@@ -1,3 +1,16 @@
 {% extends "templates/base.html.pebble" %}
 {% block content %}
+<div class="col-md-12 animated fadeIn d-flex align-items-center justify-content-center" style="min-height: 41.2vh;">
+    <!-- More Article Heading -->
+    <h2 class="congrats-message">
+        <span style="font-size: larger; display: inline-block; margin-bottom: 20px;">Congratulations!</span><br><span style="font-size: smaller">You'll the first to know when there's a new article. Thank you!</span></br>
+    </h2>
+</div>
+<a href="http://localhost:7000/blog/1" style="color: #F2F2F2" class="noHoverColorChangeWhite">
+    <div class="d-flex align-items-center justify-content-center animated fadeInUp" style="margin: 60px;">
+        <div class="btn-custom d-flex align-items-center justify-content-center" >
+            Home
+        </div>
+    </div>
+</a>
 {% endblock %}

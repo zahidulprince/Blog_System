@@ -275,6 +275,16 @@ input[type=email]:focus {
     transition: box-shadow 0.2s ease-in-out;
 }
 
+.btn-custom {
+    background-color: #0066FF;
+    border: none;
+    border-radius: 33px;
+    color: white;
+    height: 57px;
+    width: 149px;
+    box-shadow: 5px 5px 10px rgba(0, 102, 255, 0.6), -5px -5px 10px rgb(255, 255, 255);
+}
+
 input[type=submit] {
     background-color: #0066FF;
     border: none;
@@ -750,4 +760,22 @@ header {
         text-decoration: none !important;
         color: #191919 !important;
     }
+}
+.noHoverColorChangeWhite {
+    &:hover {
+        text-decoration: none !important;
+        color: #ffffff !important;
+    }
+}
+
+.congrats-message {
+    padding: 40px 30px;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    margin-top: 60px;
+    height: fit-content;
+    box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
+    width: 800px;
+
 }
