@@ -265,24 +265,14 @@ input[type=email] {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.7),
-    inset 6px 6px 16px rgba(163, 177, 198, 0), inset -9px -9px 16px rgba(255, 255, 255, 0);
+    inset 9px 9px 10px rgba(163, 177, 198, 0), inset -9px -7px 7px rgba(255, 255, 255, 0);
     transition: box-shadow 0.2s ease-in-out;
 }
 
 input[type=email]:focus {
-    box-shadow: 9px 9px 16px rgba(163,177,198,0), -9px -9px 16px rgba(255, 255, 255,0),
-    inset 9px 9px 10px rgba(163, 177, 198, 0.3), inset -9px -7px 7px rgb(255, 255, 255);
+    box-shadow: 9px 9px 10px rgba(163,177,198,0), -9px -7px 7px rgba(255, 255, 255,0),
+    inset 9px 9px 10px rgba(163, 177, 198, 0.3), inset -9px -7px 7px rgba(255, 255, 255, 0.7);
     transition: box-shadow 0.2s ease-in-out;
-}
-
-.btn-custom {
-    background-color: #0066FF;
-    border: none;
-    border-radius: 33px;
-    color: white;
-    height: 57px;
-    width: 149px;
-    box-shadow: 5px 5px 10px rgba(0, 102, 255, 0.6), -5px -5px 10px rgb(255, 255, 255);
 }
 
 input[type=submit] {
@@ -292,6 +282,19 @@ input[type=submit] {
     color: white;
     height: 57px;
     width: 100%;
+    box-shadow: 5px 5px 10px rgba(0, 102, 255, 0.6), -5px -5px 10px rgb(255, 255, 255),
+    inset 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255, 255, 255, 0);
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s ease-in-out;
+}
+
+input[type=submit] {
+    &:hover{
+        background-color: #ebecf0;
+        color: #0066FF;
+        box-shadow: 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255, 255, 255, 0),
+        inset 5px 5px 10px rgba(163, 177, 198, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+        transition: background-color 0.2s , box-shadow 0.2s, color 0.2s ease-in-out;
+    }
 }
 
 input[type=email]::-webkit-input-placeholder {
@@ -777,5 +780,26 @@ header {
     height: fit-content;
     box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
     width: 800px;
+    border-radius: 10px;
+}
 
+
+.btn-custom {
+    background-color: #0066FF;
+    border: none;
+    border-radius: 33px;
+    color: white;
+    height: 57px;
+    width: 149px;
+    box-shadow: 5px 5px 10px rgba(0, 102, 255, 0.6), -5px -5px 10px rgb(255, 255, 255);
+}
+
+.btn-custom {
+    &:hover{
+        background-color: #ebecf0;
+        color: #0066FF;
+        box-shadow: 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255, 255, 255, 0),
+        inset 5px 5px 10px rgba(163, 177, 198, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+        transition: background-color 0.2s , box-shadow 0.2s, color 0.2s ease-in-out;
+    }
 }
