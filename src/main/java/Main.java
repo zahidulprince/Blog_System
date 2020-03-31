@@ -155,7 +155,6 @@ public class Main {
                 renderData.put("path", path);
                 renderData.put("originalDomain", originalDomain);
 
-
                 ctx.render("templates/index.html.pebble", renderData);
 
                 session.close();
