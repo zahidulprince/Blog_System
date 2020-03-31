@@ -350,63 +350,6 @@ input[type=email]::placeholder {@include email-placeholder;}
 
 .hidden-list li { padding: 5px;}
 
-@media only screen and (max-width: 576px) {
-
-    .container-c { width: 90%; margin: auto; }
-
-    .post-image {
-        max-width: 100%;
-        height: auto;
-        margin-right: 25px;
-        padding-top: 13px;
-        margin-bottom: 10px;    }
-
-    .post-first-letter {
-        display: inline-block;
-        width: 1rem;
-        font-size: 280%;
-        line-height: 80%;
-        margin-left: -4px;
-        margin-top: 7px;
-        margin-right: 1.5rem;    }
-
-    .post-date { font-size: 18px; font-weight: 500;    }
-
-    .mid-bar {
-        border-left: none;
-        border-top: 1px solid black;
-        margin-top: 15px;
-        margin-left: 16px;    }
-
-    .category-article { font-size: 18px; }
-
-    .post-title {
-        font-size: 1.7rem;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;    }
-
-    .article-name { margin-left: 16px; margin-top: 10px;    }
-
-    .article-body {
-        font-size: 1rem;
-        margin-right: 10px;
-        margin-left: 10px;
-        padding-top: -20px;
-        text-align: justify;
-    }
-
-    .discuss { min-width: 100%; height: auto; margin: 20px auto;    }
-
-    .main-nav { display: none; }
-
-    .check-nav { display: inline-block; }
-}
-
 @media (min-width: 576px) and (max-width: 768px) {
 
     .container-c { width: 70%; margin: auto;    }
@@ -505,26 +448,6 @@ input[type=email]::placeholder {@include email-placeholder;}
     cursor: pointer;
     display: none;}
 
-@media only screen and (max-width: 576px) {
-    footer { padding-bottom: 60px; }
-
-    .links { text-align: left; }
-
-    .categories-title {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 300;
-        margin-top: 3rem;    }
-
-    .bullet-point { margin-left: 0; }
-
-    .article-title { font-size: 1rem; }
-
-    .technology-class{ font-size: 1.2rem; margin-top: 2.5rem;    }
-
-    .check-nav { display: inline-block; }
-}
-
 @media (min-width: 576px) and (max-width: 768px) {
     footer {  padding-bottom: 60px; }
 
@@ -555,10 +478,6 @@ body {
 header {
     width: 76%;
     margin: auto;}
-
-@media only screen and (max-width: 576px) {
-    header { width: 90%; }
-}
 
 .isDisabled {
     color: currentColor;
@@ -604,3 +523,160 @@ header {
         box-shadow: $btn-boxshadow-hover;
         transition: box-shadow 0.2s ease-in-out;
     }}
+
+@media only screen and (max-width: 576px) {
+    .content-box { margin: 10px 30px 50px 25px; }
+
+    .input-div { width: 200px; margin: 30px auto; }
+
+    .latest { max-width: 90%; margin: 40px auto; }
+
+    .articles { -ms-grid-columns: 1fr; grid-template-columns: 1fr; grid-row-gap: 4em;  }
+
+    .subscribe { font-weight: 300; font-size: 1.7rem; margin-top: 80px;  }
+
+    .footer { padding-bottom: 60px; }
+
+    .links { text-align: left; }
+
+    .h2-margin { margin-top: 70px; }
+
+    .pagination-subscribe { margin-top: 40px; }
+
+    .subscription-before-margin { margin-top: 15px; }
+
+    h1 { font-size: 1.7rem; }
+
+    h2 { font-size: 1.7rem; }
+
+    .main-nav { display: none; }
+
+    .mobile-nav { display: inline-block; }
+    .container-c { width: 90%; margin: auto; }
+
+    .post-image {
+        max-width: 100%;
+        height: auto;
+        margin-right: 25px;
+        padding-top: 13px;
+        margin-bottom: 10px;    }
+
+    .post-first-letter {
+        display: inline-block;
+        width: 1rem;
+        font-size: 280%;
+        line-height: 80%;
+        margin-left: -4px;
+        margin-top: 7px;
+        margin-right: 1.5rem;    }
+
+    .post-date { font-size: 18px; font-weight: 500;    }
+
+    .mid-bar {
+        border-left: none;
+        border-top: 1px solid black;
+        margin-top: 15px;
+        margin-left: 16px;    }
+
+    .category-article { font-size: 18px; }
+
+    .post-title {
+        font-size: 1.7rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;    }
+
+    .article-name { margin-left: 16px; margin-top: 10px;    }
+
+    .article-body {
+        font-size: 1rem;
+        margin-right: 10px;
+        margin-left: 10px;
+        padding-top: -20px;
+        text-align: justify;    }
+
+    .discuss { min-width: 100%; height: auto; margin: 20px auto;    }
+
+    .main-nav { display: none; }
+
+    .check-nav { display: inline-block; }
+
+    footer { padding-bottom: 60px; }
+
+    header { width: 90%; }
+
+    .links { text-align: left; }
+
+    .categories-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-top: 3rem;    }
+
+    .bullet-point { margin-left: 0; }
+
+    .article-title { font-size: 1rem; }
+
+    .technology-class{ font-size: 1.2rem; margin-top: 2.5rem;    }
+
+    .check-nav { display: inline-block; } }
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .latest { margin-top: 60px; }
+
+    .content-box { margin-left: 25px; margin-bottom: 30px; }
+
+    .articles { -ms-grid-columns: 1fr 1fr; grid-template-columns: 1fr 1fr; grid-row-gap: 4em;  }
+
+    input[type=submit] { width: 30%; }
+
+    .subscriber-container { margin-top: 30px; }
+
+    .enter-email { width: 70%; margin: auto; }
+
+    .links { text-align: left; }
+
+    .footer { padding-bottom: 60px; }
+
+    header { width: 90%; }
+
+    .main-nav li { list-style-type: disc; display: block; text-align: right;}
+
+    .main-nav li:not(:last-child) { padding-bottom: 10px; padding-right: 0;  } }
+
+@media only screen and (width: 768px) {
+    .subscriber-container { margin-top: 0; }
+
+    input[type=submit] { width: 100%; }
+
+    .enter-email { width: 100%; margin: auto; }
+
+    .content-box { margin-left: 25px; margin-right: 5px; }
+
+    .links { text-align: right; } }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .background { height: 555px; width: 90%; margin-top: 30px; margin-left: 30px; }
+
+    .content-box { margin-left: 0; margin-right: 20px;  }
+
+    .latest { height: 600px; }
+
+    .articles { -ms-grid-columns: 1fr 1fr; grid-template-columns: 1fr 1fr; grid-row-gap: 4em;  }
+
+    header { width: 90%; } }
+
+@media only screen and (width: 992px) {
+    .latest { height: 100%; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .background { height: 481px; }
+
+    header { width: 90%; } }
+
+@media only screen and (min-width: 1200px) {
+    .background { height: 453px; } }
