@@ -18,10 +18,10 @@
 $boxshadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
 
 $btn-boxshadow: 5px 5px 10px rgba(0, 102, 255, 0.6), -9px -7px 7px rgba(255, 255, 255, 0.7),
-                inset 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255, 255, 255, 0);
+                inset 5px 5px 10px rgba(0, 102, 255, 0), inset -5px -5px 10px rgba(255, 255, 255, 0);
 
 $btn-boxshadow-hover: 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255, 255, 255, 0),
-                      inset 5px 5px 10px rgba(163, 177, 198, 0.3), inset -9px -7px 7px rgba(255, 255, 255, 0.7);
+                      inset 5px 5px 10px rgba(25, 25, 25, 0.3), inset -5px -7px 11px rgba(255, 255, 255, 0.31);
 
 @mixin footer-circle-active{
     opacity: 1;
@@ -257,7 +257,8 @@ input[type=email] {
 }
 
 input[type=email]:focus {
-    box-shadow: $btn-boxshadow-hover;
+    box-shadow: 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255, 255, 255, 0),
+    inset 9px 7px 10px rgba(163, 177, 198, 0.29), inset -9px -7px 7px rgba(255, 255, 255, 0.71);
     transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -269,15 +270,13 @@ input[type=submit] {
     height: 57px;
     width: 100%;
     box-shadow: $btn-boxshadow;
-    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 input[type=submit] {
     &:hover{
-        background-color: #ebecf0;
-        color: #0066FF;
         box-shadow: $btn-boxshadow-hover;
-        transition: background-color 0.2s , box-shadow 0.2s, color 0.2s ease-in-out;
+        transition: box-shadow 0.2s ease-in-out;
     }
 }
 
@@ -767,9 +766,7 @@ header {
 
 .btn-custom {
     &:hover{
-        background-color: #ebecf0;
-        color: #0066FF;
         box-shadow: $btn-boxshadow-hover;
-        transition: background-color 0.2s , box-shadow 0.2s, color 0.2s ease-in-out;
+        transition: box-shadow 0.2s ease-in-out;
     }
 }
