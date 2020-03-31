@@ -350,60 +350,6 @@ input[type=email]::placeholder {@include email-placeholder;}
 
 .hidden-list li { padding: 5px;}
 
-@media (min-width: 576px) and (max-width: 768px) {
-
-    .container-c { width: 70%; margin: auto;    }
-
-    .post-image { max-width: 100%; height: auto;  margin-bottom: 10px; }
-
-    .article-name { font-size: 1.5rem; padding-left: 15px; }
-
-    .article-body { font-size: 1.1rem; }
-
-    .mid-bar {
-        border-top: 1px solid #191919;
-        border-left: none;
-        width: 100%;
-        height: 15px;    }
-}
-
-@media (width: 768px) {
-    .links { text-align: right;}
-
-    .mid-bar {
-        border-top: 0;
-        border-left: 1px solid #191919;
-        height: 74%;
-        float: left;
-        width: -webkit-fit-content;
-        width: -moz-fit-content;
-        width: fit-content;
-        margin-top: 12px;
-        padding-right: 15px;    }
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-    .container-c {width: 70%; }
-
-    .article-name { padding-left: 30px; }
-
-    .post-date { padding-top: 20px;  }
-
-    .post-image { max-width: 50%; height: auto;    }
-
-    .mid-bar { height: 82%; }
-
-    header { width: 90%; }
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-    .container-c { width: 70%; }
-}
-
-@media (min-width: 1200px) and (max-width: 1499px) {
-    .container-c { width: 60%; }
-}
-
 .container-categories { width: 800px; margin: auto; min-height: 46.4vh;}
 
 .point {
@@ -447,20 +393,6 @@ input[type=email]::placeholder {@include email-placeholder;}
     float: right;
     cursor: pointer;
     display: none;}
-
-@media (min-width: 576px) and (max-width: 768px) {
-    footer {  padding-bottom: 60px; }
-
-    .links { text-align: left; }
-
-    .main-nav li { list-style-type: disc; display: block; text-align: right;    }
-
-    .main-nav li:not(:last-child) { padding-bottom: 10px; padding-right: 0;    }
-}
-
-@media (width: 768px) {
-    .links { text-align: right; }
-}
 
 * {
     margin: 0;
@@ -644,6 +576,22 @@ header {
 
     header { width: 90%; }
 
+    footer {  padding-bottom: 60px; }
+
+    .container-c { width: 70%; margin: auto;    }
+
+    .post-image { max-width: 100%; height: auto;  margin-bottom: 10px; }
+
+    .article-name { font-size: 1.5rem; padding-left: 15px; }
+
+    .article-body { font-size: 1.1rem; }
+
+    .mid-bar {
+        border-top: 1px solid #191919;
+        border-left: none;
+        width: 100%;
+        height: 15px;    }
+
     .main-nav li { list-style-type: disc; display: block; text-align: right;}
 
     .main-nav li:not(:last-child) { padding-bottom: 10px; padding-right: 0;  } }
@@ -657,7 +605,18 @@ header {
 
     .content-box { margin-left: 25px; margin-right: 5px; }
 
-    .links { text-align: right; } }
+    .links { text-align: right; }
+
+    .mid-bar {
+        border-top: 0;
+        border-left: 1px solid #191919;
+        height: 74%;
+        float: left;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        margin-top: 12px;
+        padding-right: 15px; } }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
     .background { height: 555px; width: 90%; margin-top: 30px; margin-left: 30px; }
@@ -668,7 +627,17 @@ header {
 
     .articles { -ms-grid-columns: 1fr 1fr; grid-template-columns: 1fr 1fr; grid-row-gap: 4em;  }
 
-    header { width: 90%; } }
+    header { width: 90%; }
+
+    .container-c {width: 70%; }
+
+    .article-name { padding-left: 30px; }
+
+    .post-date { padding-top: 20px;  }
+
+    .post-image { max-width: 50%; height: auto;    }
+
+    .mid-bar { height: 82%; }}
 
 @media only screen and (width: 992px) {
     .latest { height: 100%; } }
@@ -676,7 +645,13 @@ header {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
     .background { height: 481px; }
 
-    header { width: 90%; } }
+    header { width: 90%; }
+
+    .container-c { width: 70%; } }
 
 @media only screen and (min-width: 1200px) {
     .background { height: 453px; } }
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .container-c { width: 60%; }
+}
