@@ -294,7 +294,7 @@ input[type=email]::placeholder {@include email-placeholder;}
     top: -5px;
     right: -13px;}
 
-.container-c { width: 43%; margin: auto; overflow: hidden;}
+.container-c { width: 680px; margin: auto; overflow: hidden;}
 
 .article-body { padding-top: -20px;}
 
@@ -303,11 +303,12 @@ input[type=email]::placeholder {@include email-placeholder;}
     height: 80%;
     float: left;
     margin-top: 15px;
+    margin-left: 30px;
     padding-right: 30px;}
 
 .post-date { font-size: 20px; font-weight: 500;}
 
-.post-title { font-size: 2rem; padding-left: 0;}
+.post-title { font-size: 1.7rem; padding-left: 0;}
 
 .post-image {
     height: 300px;
@@ -530,8 +531,7 @@ header {
         font-size: 1rem;
         margin-right: 10px;
         margin-left: 10px;
-        padding-top: -20px;
-        text-align: justify;    }
+        padding-top: -20px;    }
 
     .discuss { min-width: 100%; height: auto; margin: 20px auto;    }
 
@@ -586,12 +586,13 @@ header {
 
     .article-name { font-size: 1.5rem; padding-left: 15px; }
 
-    .article-body { font-size: 1.1rem; }
+    .article-body { font-size: 1rem; }
 
     .mid-bar {
         border-top: 1px solid #191919;
         border-left: none;
         width: 100%;
+        margin-left: 0;
         height: 15px;    }
 
     .main-nav li { list-style-type: disc; display: block; text-align: right;}
@@ -631,15 +632,18 @@ header {
 
     header { width: 90%; }
 
-    .container-c {width: 70%; }
+    .container-c {min-width: 688px; }
 
-    .article-name { padding-left: 30px; }
+    .article-name { padding-left: 30px; font-size: 1.7rem;}
 
     .post-date { padding-top: 20px;  }
 
     .post-image { max-width: 50%; height: auto;    }
 
-    .mid-bar { height: 82%; }}
+    .mid-bar { height: 82%; margin-left: 25px }
+
+    .article-body { font-size: 1.2rem; line-height: 1.9rem; }
+}
 
 @media only screen and (width: 992px) {
     .latest { height: 100%; } }
@@ -649,11 +653,16 @@ header {
 
     header { width: 90%; }
 
-    .container-c { width: 70%; } }
+    .mid-bar { margin-left: 20px; }
+    .container-c { min-width: 717px; } }
 
 @media only screen and (min-width: 1200px) {
     .background { height: 453px; } }
 
 @media (min-width: 1200px) and (max-width: 1499px) {
-    .container-c { width: 60%; }
-}
+    .mid-bar { margin-left: 20px; }
+    .container-c { min-width: 717px; } }
+
+@media (min-width: 1499px) and (max-width: 1639px) {
+    .mid-bar { margin-left: 20px; }
+    .container-c { min-width: 680px } }
