@@ -25,6 +25,10 @@
 
     <div class="post-date mt-5  animated fadeIn">
         <!-- Post Date -->
+        <i
+                class="far fa-calendar-alt mr-1 position-relative"
+                style="font-size: 0.9rem; top: -1px; margin-right: 10px;"
+        ></i>
         {{ post.getDate() | date("MMMM dd, yyyy", existingFormat="yyyy-MM-dd") }}
     </div>
 
