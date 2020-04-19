@@ -130,7 +130,6 @@ public class Main {
                 long maxRowNT = (long) query.uniqueResult();
                 long maxRow = maxRowNT - 1;
 
-
                 double maxTake = 6;
 
                 double lastPageCheck = Math.ceil(maxRow / maxTake);
@@ -138,7 +137,6 @@ public class Main {
                 int LastPage = (int) lastPageCheck;
 
                 String originalDomain = domain;
-
 
                 String path = String.format("%s/blog/", domain);
 
@@ -166,9 +164,52 @@ public class Main {
         });
 
         app.post("/subscribed", ctx -> {
+
             String emailID = ctx.formParam("email");
-            dbController.addEmail(emailID);
-            ctx.render("templates/subscribed.html.pebble");
+
+            boolean isThere = false;
+
+            String subVar1 = "Subscribed";
+            String subVar2 = "You'll the first to know when there's a new article. Thank you!";
+
+            String alreadySubVar1 = "Oops!";
+            String alreadySubVar2 = "You're already subscribed. Thank you!";
+
+            List<Email> renderArticles;
+            HashMap<String, Object> renderData = new HashMap<>();
+
+            try {
+                Session session = dbController.sf.openSession();
+
+                renderArticles = session.createQuery("FROM Email", Email.class).getResultList();
+
+                for (int i = 1; i<renderArticles.size(); i++) {
+                    if (emailID.equals(renderArticles.get(i).getEmailID())) {
+                        isThere = true;
+                        System.out.println("Exists");
+                        System.out.println(emailID);
+                        break;
+                    }
+                }
+
+                if (!isThere) {
+                    dbController.addEmail(emailID);
+                    renderData.put("subVar1", subVar1);
+                    renderData.put("subVar2", subVar2);
+                    renderData.put("subscribed", true);
+                    ctx.render("templates/subscribed.html.pebble", renderData);
+                    session.close();
+                } else {
+                    renderData.put("alreadySubVar1", alreadySubVar1);
+                    renderData.put("alreadySubVar2", alreadySubVar2);
+                    renderData.put("alreadySubscribed", true);
+                    ctx.render("templates/subscribed.html.pebble", renderData);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Check Again");
+                e.printStackTrace();
+            }
         });
 
         app.get("/category/:ctgn/:pn", ctx -> {

@@ -1,11 +1,24 @@
 {% extends "templates/base.html.pebble" %}
 {% block content %}
+
+{% if subscribed is defined %}
 <div class="col-md-12 animated fadeIn d-flex align-items-center justify-content-center" style="min-height: 41.2vh;">
     <!-- More Article Heading -->
     <h2 class="congrats-message">
-        <span style="font-size: larger; display: inline-block; ">Subscribed</span><br><span style="font-size: 1.3REM">You'll the first to know when there's a new article. Thank you!</span></br>
+        <span style="font-size: larger; display: inline-block; ">{{ subVar1 }}</span><br><span style="font-size: 1.3REM">{{ subVar2 }}</span></br>
     </h2>
 </div>
+{% endif %}
+
+{% if alreadySubscribed is defined %}
+<div class="col-md-12 animated fadeIn d-flex align-items-center justify-content-center" style="min-height: 41.2vh;">
+    <!-- More Article Heading -->
+    <h2 class="congrats-message">
+        <span style="font-size: larger; display: inline-block; ">{{ alreadySubVar1 }}</span><br><span style="font-size: 1.3REM">{{ alreadySubVar2 }}</span></br>
+    </h2>
+</div>
+{% endif %}
+
 
 <div class="d-flex align-items-center justify-content-center animated fadeInUp" style="margin: 60px;">
     <a href="http://localhost:7000/blog/1" style="color: #F2F2F2; padding-right: 10px; font-size: 17px; font-weight: 400;" class="noHoverColorChangeWhite">
