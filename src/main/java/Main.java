@@ -183,27 +183,40 @@ public class Main {
 
                 renderArticles = session.createQuery("FROM Email", Email.class).getResultList();
 
-                for (int i = 1; i<renderArticles.size(); i++) {
-                    if (emailID.equals(renderArticles.get(i).getEmailID())) {
-                        isThere = true;
-                        System.out.println("Exists");
-                        System.out.println(emailID);
-                        break;
-                    }
-                }
-
-                if (!isThere) {
+                if (renderArticles.size() == 0) {
                     dbController.addEmail(emailID);
                     renderData.put("subVar1", subVar1);
                     renderData.put("subVar2", subVar2);
                     renderData.put("subscribed", true);
                     ctx.render("templates/subscribed.html.pebble", renderData);
+                    System.out.println("Added in IF");
                     session.close();
                 } else {
-                    renderData.put("alreadySubVar1", alreadySubVar1);
-                    renderData.put("alreadySubVar2", alreadySubVar2);
-                    renderData.put("alreadySubscribed", true);
-                    ctx.render("templates/subscribed.html.pebble", renderData);
+
+                    for (Email renderArticle : renderArticles) {
+                        if (emailID.equals(renderArticle.getEmailID())) {
+                            isThere = true;
+                            System.out.println("Exists");
+                            System.out.println(emailID);
+                            break;
+                        }
+                    }
+
+                    if (!isThere) {
+                        dbController.addEmail(emailID);
+                        renderData.put("subVar1", subVar1);
+                        renderData.put("subVar2", subVar2);
+                        renderData.put("subscribed", true);
+                        ctx.render("templates/subscribed.html.pebble", renderData);
+                        System.out.println("Went in If -> If");
+                        session.close();
+                    } else {
+                        renderData.put("alreadySubVar1", alreadySubVar1);
+                        renderData.put("alreadySubVar2", alreadySubVar2);
+                        renderData.put("alreadySubscribed", true);
+                        ctx.render("templates/subscribed.html.pebble", renderData);
+                        System.out.println("Went in If -> ElSe");
+                    }
                 }
 
             } catch (Exception e) {
