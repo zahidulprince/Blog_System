@@ -217,6 +217,7 @@ input:focus { outline: none; }
     @include btn-mix-email-input;
     background-color: #0066FF;
     color: white;
+    font-weight: 300; font-size: 17px;
     box-shadow: $btn-boxshadow; }
 
 .btn-custom {
@@ -308,7 +309,7 @@ input[type=email]::placeholder {@include email-placeholder;}
     border-left: 1px solid black;
     height: 80%;
     float: left;
-    margin-top: 15px;
+    margin-top: 16px;
     margin-left: 30px;
     padding-right: 30px;}
 

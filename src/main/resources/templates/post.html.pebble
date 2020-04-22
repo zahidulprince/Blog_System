@@ -16,7 +16,7 @@
 
         <div class="col-md-10 post-title">
             <div class="mid-bar"></div>
-            <div class="article-name" style="margin-top: 10px;">
+            <div class="article-name" style="margin-top: 7px;">
                 {{ post.getTitle() }}
             </div>
         </div>

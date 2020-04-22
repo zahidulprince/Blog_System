@@ -183,7 +183,7 @@ public class Main {
 
                 renderArticles = session.createQuery("FROM Email", Email.class).getResultList();
 
-                if (renderArticles.size() == 0) {
+                if (renderArticles.isEmpty()) {
                     dbController.addEmail(emailID);
                     renderData.put("subVar1", subVar1);
                     renderData.put("subVar2", subVar2);

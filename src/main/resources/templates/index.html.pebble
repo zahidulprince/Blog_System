@@ -58,7 +58,7 @@
                         </h1>
                     </a>
                     <p class="description">
-                    {{ latestArticle.getDescription() | slice(0,300) }}
+                    {{ latestArticle.getDescription() | slice(0,300) }}...
                     </p>
 
                     <a href=" {{ originalDomain + '/article/' + latestArticle.getID() }}"
@@ -128,13 +128,13 @@
                     </div>
                     <div>
                         <!--Article 1 Heading-->
-                        <h3 class="mb-2 mt-2">
+                        <h3 class="mb-3 mt-3">
                         {{ articlePrint.getTitle() }}
                         </h3>
                     </div>
                     <div class="description mb-3">
                         <!-- Article 1 Description -->
-                        {{ articlePrint.getDescription() | slice(0,100) }}
+                        {{ articlePrint.getDescription() | slice(0,100) }}...
                     </div>
                     <a href=" {{ originalDomain + '/article/' +  articlePrint.getID() }}"
                        class="font-weight-medium card-read-more"
@@ -216,7 +216,7 @@
             <!-- Subscribe Heading -->
             <h2 class="subscribe">
             <span style="font-weight: bold;"
-            ><b><i>Subscribe</i></b></span>
+            ><i>Subscribe</i></span>
                 to Get <br>My Latest Updates
             </h2>
         </div>
