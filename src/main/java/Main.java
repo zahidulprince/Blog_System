@@ -121,7 +121,6 @@ public class Main {
 //                Getting The Latest Id'd Article
                 Query query1 = session.createQuery("select max(id) from Articles");
                 int article = (int) query1.uniqueResult();
-                System.out.println(article);
 
                 articles = session.load(Articles.class, article);
 
@@ -189,15 +188,12 @@ public class Main {
                     renderData.put("subVar2", subVar2);
                     renderData.put("subscribed", true);
                     ctx.render("templates/subscribed.html.pebble", renderData);
-                    System.out.println("Added in IF");
                     session.close();
                 } else {
 
                     for (Email renderArticle : renderArticles) {
                         if (emailID.equals(renderArticle.getEmailID())) {
                             isThere = true;
-                            System.out.println("Exists");
-                            System.out.println(emailID);
                             break;
                         }
                     }
@@ -208,14 +204,12 @@ public class Main {
                         renderData.put("subVar2", subVar2);
                         renderData.put("subscribed", true);
                         ctx.render("templates/subscribed.html.pebble", renderData);
-                        System.out.println("Went in If -> If");
                         session.close();
                     } else {
                         renderData.put("alreadySubVar1", alreadySubVar1);
                         renderData.put("alreadySubVar2", alreadySubVar2);
                         renderData.put("alreadySubscribed", true);
                         ctx.render("templates/subscribed.html.pebble", renderData);
-                        System.out.println("Went in If -> ElSe");
                     }
                 }
 
@@ -269,6 +263,10 @@ public class Main {
                 System.out.println("Error in data");
                 e.printStackTrace();
             }
+        });
+
+        app.get("/login", ctx -> {
+            ctx.render("templates/login.html.pebble");
         });
     }
 }

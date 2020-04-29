@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" style="min-height: 100%;"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" style="min-height: 100%;"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" style="min-height: 100%;"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" style="min-height: 100%;"> <!--<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--    Animate.css-->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css"
+            integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk="
+            crossorigin="anonymous"
+    />
+    <!--    Icons-->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!--    Bootstrap-->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/queries.css"/>
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body style="background-image: linear-gradient(#11141C, #141720, #191C27);">
+
+<div class="col-md-12 animated fadeIn d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <!-- More Article Heading -->
+    <div class="login align-items-center justify-content-center" style="background-color: #141720;">
+        <div style="font-weight: 300; color: #98B1BC; font-size: 2.6rem;">
+            Hello
+        </div>
+        <div style="color: #C9CACB; font-size: 1.4rem; font-weight: bolder;">
+            Zahid Prince
+        </div>
+
+        <form>
+            <div class="form-group">
+
+                <input style="box-shadow: none; background-color: rgba(20,23,32,0)" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email . . .">
+
+            </div>
+            <div class="form-group">
+
+                <input style="background: none" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
+

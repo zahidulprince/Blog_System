@@ -412,9 +412,12 @@ input[type=email]::placeholder {@include email-placeholder;}
 
 :root { font-size: 17px; }
 
+html{ min-height: 100%; }
+
 body {
     font-family: "Raleway", Arial, Helvetica, sans-serif;
     font-weight: 400;
+    height: 100%;
     background-color: #ebecf0;}
 
 header {
@@ -438,6 +441,15 @@ header {
         text-decoration: none !important;
         color: #ffffff !important;
     }}
+
+.login{
+    width: 346px;
+    height: 515px;
+    border-radius: 21px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.07);
+    display: flex;
+    flex-direction: column;
+}
 
 .congrats-message {
     padding: 40px 30px;
