@@ -1,5 +1,6 @@
 import io.javalin.Javalin;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -140,7 +141,7 @@ public class Main {
                 String path = String.format("%s/blog/", domain);
 
                 //showing all the articles
-                renderArticles = (List<Articles>) session.createQuery("FROM Articles order by id desc", Articles.class).setFirstResult(((pn - 1) * 6) + 1).setMaxResults((int) maxTake).getResultList();
+                renderArticles = session.createQuery("FROM Articles order by id desc", Articles.class).setFirstResult(((pn - 1) * 6) + 1).setMaxResults((int) maxTake).getResultList();
 
                 renderData.put("latestArticle", articles);
                 renderData.put("moreArticles", renderArticles);
@@ -174,15 +175,15 @@ public class Main {
             String alreadySubVar1 = "Oops!";
             String alreadySubVar2 = "You're already subscribed. Thank you!";
 
-            List<Email> renderArticles;
+            List<Email> allEmails;
             HashMap<String, Object> renderData = new HashMap<>();
 
             try {
                 Session session = dbController.sf.openSession();
 
-                renderArticles = session.createQuery("FROM Email", Email.class).getResultList();
+                allEmails = session.createQuery("FROM Email", Email.class).getResultList();
 
-                if (renderArticles.isEmpty()) {
+                if (allEmails.isEmpty()) {
                     dbController.addEmail(emailID);
                     renderData.put("subVar1", subVar1);
                     renderData.put("subVar2", subVar2);
@@ -191,8 +192,8 @@ public class Main {
                     session.close();
                 } else {
 
-                    for (Email renderArticle : renderArticles) {
-                        if (emailID.equals(renderArticle.getEmailID())) {
+                    for (Email allEmail : allEmails) {
+                        if (emailID.equals(allEmail.getEmailID())) {
                             isThere = true;
                             break;
                         }
@@ -267,6 +268,33 @@ public class Main {
 
         app.get("/login", ctx -> {
             ctx.render("templates/login.html.pebble");
+        });
+
+        app.post("/admin", ctx -> {
+
+            String emailId = ctx.formParam("email");
+            String password = ctx.formParam("password");
+
+            List<User> allUsers;
+
+            try {
+                Session session = dbController.sf.openSession();
+                allUsers = session.createQuery("FROM User", User.class).getResultList();
+
+                for (User allUser : allUsers) {
+                    if (emailId.equals(allUser.getEmail()) && password.equals(allUser.getPassword())) {
+                        ctx.result("Accept");
+                        break;
+                    }else {
+                        ctx.result("Please, try again!");
+                    }
+                }
+
+            } catch (Exception e) {
+                System.out.println("Error in data");
+                e.printStackTrace();
+            }
+
         });
     }
 }

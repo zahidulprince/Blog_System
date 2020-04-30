@@ -60,11 +60,9 @@ public class DatabaseController{
 
         s.save(user);
 
-
         Articles articles = new Articles();
         Articles articles2 = new Articles();
         Articles articles3 = new Articles();
-
 
         articles.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles.setDate(new Date());
@@ -82,11 +80,9 @@ public class DatabaseController{
         s.save(articles2);
         s.save(articles3);
 
-
         articles.setCategory(category);
         articles2.setCategory(category2);
         articles3.setCategory(category3);
-
 
         articles.setUser(user);
         articles2.setUser(user);
@@ -95,7 +91,6 @@ public class DatabaseController{
         category.getArticles().add(articles);
         category.getArticles().add(articles2);
         category.getArticles().add(articles3);
-
 
         tx.commit();
         s.close();

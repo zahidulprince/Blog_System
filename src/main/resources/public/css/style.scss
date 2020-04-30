@@ -205,8 +205,6 @@ h1 { font-size: 1.8rem; padding-top: 10px; padding-bottom: 10px; }
 
 .subscriber-container { width: 754px; max-width: 90%; }
 
-input:focus { outline: none; }
-
 @mixin btn-mix-email-input{
     border: none;
     border-radius: 33px;
@@ -261,6 +259,12 @@ input[type=email]::-ms-input-placeholder {@include email-placeholder;}
 
 input[type=email]::placeholder {@include email-placeholder;}
 
+input:focus { outline: none;}
+
+input[type=password]::placeholder{@include email-placeholder; }
+
+.form-div {display:flex; flex-direction: column; align-items: center; width: 100%}
+
 .subscription-box-before-margin { margin-top: 40px; }
 
 .subscription-before-margin { margin-top: 40px; }
@@ -313,7 +317,7 @@ input[type=email]::placeholder {@include email-placeholder;}
     margin-left: 30px;
     padding-right: 30px;}
 
-.post-date { font-size: 20px; font-weight: 500;}
+//.post-date { font-size: 20px; font-weight: 500;}
 
 .post-title { font-size: 1.7rem; padding-left: 0;}
 
@@ -449,6 +453,7 @@ header {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.07);
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 .congrats-message {

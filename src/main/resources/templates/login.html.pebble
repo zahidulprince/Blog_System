@@ -36,24 +36,21 @@
         <div style="font-weight: 300; color: #98B1BC; font-size: 2.6rem;">
             Hello
         </div>
-        <div style="color: #C9CACB; font-size: 1.4rem; font-weight: bolder;">
+        <div class="mb-5" style="color: #C9CACB; font-size: 1.4rem; font-weight: bolder;">
             Zahid Prince
         </div>
 
-        <form>
-            <div class="form-group">
-
-                <input style="box-shadow: none; background-color: rgba(20,23,32,0)" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email . . .">
-
+        <form style="width: 100%;" method="post" action="http://localhost:7000/admin">
+            <div class="form-div">
+                <div class="form-group">
+                    <input style="box-shadow: none; outline: none; width: 270px; background-color: rgba(20,23,32,0); border: none; height: 30px; border-bottom: 1px solid #707070; border-radius: 0;" type="email" class="form-control login-input" id="email" name="email" aria-describedby="emailHelp" placeholder="Your email . . .">
+                </div>
+                <div class="form-group">
+                    <input style="box-shadow: none; height: 30px; outline: none; width: 270px; background-color: rgba(20,23,32,0); border: none; border-bottom: 1px solid #707070; border-radius: 0;" type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="background-image: linear-gradient(to right, #FFDD3A, #FF3EAA); font-weight: bolder; margin-top: 3rem; box-shadow: none; outline: none; border: none; width: 250px; height: 57px; border-radius: 10px;color: #191919">Login</button>
             </div>
-            <div class="form-group">
-
-                <input style="background: none" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-
     </div>
 </div>
 
