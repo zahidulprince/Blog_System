@@ -1,3 +1,6 @@
+package BlogController;
+
+import BlogArchitecture.*;
 import com.github.javafaker.Faker;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;

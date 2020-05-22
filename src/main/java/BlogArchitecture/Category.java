@@ -1,3 +1,7 @@
+package BlogArchitecture;
+
+import BlogArchitecture.Articles;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,3 +1,5 @@
+package BlogArchitecture;
+
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

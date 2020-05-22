@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="mb-2 latest-cat-date">
-                        <!-- Category and Date -->
+                        <!-- BlogArchitecture.Category and Date -->
                         <a href="{{ originalDomain + '/category/' + latestArticle.getCategory().getId() + '/1' }}"
                            class="noHoverColorChange">
                             <div>
@@ -83,17 +83,17 @@
 <div class="col-md-12 h2-margin animated fadeIn">
     <!-- More Article Heading -->
     <h2>
-        More Articles
+        More BlogArchitecture.Articles
     </h2>
 </div>
-<!-- More Articles Section -->
+<!-- More BlogArchitecture.Articles Section -->
 <section
         class="more-articles-sec-1 d-flex align-items-center justify-content-center mt-5"
 >
-    <!-- All Articles -->
+    <!-- All BlogArchitecture.Articles -->
 
     <div class="articles animated fadeIn">
-        <!-- Articles Cards -->
+        <!-- BlogArchitecture.Articles Cards -->
         {% for articlePrint in moreArticles %}
             <div class="box">
                 <!-- Article 1 -->
@@ -108,7 +108,7 @@
                             <a href="{{  originalDomain + '/category/' + articlePrint.getCategory().getId() + '/1' }}"
                                class="noHoverColorChange">
                                 <div>
-                                    <!-- Article 1 Category -->
+                                    <!-- Article 1 BlogArchitecture.Category -->
                                     <i
                                             class="fas fa-archive mr-1 position-relative"
                                             style="font-size: 0.7rem; top: -0.5px;"

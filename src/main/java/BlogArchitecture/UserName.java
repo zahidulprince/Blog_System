@@ -1,3 +1,5 @@
+package BlogArchitecture;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
