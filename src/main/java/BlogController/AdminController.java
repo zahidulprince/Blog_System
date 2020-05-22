@@ -2,8 +2,6 @@ package BlogController;
 
 import BlogArchitecture.User;
 
-
-
 import io.javalin.http.Context;
 import org.hibernate.Session;
 

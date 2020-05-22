@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SubscriberController extends Main {
+
     public static void addSubscriber(Context ctx) {
 
         String emailID = ctx.formParam("email");

@@ -37,7 +37,6 @@ public class DatabaseController{
         Session s = sf.openSession();
         Transaction tx = s.beginTransaction();
 
-
         Category category = new Category();
         Category category2 = new Category();
         Category category3 = new Category();
