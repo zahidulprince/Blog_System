@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class DatabaseController{
 
-    Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(UserName.class).addAnnotatedClass(Email.class);
+    Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(Email.class);
 
     SessionFactory sf = config.buildSessionFactory();
 
@@ -50,13 +50,8 @@ public class DatabaseController{
         s.save(category3);
 
         User user = new User();
-        UserName username = new UserName();
 
-        username.setfName("Zahidul");
-        username.setmName("Islam");
-        username.setlName("Prince");
-
-        user.setName(username);
+        user.setName("Zahidul Islam Prince");
         user.setEmail("zahidulisprince@gmail.com");
         user.setPassword("checkpass");
 

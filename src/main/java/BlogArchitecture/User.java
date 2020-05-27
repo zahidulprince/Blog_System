@@ -10,8 +10,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private UserName name;
-    private String email;
+    private String name;
+    public String email;
     private String password;
 
     @OneToMany(mappedBy = "user")
@@ -21,11 +21,11 @@ public class User {
         return id;
     }
 
-    public UserName getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(UserName name) {
+    public void setName(String name) {
         this.name = name;
     }
 

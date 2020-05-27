@@ -38,7 +38,7 @@
                 class="fas fa-user-edit mr-1 position-relative"
                 style="font-size: 0.9rem; top: -1px; margin-right: 10px;"
         ></i>
-        {{ post.getUser().getName().getfName() + " " }} {{ post.getUser().getName().getmName() + " " }}  {{ post.getUser().getName().getLName() }}
+        {{ post.getUser().getName() }}
     </div>
 
     <div class="mt-2 animated fadeIn" style="font-size: 1.24rem; line-height: 1.7;">
