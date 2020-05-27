@@ -4,10 +4,6 @@ import io.javalin.http.Context;
 
 public class RequestUtil {
 
-    public static String getParamIsbn(Context ctx) {
-        return ctx.pathParam("isbn");
-    }
-
     public static String getQueryUserEmail(Context ctx) {
         return ctx.formParam("email");
     }

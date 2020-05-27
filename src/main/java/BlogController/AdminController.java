@@ -15,19 +15,19 @@ public class AdminController extends Main {
 
     static Session session = dbController.sf.openSession();
 
-    public static Handler serveLoginPage = ctx -> {
+    public static final Handler serveLoginPage = ctx -> {
         Map<String, Object> model = ViewUtil.baseModel(ctx);
         model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
         model.put("loginRedirect", removeSessionAttrLoginRedirect(ctx));
         ctx.render("templates/login.html.pebble", model);
     };
 
-    public static Handler handleLoginPost = ctx -> {
+    public static final Handler handleLoginPost = ctx -> {
+
         Map<String, Object> model = ViewUtil.baseModel(ctx);
         if (!authenticate(getQueryUserEmail(ctx), getQueryPassword(ctx))) {
             model.put("authenticationFailed", true);
             ctx.render("templates/login.html.pebble", model);
-            System.out.println("wrong");
         } else {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
             model.put("authenticationSucceeded", true);
@@ -36,13 +36,12 @@ public class AdminController extends Main {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
             ctx.redirect("http://localhost:7000/check");
-            System.out.println("right");
         }
     };
 
-    private static List<User> allUsers = session.createQuery("FROM User", User.class).getResultList();
+    private static final List<User> allUsers = session.createQuery("FROM User", User.class).getResultList();
 
-    public static boolean authenticate(String email, String password) {
+    private static boolean authenticate(String email, String password) {
         if (email == null || password == null) {
             return false;
         }
@@ -60,7 +59,7 @@ public class AdminController extends Main {
         return passwordMatched;
     }
 
-    public static User getUserByUsermail(String email) {
+    private static User getUserByUsermail(String email) {
         return allUsers.stream().filter(b -> b.email.equals(email)).findFirst().orElse(null);
     }
 
@@ -71,14 +70,12 @@ public class AdminController extends Main {
     };
 
     public static Handler ensureLoginBeforeViewingEditor = ctx -> {
-        System.out.println(ctx.path());
         if (!ctx.path().startsWith("/check")) {
             return;
         }
         if (ctx.sessionAttribute("currentUser") == null) {
             ctx.sessionAttribute("loginRedirect", ctx.path());
             ctx.redirect("http://localhost:7000/login");
-            System.out.println("check");
         }
     };
 

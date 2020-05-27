@@ -54,6 +54,7 @@ public class Main {
             get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
             get("/article/:pn", ArticleController::getAricle);
             get("/login", AdminController.serveLoginPage);
+            get("/check", ctx -> ctx.render("templates/adminHome.html.pebble"));
             post("/subscribed", SubscriberController::addSubscriber);
             post("/admin", AdminController.handleLoginPost);
         });
