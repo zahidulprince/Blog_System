@@ -16,10 +16,14 @@ public class AdminController extends Main {
     static Session session = dbController.sf.openSession();
 
     public static final Handler serveLoginPage = ctx -> {
-        Map<String, Object> model = ViewUtil.baseModel(ctx);
-        model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
-        model.put("loginRedirect", removeSessionAttrLoginRedirect(ctx));
-        ctx.render("templates/login.html.pebble", model);
+        if (ctx.sessionAttribute("currentUser") != null){
+            ctx.redirect("http://localhost:7000/check");
+        }else {
+            Map<String, Object> model = ViewUtil.baseModel(ctx);
+            model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
+            model.put("loginRedirect", removeSessionAttrLoginRedirect(ctx));
+            ctx.render("templates/login.html.pebble", model);
+        }
     };
 
     public static final Handler handleLoginPost = ctx -> {
@@ -66,7 +70,7 @@ public class AdminController extends Main {
     public static Handler handleLogoutPost = ctx -> {
         ctx.sessionAttribute("currentUser", null);
         ctx.sessionAttribute("loggedOut", "true");
-        ctx.redirect("templates/login.html.pebble");
+        ctx.redirect("http://localhost:7000/login");
     };
 
     public static Handler ensureLoginBeforeViewingEditor = ctx -> {

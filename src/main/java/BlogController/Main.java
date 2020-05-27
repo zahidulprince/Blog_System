@@ -55,6 +55,7 @@ public class Main {
             get("/article/:pn", ArticleController::getAricle);
             get("/login", AdminController.serveLoginPage);
             get("/check", ctx -> ctx.render("templates/adminHome.html.pebble"));
+            get("/logout", AdminController.handleLogoutPost);
             post("/subscribed", SubscriberController::addSubscriber);
             post("/admin", AdminController.handleLoginPost);
         });
