@@ -47,11 +47,11 @@ public class Main {
                             .accessManager((handler, ctx, permittedRoles) -> {
                                 if (ctx.path().startsWith("/blog")) {
                                     handler.handle(ctx);
-                                }
-                                else {
-                                    String currentUser = ctx.sessionAttribute("current-user");
+                                } else {
+                                    String currentUser = ctx.sessionAttribute("currentUser");
+                                    System.out.println(currentUser);
                                     if (currentUser == null) {
-                                        AdminController.serveLoginPage(ctx);
+                                        AdminController.handleLoginPost(ctx);
                                     }else if (getUserRole(ctx, roleSet)) {
                                         handler.handle(ctx);
                                     }
@@ -74,10 +74,11 @@ public class Main {
         app.routes(() -> {
 
             before(AdminController.ensureLoginBeforeViewingEditor);
-            get("/login", AdminController::serveLoginPage, roles(MyRoles.ADMIN, MyRoles.WRITER));
-            get("/check", ctx -> ctx.render("templates/adminHome.html.pebble"));
-            post("/admin", AdminController.handleLoginPost);
-            post("/logout", AdminController.handleLogoutPost);
+
+            get("/login", AdminController::serveLoginPage, roles(MyRoles.WRITER));
+            get("/check", ctx -> ctx.render("templates/adminHome.html.pebble"), roles(MyRoles.WRITER));
+            get("/logout", AdminController.handleLogoutPost, roles(MyRoles.WRITER));
+            post("/admin", AdminController::handleLoginPost, roles(MyRoles.WRITER));
 
             path("/blog", () -> {
                 get("/addData", ctx -> dbController.addData());
@@ -87,8 +88,6 @@ public class Main {
                 get("/article/:pn", ArticleController::getAricle);
                 post("/subscribed", SubscriberController::addSubscriber);
             });
-
-
         });
     }
 }

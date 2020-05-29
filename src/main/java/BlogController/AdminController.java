@@ -27,12 +27,12 @@ public class AdminController extends Main {
         }
     };
 
-    public static final Handler handleLoginPost = ctx -> {
-
+    public static void handleLoginPost (Context ctx) {
         Map<String, Object> model = ViewUtil.baseModel(ctx);
         if (!authenticate(getQueryUserEmail(ctx), getQueryPassword(ctx))) {
             model.put("authenticationFailed", true);
             ctx.render("templates/login.html.pebble", model);
+            System.out.println("first");
         } else {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
             model.put("authenticationSucceeded", true);
@@ -41,6 +41,7 @@ public class AdminController extends Main {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
             ctx.redirect("http://localhost:7000/check");
+            System.out.println("second");
         }
     };
 
