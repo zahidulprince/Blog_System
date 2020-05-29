@@ -35,7 +35,7 @@
             </a>
         </li>
         <li>
-            <a class="read-more-hover" href="http://localhost:7000/categories/1"
+            <a class="read-more-hover" href="http://localhost:7000/blog/categories/1"
             >CATEGORIES
 
             </a>
@@ -72,7 +72,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://localhost:7000/categories/1"
+                <a href="http://localhost:7000/blog/categories/1"
                 >CATEGORIES
                     <div class="circle {% block categoriesActive %}{% endblock categoriesActive %}"></div>
                 </a>
@@ -163,7 +163,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="http://localhost:7000/categories/1"
+                            <a href="http://localhost:7000/blog/categories/1"
                             >CATEGORIES
                                 <div class="footer-circle {% block FcategoriesActive %}{% endblock FcategoriesActive %}"></div>
                             </a>

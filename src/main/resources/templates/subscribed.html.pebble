@@ -26,7 +26,7 @@
             Home
         </div>
     </a>
-    <a href="http://localhost:7000/categories/1" style="padding-left: 20px;" class="noHoverColorChangeWhite">
+    <a href="http://localhost:7000/blog/categories/1" style="padding-left: 20px;" class="noHoverColorChangeWhite">
         <div class="btn-custom d-flex align-items-center justify-content-center" >
             Categories
         </div>

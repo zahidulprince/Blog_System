@@ -1,15 +1,12 @@
 package BlogController;
 
 import io.javalin.Javalin;
-import io.javalin.*;
 import io.javalin.core.security.Role;
 import io.javalin.http.Context;
-import io.javalin.http.Handler;
-import org.jetbrains.annotations.NotNull;
 
-import static io.javalin.apibuilder.ApiBuilder.get;
-import static io.javalin.apibuilder.ApiBuilder.post;
-import static io.javalin.apibuilder.ApiBuilder.before;
+import java.util.*;
+
+import static io.javalin.apibuilder.ApiBuilder.*;
 import static io.javalin.core.security.SecurityUtil.roles;
 
 
@@ -18,29 +15,58 @@ public class Main {
     static String domain = "http://localhost:7000";
     static DatabaseController dbController;
 
-//    enum MyRoles implements Role{
-//        Role_One, Role_Two;
-//    }
-//
-//    static Role getUserRole(@NotNull Context ctx) {
-//        String userrole = ctx.queryParam("role");
-//        System.out.println(userrole);
-//        return MyRoles.valueOf(userrole);
-//    }
-//
-//    .accessManager((handler, ctx, permittedRoles) -> {
-//        if (permittedRoles.contains(getUserRole(ctx))) {
-//            handler.handle(ctx);
-//        } else {
-//            ctx.status(401).result("Unauthorized");
-//        }
-//    })
+    enum MyRoles implements Role{
+        ANY_ONE, ADMIN, WRITER;
+    }
+
+    public static Set<Role> roleSet= new HashSet<Role>();
+
+    List<Role> prince = Arrays.asList(MyRoles.WRITER, MyRoles.ADMIN);
+    List<Role> anyOne = Arrays.asList(MyRoles.ANY_ONE);
+    List<Role> writer = Arrays.asList(MyRoles.WRITER);
+
+    List<String> princeCreds = List.of("P1", "Q1");
+    List<String> writerCreds = List.of("P2", "Q2");
+
+    Map<List<Role>, List<String>> map = Map.of(prince, princeCreds, writer, writerCreds);
+
+    static boolean getUserRole(Context ctx, Set<Role> roleSet) {
+        return true;
+    }
 
     public static void main(String[] args) {
 
+        roleSet.add(MyRoles.WRITER);
+        roleSet.add(MyRoles.ADMIN);
+        roleSet.add(MyRoles.ANY_ONE);
+
         Javalin app = Javalin
                 .create(javalinConfig -> {
-                    javalinConfig.addStaticFiles("/public");
+                    javalinConfig
+                            .addStaticFiles("/public")
+                            .accessManager((handler, ctx, permittedRoles) -> {
+                                if (ctx.path().startsWith("/blog")) {
+                                    handler.handle(ctx);
+                                }
+                                else {
+                                    String currentUser = ctx.sessionAttribute("current-user");
+                                    if (currentUser == null) {
+                                        AdminController.serveLoginPage(ctx);
+                                    }else if (getUserRole(ctx, roleSet)) {
+                                        handler.handle(ctx);
+                                    }
+
+//                                MyRoles userRole = (MyRoles) getUserRole(ctx, roleSet);
+
+//                                if (permittedRoles.contains(userRole)) {
+//                                    handler.handle(ctx);
+//                                }
+                                    else {
+                                        ctx.status(401).result("Unauthorized");
+                                    }
+                                }
+
+                            });
                 }).start(7000);
 
         dbController = new DatabaseController();
@@ -48,16 +74,21 @@ public class Main {
         app.routes(() -> {
 
             before(AdminController.ensureLoginBeforeViewingEditor);
-            get("/addData", ctx -> dbController.addData());
-            get("/blog/:pn", BlogController::getBlogHome);
-            get("/categories/:pn", CategoriesController::getCategories);
-            get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
-            get("/article/:pn", ArticleController::getAricle);
-            get("/login", AdminController.serveLoginPage);
+            get("/login", AdminController::serveLoginPage, roles(MyRoles.ADMIN, MyRoles.WRITER));
             get("/check", ctx -> ctx.render("templates/adminHome.html.pebble"));
-            get("/logout", AdminController.handleLogoutPost);
-            post("/subscribed", SubscriberController::addSubscriber);
             post("/admin", AdminController.handleLoginPost);
+            post("/logout", AdminController.handleLogoutPost);
+
+            path("/blog", () -> {
+                get("/addData", ctx -> dbController.addData());
+                get("/:pn", BlogController::getBlogHome);
+                get("/categories/:pn", CategoriesController::getCategories);
+                get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
+                get("/article/:pn", ArticleController::getAricle);
+                post("/subscribed", SubscriberController::addSubscriber);
+            });
+
+
         });
     }
 }

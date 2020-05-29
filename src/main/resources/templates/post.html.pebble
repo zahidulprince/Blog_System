@@ -7,7 +7,7 @@
     <div class="row h-100 animated fadeIn">
         <!-- BlogArchitecture.Category and Title -->
         <div class="col-md-2" style="margin-top: 10px;">
-            <a href="{{ originalDomain + '/category/' + post.getCategory().getId() + '/1' }}"
+            <a href="{{ originalDomain + '/blog/category/' + post.getCategory().getId() + '/1' }}"
                class="read-more-hover category-article">
             {{ post.getCategory().getName() }}
             </a>

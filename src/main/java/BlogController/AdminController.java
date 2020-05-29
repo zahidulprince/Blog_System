@@ -3,6 +3,7 @@ package BlogController;
 import BlogArchitecture.User;
 import Util.ViewUtil;
 
+import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import org.hibernate.Session;
 
@@ -15,10 +16,10 @@ public class AdminController extends Main {
 
     static Session session = dbController.sf.openSession();
 
-    public static final Handler serveLoginPage = ctx -> {
-        if (ctx.sessionAttribute("currentUser") != null){
+    public static void serveLoginPage (Context ctx) {
+        if (ctx.sessionAttribute("currentUser") != null) {
             ctx.redirect("http://localhost:7000/check");
-        }else {
+        } else {
             Map<String, Object> model = ViewUtil.baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
             model.put("loginRedirect", removeSessionAttrLoginRedirect(ctx));
@@ -55,7 +56,7 @@ public class AdminController extends Main {
         }
         boolean passwordMatched = false;
         for (User user1 : allUsers) {
-            if (password.equals(user1.getPassword())){
+            if (password.equals(user1.getPassword())) {
                 passwordMatched = true;
                 break;
             }
@@ -82,6 +83,7 @@ public class AdminController extends Main {
             ctx.redirect("http://localhost:7000/login");
         }
     };
+}
 
 //    public static void getAdmin(Context ctx) {
 //
@@ -108,4 +110,4 @@ public class AdminController extends Main {
 //            e.printStackTrace();
 //        }
 //    }
-}
+
