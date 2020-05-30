@@ -1,25 +1,49 @@
 package BlogController;
 
 import io.javalin.Javalin;
-import io.javalin.core.security.Role;
-import io.javalin.http.Context;
-
-import java.util.*;
-
 import static io.javalin.apibuilder.ApiBuilder.*;
-import static io.javalin.core.security.SecurityUtil.roles;
-
 
 public class Main {
 
     static String domain = "http://localhost:7000";
     static DatabaseController dbController;
 
+    public static void main(String[] args) {
+
+        Javalin app = Javalin
+                .create(javalinConfig -> {
+                    javalinConfig.addStaticFiles("/public");
+                }).start(7000);
+
+        dbController = new DatabaseController();
+
+        app.routes(() -> {
+
+            before(LoginController.ensureLoginBeforeViewingEditor);
+
+            get("/login", LoginController.serveLoginPage);
+            get("/admin", ctx -> ctx.render("templates/adminHome.html.pebble"));
+            get("/logout", LoginController.handleLogoutPost);
+            post("/wronginfo", LoginController.handleLoginPost);
+
+            path("/blog", () -> {
+                get("/addData", ctx -> dbController.addData());
+                get("/:pn", BlogController::getBlogHome);
+                get("/categories/:pn", CategoriesController::getCategories);
+                get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
+                get("/article/:pn", ArticleController::getAricle);
+                post("/subscribed", SubscriberController::addSubscriber);
+            });
+        });
+    }
+}
+
+//----------------------------- before main
 //    enum MyRoles implements Role{
 //        ANY_ONE, ADMIN, WRITER;
 //    }
 
-    public static Set<Role> roleSet= new HashSet<Role>();
+//    public static Set<Role> roleSet= new HashSet<Role>();
 
 //    List<Role> prince = Arrays.asList(MyRoles.WRITER, MyRoles.ADMIN);
 //    List<Role> anyOne = Arrays.asList(MyRoles.ANY_ONE);
@@ -34,24 +58,21 @@ public class Main {
 //        return true;
 //    }
 
-    public static void main(String[] args) {
+//----------------------------after main
 
 //        roleSet.add(MyRoles.WRITER);
 //        roleSet.add(MyRoles.ADMIN);
 //        roleSet.add(MyRoles.ANY_ONE);
 
-        Javalin app = Javalin
-                .create(javalinConfig -> {
-                    javalinConfig
-                            .addStaticFiles("/public");
-//                            .accessManager((handler, ctx, permittedRoles) -> {
+//----------------------------accessManager
+//.accessManager((handler, ctx, permittedRoles) -> {
 //                                if (ctx.path().startsWith("/blog")) {
 //                                    handler.handle(ctx);
 //                                } else {
 //                                    String currentUser = ctx.sessionAttribute("currentUser");
 //                                    System.out.println(currentUser);
 //                                    if (currentUser == null) {
-//                                        AdminController.handleLoginPost(ctx);
+//                                        LoginController.handleLoginPost(ctx);
 //                                    }else if (getUserRole(ctx, roleSet)) {
 //                                        handler.handle(ctx);
 //                                    }
@@ -67,27 +88,3 @@ public class Main {
 //                                }
 //
 //                            });
-                }).start(7000);
-
-        dbController = new DatabaseController();
-
-        app.routes(() -> {
-
-            before(AdminController.ensureLoginBeforeViewingEditor);
-
-            get("/login", AdminController::serveLoginPage);
-            get("/admin", ctx -> ctx.render("templates/adminHome.html.pebble"));
-            get("/logout", AdminController.handleLogoutPost);
-            post("/wronginfo", AdminController::handleLoginPost);
-
-            path("/blog", () -> {
-                get("/addData", ctx -> dbController.addData());
-                get("/:pn", BlogController::getBlogHome);
-                get("/categories/:pn", CategoriesController::getCategories);
-                get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
-                get("/article/:pn", ArticleController::getAricle);
-                post("/subscribed", SubscriberController::addSubscriber);
-            });
-        });
-    }
-}

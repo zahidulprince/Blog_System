@@ -1,42 +1,42 @@
 package BlogController;
 
 import BlogArchitecture.User;
-import Util.ViewUtil;
+import Util.*;
 
-import io.javalin.http.Context;
 import io.javalin.http.Handler;
 import org.hibernate.Session;
 
 import static Util.RequestUtil.*;
+import static Util.ViewUtil.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AdminController extends Main {
+public class LoginController extends Main {
 
     static Session session = dbController.sf.openSession();
 
-    public static void serveLoginPage (Context ctx) {
+    public static Handler serveLoginPage = ctx -> {
+
         if (ctx.sessionAttribute("currentUser") != null) {
             ctx.redirect("http://localhost:7000/admin");
         } else {
-            Map<String, Object> model = ViewUtil.baseModel(ctx);
+            Map<String, Object> model = baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
             model.put("loginRedirect", removeSessionAttrLoginRedirect(ctx));
             ctx.render("templates/login.html.pebble", model);
         }
     };
 
-    public static void handleLoginPost (Context ctx) {
-        Map<String, Object> model = ViewUtil.baseModel(ctx);
+    public static Handler handleLoginPost = ctx -> {
+        Map<String, Object> model = baseModel(ctx);
         HashMap<String, Object> renderData = new HashMap<>();
         if (!authenticate(getQueryUserEmail(ctx), getQueryPassword(ctx))) {
             model.put("authenticationFailed", true);
             renderData.put("wrong", true);
             System.out.println(renderData);
             ctx.render("templates/login.html.pebble", renderData);
-            System.out.println("first");
         } else {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
             model.put("authenticationSucceeded", true);
@@ -45,7 +45,6 @@ public class AdminController extends Main {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
             ctx.redirect("http://localhost:7000/admin");
-            System.out.println("second");
         }
     };
 
@@ -89,30 +88,4 @@ public class AdminController extends Main {
         }
     };
 }
-
-//    public static void getAdmin(Context ctx) {
-//
-//        String emailId = ctx.formParam("email");
-//        String password = ctx.formParam("password");
-//
-//        List<User> allUsers;
-//
-//        try {
-//            Session session = dbController.sf.openSession();
-//            allUsers = session.createQuery("FROM User", User.class).getResultList();
-//
-//            for (User allUser : allUsers) {
-//                if (emailId.equals(allUser.getEmail()) && password.equals(allUser.getPassword())) {
-//                    ctx.result("Accept");
-//                    break;
-//                }else {
-//                    ctx.result("Please, try again!");
-//                }
-//            }
-//
-//        } catch (Exception e) {
-//            System.out.println("Error in data");
-//            e.printStackTrace();
-//        }
-//    }
 
