@@ -15,30 +15,30 @@ public class Main {
     static String domain = "http://localhost:7000";
     static DatabaseController dbController;
 
-    enum MyRoles implements Role{
-        ANY_ONE, ADMIN, WRITER;
-    }
+//    enum MyRoles implements Role{
+//        ANY_ONE, ADMIN, WRITER;
+//    }
 
     public static Set<Role> roleSet= new HashSet<Role>();
 
-    List<Role> prince = Arrays.asList(MyRoles.WRITER, MyRoles.ADMIN);
-    List<Role> anyOne = Arrays.asList(MyRoles.ANY_ONE);
-    List<Role> writer = Arrays.asList(MyRoles.WRITER);
-
-    List<String> princeCreds = List.of("Zahidul Islam Prince", "checkpass");
-    List<String> writerCreds = List.of("P2", "Q2");
-
-    Map<List<Role>, List<String>> map = Map.of(prince, princeCreds, writer, writerCreds);
-
-    static boolean getUserRole(Context ctx, Set<Role> roleSet) {
-        return true;
-    }
+//    List<Role> prince = Arrays.asList(MyRoles.WRITER, MyRoles.ADMIN);
+//    List<Role> anyOne = Arrays.asList(MyRoles.ANY_ONE);
+//    List<Role> writer = Arrays.asList(MyRoles.WRITER);
+//
+//    List<String> princeCreds = List.of("Zahidul Islam Prince", "checkpass");
+//    List<String> writerCreds = List.of("P2", "Q2");
+//
+//    Map<List<Role>, List<String>> map = Map.of(prince, princeCreds, writer, writerCreds);
+//
+//    static boolean getUserRole(Context ctx, Set<Role> roleSet) {
+//        return true;
+//    }
 
     public static void main(String[] args) {
 
-        roleSet.add(MyRoles.WRITER);
-        roleSet.add(MyRoles.ADMIN);
-        roleSet.add(MyRoles.ANY_ONE);
+//        roleSet.add(MyRoles.WRITER);
+//        roleSet.add(MyRoles.ADMIN);
+//        roleSet.add(MyRoles.ANY_ONE);
 
         Javalin app = Javalin
                 .create(javalinConfig -> {
