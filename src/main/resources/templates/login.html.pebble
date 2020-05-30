@@ -35,15 +35,20 @@
             Zahid Prince
         </div>
 
-        <form style="width: 100%;" method="post" action="http://localhost:7000/admin">
+        <form style="width: 100%;" method="post" action="http://localhost:7000/wronginfo">
             <div class="form-div">
                 <div class="form-group">
-                    <input style="box-shadow: none; outline: none; width: 270px; background-color: rgba(20,23,32,0); border: none; height: 30px; border-bottom: 1px solid #707070; border-radius: 0;" type="email" class="form-control login-input" id="email" name="email" aria-describedby="emailHelp" placeholder="Your email . . .">
+                    <input style="box-shadow: none; outline: none; width: 270px; background-color: rgba(20,23,32,0); border: none; height: 30px; border-bottom: 1px solid #707070; border-radius: 0;" type="email" class="form-control login-input" id="email" name="email" aria-describedby="emailHelp" placeholder="Your Email">
                 </div>
                 <div class="form-group">
                     <input style="box-shadow: none; height: 30px; outline: none; width: 270px; background-color: rgba(20,23,32,0); border: none; border-bottom: 1px solid #707070; border-radius: 0;" type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-primary" style="background-image: linear-gradient(to right, #FFDD3A, #FF3EAA); font-weight: bolder; margin-top: 3rem; box-shadow: none; outline: none; border: none; width: 250px; height: 57px; border-radius: 10px;color: #191919">Login</button>
+                {% if wrong is defined %}
+                    <p style="color: #ff4040; width: 270px; font-weight: bolder; font-size: 0.8rem">
+                        The email or the password that you've entered is incorrect.
+                    </p>
+                {% endif %}
+                <button type="submit" class="btn btn-primary" style="background-image: linear-gradient(to right, #FFDD3A, #FF3EAA); font-weight: bolder; margin-top: 2.5rem; box-shadow: none; outline: none; border: none; width: 250px; height: 57px; border-radius: 10px;color: #191919">Login</button>
             </div>
         </form>
     </div>

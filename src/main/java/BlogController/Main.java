@@ -25,7 +25,7 @@ public class Main {
     List<Role> anyOne = Arrays.asList(MyRoles.ANY_ONE);
     List<Role> writer = Arrays.asList(MyRoles.WRITER);
 
-    List<String> princeCreds = List.of("P1", "Q1");
+    List<String> princeCreds = List.of("Zahidul Islam Prince", "checkpass");
     List<String> writerCreds = List.of("P2", "Q2");
 
     Map<List<Role>, List<String>> map = Map.of(prince, princeCreds, writer, writerCreds);
@@ -43,30 +43,30 @@ public class Main {
         Javalin app = Javalin
                 .create(javalinConfig -> {
                     javalinConfig
-                            .addStaticFiles("/public")
-                            .accessManager((handler, ctx, permittedRoles) -> {
-                                if (ctx.path().startsWith("/blog")) {
-                                    handler.handle(ctx);
-                                } else {
-                                    String currentUser = ctx.sessionAttribute("currentUser");
-                                    System.out.println(currentUser);
-                                    if (currentUser == null) {
-                                        AdminController.handleLoginPost(ctx);
-                                    }else if (getUserRole(ctx, roleSet)) {
-                                        handler.handle(ctx);
-                                    }
-
-//                                MyRoles userRole = (MyRoles) getUserRole(ctx, roleSet);
-
-//                                if (permittedRoles.contains(userRole)) {
+                            .addStaticFiles("/public");
+//                            .accessManager((handler, ctx, permittedRoles) -> {
+//                                if (ctx.path().startsWith("/blog")) {
 //                                    handler.handle(ctx);
+//                                } else {
+//                                    String currentUser = ctx.sessionAttribute("currentUser");
+//                                    System.out.println(currentUser);
+//                                    if (currentUser == null) {
+//                                        AdminController.handleLoginPost(ctx);
+//                                    }else if (getUserRole(ctx, roleSet)) {
+//                                        handler.handle(ctx);
+//                                    }
+//
+////                                MyRoles userRole = (MyRoles) getUserRole(ctx, roleSet);
+//
+////                                if (permittedRoles.contains(userRole)) {
+////                                    handler.handle(ctx);
+////                                }
+//                                    else {
+//                                        ctx.status(401).result("Unauthorized");
+//                                    }
 //                                }
-                                    else {
-                                        ctx.status(401).result("Unauthorized");
-                                    }
-                                }
-
-                            });
+//
+//                            });
                 }).start(7000);
 
         dbController = new DatabaseController();
@@ -75,10 +75,10 @@ public class Main {
 
             before(AdminController.ensureLoginBeforeViewingEditor);
 
-            get("/login", AdminController::serveLoginPage, roles(MyRoles.WRITER));
-            get("/check", ctx -> ctx.render("templates/adminHome.html.pebble"), roles(MyRoles.WRITER));
-            get("/logout", AdminController.handleLogoutPost, roles(MyRoles.WRITER));
-            post("/admin", AdminController::handleLoginPost, roles(MyRoles.WRITER));
+            get("/login", AdminController::serveLoginPage);
+            get("/admin", ctx -> ctx.render("templates/adminHome.html.pebble"));
+            get("/logout", AdminController.handleLogoutPost);
+            post("/wronginfo", AdminController::handleLoginPost);
 
             path("/blog", () -> {
                 get("/addData", ctx -> dbController.addData());

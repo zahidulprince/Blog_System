@@ -9,6 +9,7 @@ import org.hibernate.Session;
 
 import static Util.RequestUtil.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class AdminController extends Main {
 
     public static void serveLoginPage (Context ctx) {
         if (ctx.sessionAttribute("currentUser") != null) {
-            ctx.redirect("http://localhost:7000/check");
+            ctx.redirect("http://localhost:7000/admin");
         } else {
             Map<String, Object> model = ViewUtil.baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
@@ -29,9 +30,12 @@ public class AdminController extends Main {
 
     public static void handleLoginPost (Context ctx) {
         Map<String, Object> model = ViewUtil.baseModel(ctx);
+        HashMap<String, Object> renderData = new HashMap<>();
         if (!authenticate(getQueryUserEmail(ctx), getQueryPassword(ctx))) {
             model.put("authenticationFailed", true);
-            ctx.render("templates/login.html.pebble", model);
+            renderData.put("wrong", true);
+            System.out.println(renderData);
+            ctx.render("templates/login.html.pebble", renderData);
             System.out.println("first");
         } else {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
@@ -40,7 +44,7 @@ public class AdminController extends Main {
             if (getQueryLoginRedirect(ctx) != null) {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
-            ctx.redirect("http://localhost:7000/check");
+            ctx.redirect("http://localhost:7000/admin");
             System.out.println("second");
         }
     };
@@ -76,7 +80,7 @@ public class AdminController extends Main {
     };
 
     public static Handler ensureLoginBeforeViewingEditor = ctx -> {
-        if (!ctx.path().startsWith("/check")) {
+        if (!ctx.path().startsWith("/admin")) {
             return;
         }
         if (ctx.sessionAttribute("currentUser") == null) {
