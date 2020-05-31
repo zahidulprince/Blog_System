@@ -3,6 +3,7 @@ package BlogController;
 import BlogArchitecture.User;
 
 import io.javalin.http.Handler;
+
 import org.hibernate.Session;
 
 import static Util.RequestUtil.*;
@@ -34,7 +35,6 @@ public class LoginController extends App {
         if (!authenticate(getQueryUserEmail(ctx), getQueryPassword(ctx))) {
             model.put("authenticationFailed", true);
             renderData.put("wrong", true);
-            System.out.println(renderData);
             ctx.render("templates/login.html.pebble", renderData);
         } else {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));

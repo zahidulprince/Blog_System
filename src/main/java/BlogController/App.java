@@ -9,7 +9,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create(javalinConfig -> {javalinConfig.addStaticFiles("/public");}).start(7000);
+        Javalin app = Javalin.create(Config -> {Config.addStaticFiles("/public");}).start(7000);
 
         app.routes(() -> {
 
@@ -31,6 +31,14 @@ public class App {
         });
     }
 }
+
+
+
+
+
+
+
+
 
 //----------------------------- before main
 //    enum MyRoles implements Role{
