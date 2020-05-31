@@ -3,19 +3,13 @@ package BlogController;
 import io.javalin.Javalin;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
-public class Main {
+public class App {
 
     static String domain = "http://localhost:7000";
-    static DatabaseController dbController;
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin
-                .create(javalinConfig -> {
-                    javalinConfig.addStaticFiles("/public");
-                }).start(7000);
-
-        dbController = new DatabaseController();
+        Javalin app = Javalin.create(javalinConfig -> {javalinConfig.addStaticFiles("/public");}).start(7000);
 
         app.routes(() -> {
 
@@ -27,7 +21,7 @@ public class Main {
             post("/wronginfo", LoginController.handleLoginPost);
 
             path("/blog", () -> {
-                get("/addData", ctx -> dbController.addData());
+                get("/addData", DatabaseController::addData);
                 get("/:pn", BlogController::getBlogHome);
                 get("/categories/:pn", CategoriesController::getCategories);
                 get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);

@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import java.util.HashMap;
 import java.util.List;
 
-public class CategoriesController extends Main {
+public class CategoriesController extends App {
 
     public static void getCategories(Context ctx) {
 
@@ -19,7 +19,7 @@ public class CategoriesController extends Main {
             String str = ctx.pathParam("pn");
             int pn = Integer.parseInt(str);
 
-            Session session = dbController.sf.openSession();
+            Session session = DatabaseController.sf.openSession();
 
             Query query = session.createQuery("select count(*) from Category");
             long maxRow = (long) query.uniqueResult();

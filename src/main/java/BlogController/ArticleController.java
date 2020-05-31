@@ -6,7 +6,7 @@ import org.hibernate.Session;
 
 import java.util.HashMap;
 
-public class ArticleController extends Main {
+public class ArticleController extends App {
 
     public static void getAricle(Context ctx) {
 
@@ -21,7 +21,7 @@ public class ArticleController extends Main {
 
             String descriptions = "check";
 
-            Session session = dbController.sf.openSession();
+            Session session = DatabaseController.sf.openSession();
             articles = session.load(Articles.class, pn);
 
             renderData.put("post", articles);

@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import java.util.HashMap;
 import java.util.List;
 
-public class SubscriberController extends Main {
+public class SubscriberController extends App {
 
     public static void addSubscriber(Context ctx) {
 
@@ -25,12 +25,12 @@ public class SubscriberController extends Main {
         HashMap<String, Object> renderData = new HashMap<>();
 
         try {
-            Session session = dbController.sf.openSession();
+            Session session = DatabaseController.sf.openSession();
 
             allEmails = session.createQuery("FROM Email", Email.class).getResultList();
 
             if (allEmails.isEmpty()) {
-                dbController.addEmail(emailID);
+                DatabaseController.addEmail(emailID);
                 renderData.put("subVar1", subVar1);
                 renderData.put("subVar2", subVar2);
                 renderData.put("subscribed", true);
@@ -46,7 +46,7 @@ public class SubscriberController extends Main {
                 }
 
                 if (!isThere) {
-                    dbController.addEmail(emailID);
+                    DatabaseController.addEmail(emailID);
                     renderData.put("subVar1", subVar1);
                     renderData.put("subVar2", subVar2);
                     renderData.put("subscribed", true);

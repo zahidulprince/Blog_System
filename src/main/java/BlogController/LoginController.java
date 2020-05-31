@@ -1,7 +1,6 @@
 package BlogController;
 
 import BlogArchitecture.User;
-import Util.*;
 
 import io.javalin.http.Handler;
 import org.hibernate.Session;
@@ -13,9 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LoginController extends Main {
+public class LoginController extends App {
 
-    static Session session = dbController.sf.openSession();
+    static Session session = DatabaseController.sf.openSession();
 
     public static Handler serveLoginPage = ctx -> {
 

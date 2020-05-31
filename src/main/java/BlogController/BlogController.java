@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import java.util.HashMap;
 import java.util.List;
 
-public class BlogController extends Main {
+public class BlogController extends App {
 
     public static void getBlogHome(Context ctx) {
 
@@ -22,7 +22,7 @@ public class BlogController extends Main {
             String str = ctx.pathParam("pn");
             int pn = Integer.parseInt(str);
 
-            Session session = dbController.sf.openSession();
+            Session session = DatabaseController.sf.openSession();
 
 //          Getting The Latest Id'd Article
             Query query1 = session.createQuery("select max(id) from Articles");

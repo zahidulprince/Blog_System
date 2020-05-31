@@ -7,20 +7,21 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import io.javalin.http.Context;
 import java.util.Date;
 import java.util.Random;
 
 
 public class DatabaseController{
 
-    Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(Email.class);
+    static Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(Email.class);
 
-    SessionFactory sf = config.buildSessionFactory();
+    static SessionFactory sf = config.buildSessionFactory();
 
-    Faker faker = new Faker();
-    Random random = new Random();
+    static Faker faker = new Faker();
+    static Random random = new Random();
 
-    public void addEmail (String givenEmail) {
+    public static void addEmail(String givenEmail) {
         Session s = sf.openSession();
         Transaction tx = s.beginTransaction();
 
@@ -32,7 +33,7 @@ public class DatabaseController{
         s.close();
     }
 
-    public void addData() {
+    public static void addData(Context ctx) {
 
         Session s = sf.openSession();
         Transaction tx = s.beginTransaction();

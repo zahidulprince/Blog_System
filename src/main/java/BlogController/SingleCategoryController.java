@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import java.util.HashMap;
 import java.util.List;
 
-public class SingleCategoryController extends Main {
+public class SingleCategoryController extends App {
 
     public static void getDesiredCategory(Context ctx) {
 
@@ -23,7 +23,7 @@ public class SingleCategoryController extends Main {
             String str = ctx.pathParam("pn");
             int pn = Integer.parseInt(str);
 
-            Session session = dbController.sf.openSession();
+            Session session = DatabaseController.sf.openSession();
 
             String query = "FROM Articles E where E.category=" + ctgID;
 
