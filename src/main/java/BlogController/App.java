@@ -16,7 +16,7 @@ public class App {
             before(LoginController.ensureLoginBeforeViewingEditor);
 
             get("/login", LoginController.serveLoginPage);
-            get("/admin", ctx -> ctx.render("templates/adminHome.html.pebble"));
+            get("/admin", ctx -> ctx.result("GitCheck"));
             get("/logout", LoginController.handleLogoutPost);
             post("/wrong/credentials", LoginController.handleLoginPost);
 
