@@ -54,7 +54,13 @@
 
     </div>
 
-    <div style="margin-top: 40px;">
+    <div
+            style="margin: 40px auto 40px;
+            height: 95%;
+            width: 95%;
+            padding:20px;
+            border-radius: 10px;
+            box-shadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);">
         <div id="disqus_thread"></div>
 
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

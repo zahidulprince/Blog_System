@@ -18,7 +18,7 @@ public class App {
             get("/login", LoginController.serveLoginPage);
             get("/admin", ctx -> ctx.render("templates/adminHome.html.pebble"));
             get("/logout", LoginController.handleLogoutPost);
-            post("/wronginfo", LoginController.handleLoginPost);
+            post("/wrong/credentials", LoginController.handleLoginPost);
 
             path("/blog", () -> {
                 get("/addData", DatabaseController::addData);

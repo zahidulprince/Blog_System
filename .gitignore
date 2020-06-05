@@ -5,6 +5,7 @@
 .idea/**/*
 
 target
-/src/main/resources/public/css/style.css
-/src/main/resources/public/css/style.css.map
-/src/main/resources/public/css/style.scss
+src/main/resources/public/css/style.css
+src/main/resources/public/css/style.css.map
+src/main/resources/public/css/style.scss
+src/test/

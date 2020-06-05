@@ -12,7 +12,7 @@
     -webkit-transition: opacity 0.5s, top 0.4s, right 0.4s, -webkit-transform 0.4s;
     transition: opacity 0.5s, top 0.4s, transform 0.4s, right 0.4s, -webkit-transform 0.4s;
     -webkit-transform: scale(0.5);
-    transform: scale(0.5); }
+    transform: scale(0.5);}
 
 $boxshadow: 9px 9px 10px rgba(163,177,198,0.3), -9px -7px 7px rgba(255, 255, 255, 0.70);
 
@@ -27,7 +27,7 @@ $btn-boxshadow-hover: 5px 5px 10px rgba(0, 102, 255, 0), -5px -5px 10px rgba(255
     top: -5px;
     -webkit-transform: scale(1);
     transform: scale(1);
-    right: -13px; }
+    right: -13px;}
 
 .circle { @include circle;}
 
