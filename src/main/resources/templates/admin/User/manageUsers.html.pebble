@@ -9,6 +9,9 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="card-title">All Users</div>
+					{% if deleted is defined %}
+						<div class="page-category" style="color: #2bb930">Succesfully deleted</div>
+					{% endif %}
 				</div>
 				<div class="col-md-12">
 					<div class="card-body table-responsive">
@@ -23,51 +26,23 @@
 							</tr>
 							</thead>
 							<tbody>
+							{% for user in users %}
 							<tr>
-								<td>1</td>
-								<td>Mark</td>
-								<td>Otto</td>
+								<td>{{ user.getId() }}</td>
+								<td>{{ user.getName() }}</td>
+								<td>{{ user.getEmail() }}</td>
 								<td>
 									<a style="margin-left: 7px;" href="#">
 										<i class="fa fa-edit"></i>
 									</a>
 								</td>
 								<td>
-									<a style="color: red; margin-left: 20px;" href="#">
+									<a style="color: red; margin-left: 20px;" href="http://localhost:7000/admin/deleteUser/{{ + user.getId()}}">
 										<i class="fa fa-times"></i>
 									</a>
 								</td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>
-									<a style="margin-left: 7px;" href="#">
-										<i class="fa fa-edit"></i>
-									</a>
-								</td>
-								<td>
-									<a style="color: red; margin-left: 20px;" href="#">
-										<i class="fa fa-times"></i>
-									</a>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Larry the Bird</td>
-								<td>@twitter</td>
-								<td>
-									<a style="margin-left: 7px;" href="#">
-										<i class="fa fa-edit"></i>
-									</a>
-								</td>
-								<td>
-									<a style="color: red; margin-left: 20px;" href="#">
-										<i class="fa fa-times"></i>
-									</a>
-								</td>
-							</tr>
+							{% endfor %}
 							</tbody>
 						</table>
 					</div>
