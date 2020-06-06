@@ -10,7 +10,7 @@
 				<div class="card-header">
 					<div class="card-title">All Categories</div>
 					{% if deleted is defined %}
-						<div class="page-category">Succesfully deleted</div>
+						<div class="page-category" style="color: #2bb930">Succesfully deleted</div>
 					{% endif %}
 				</div>
 				<div class="col-md-12">

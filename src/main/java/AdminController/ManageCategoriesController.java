@@ -22,6 +22,9 @@ public class ManageCategoriesController {
         renderCategory = session.createQuery("FROM Category order by id", Category.class).getResultList();
 
         renderData.put("categories", renderCategory);
+        if (ctx.sessionAttribute("isRedirected") == "true") {
+            renderData.put("deleted", true);
+        }
 
         ctx.render("templates/admin/Category/manageCategories.html.pebble", renderData);
     }
@@ -29,10 +32,6 @@ public class ManageCategoriesController {
 
     public static void deleteCategory(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
-
-        List<Category> renderCategory;
-        List<Articles> renderArticles;
-        HashMap<String, Object> renderData = new HashMap<>();
 
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
@@ -48,12 +47,8 @@ public class ManageCategoriesController {
 
         s.delete(category);
 
-        renderCategory = s.createQuery("FROM Category order by id", Category.class).getResultList();
-
-        renderData.put("categories", renderCategory);
-
         ctx.redirect("http://localhost:7000/admin/manageCategories");
-        ctx.render("templates/admin/Category/manageCategories.html.pebble", renderData);
+        ctx.sessionAttribute("isRedirected", "true");
 
         tx.commit();
         s.close();
