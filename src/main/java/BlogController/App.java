@@ -16,9 +16,18 @@ public class App {
             before(LoginController.ensureLoginBeforeViewingEditor);
 
             get("/login", LoginController.serveLoginPage);
-            get("/admin", ctx -> ctx.result("GitCheck"));
             get("/logout", LoginController.handleLogoutPost);
             post("/wrong/credentials", LoginController.handleLoginPost);
+
+            path("/admin", () -> {
+                get("/home", ctx -> ctx.render("templates/admin/index.html.pebble"));
+                get("/addCategory", ctx -> ctx.render("templates/admin/Category/addCategory.html.pebble"));
+                get("/manageCategories", ctx -> ctx.render("templates/admin/Category/manageCategories.html.pebble"));
+                get("/addArticle", ctx -> ctx.render("templates/admin/Article/addArticle.html.pebble"));
+                get("/manageArticles", ctx -> ctx.render("templates/admin/Article/manageArticles.html.pebble"));
+                get("/addUser", ctx -> ctx.render("templates/admin/User/addUser.html.pebble"));
+                get("/manageUsers", ctx -> ctx.render("templates/admin/User/manageUsers.html.pebble"));
+            });
 
             path("/blog", () -> {
                 get("/addData", DatabaseController::addData);

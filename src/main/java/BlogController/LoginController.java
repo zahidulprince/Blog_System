@@ -20,7 +20,7 @@ public class LoginController extends App {
     public static Handler serveLoginPage = ctx -> {
 
         if (ctx.sessionAttribute("currentUser") != null) {
-            ctx.redirect("http://localhost:7000/admin");
+            ctx.redirect("http://localhost:7000/admin/home");
         } else {
             Map<String, Object> model = baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
@@ -43,7 +43,7 @@ public class LoginController extends App {
             if (getQueryLoginRedirect(ctx) != null) {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
-            ctx.redirect("http://localhost:7000/admin");
+            ctx.redirect("http://localhost:7000/admin/home");
         }
     };
 

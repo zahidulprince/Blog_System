@@ -8,4 +8,8 @@ target
 src/main/resources/public/css/style.css
 src/main/resources/public/css/style.css.map
 src/main/resources/public/css/style.scss
+
 src/test/
+
+src/main/resources/public/assets/sass/*
+/src/main/resources/public/assets/sass/
