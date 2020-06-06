@@ -6,7 +6,6 @@
 		<div class="page-inner">
 			<h4 class="page-title">Add an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
-
 			<div class="col-md-6 col-lg-4 mt-5">
 				<form action="#">
 					<div class="form-group form-floating-label">
@@ -24,10 +23,10 @@
 					<button class="btn btn-primary btn-round mt-3">Add</button>
 				</form>
 			</div>
-
-
 		</div>
 	</div>
+
 	{{ block("footer") }}
+
 </div>
 {% endblock %}

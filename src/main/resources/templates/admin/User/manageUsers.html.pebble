@@ -6,7 +6,6 @@
 		<div class="page-inner">
 			<h4 class="page-title">Manage Users</h4>
 			<div class="page-category">Delete Users and edit User info</div>
-
 			<div class="card">
 				<div class="card-header">
 					<div class="card-title">All Users</div>
@@ -72,12 +71,12 @@
 							</tbody>
 						</table>
 					</div>
-
 				</div>
 			</div>
-
 		</div>
 	</div>
+
 	{{ block("footer") }}
+
 </div>
 {% endblock %}

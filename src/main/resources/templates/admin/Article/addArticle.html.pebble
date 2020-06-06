@@ -1,15 +1,15 @@
 {% extends "templates/admin/adminBase.html.pebble" %}
+
 {% block tinymceAPI %}<script src="https://cdn.tiny.cloud/1/lc7p0alwu5wc3o2tjyfvoxz65wk327ralk9y48q59v56atss/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>{% endblock tinymceAPI %}
+
 {% block content %}
 <div class="main-panel">
 	<div class="content">
 		<div class="page-inner">
 			<h4 class="page-title">Add an Article</h4>
 			<div class="page-category">An Article should have a Category and an User (writer).</div>
-
 			<div class="col-md-12 mt-5">
 				<form action="#">
-
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">Title</label>
@@ -22,17 +22,16 @@
 						<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">Writer</label>
 					</div>
-
 					<textarea id="mytextarea"></textarea>
-
 					<button class="btn btn-primary btn-round mt-3">Add</button>
-
 				</form>
 			</div>
-
 		</div>
 	</div>
+
 	{{ block("footer") }}
+
 </div>
 {% endblock %}
+
 {% block tinymcelocal %}<script src="/assets/js/tinymce.js"></script>{% endblock tinymcelocal %}

@@ -20,11 +20,17 @@ public class LoginController extends App {
     public static Handler serveLoginPage = ctx -> {
 
         if (ctx.sessionAttribute("currentUser") != null) {
-            ctx.redirect("http://localhost:7000/admin/home");
+            if (ctx.sessionAttribute("loginRedirect") == null){
+                System.out.println((String) ctx.sessionAttribute("loginRedirect"));
+                ctx.redirect("http://localhost:7000/admin/home");
+            }else {
+                ctx.redirect(ctx.sessionAttribute("loginRedirect"));
+                System.out.println((String) ctx.sessionAttribute("loginRedirect"));
+            }
+
         } else {
             Map<String, Object> model = baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
-            model.put("loginRedirect", removeSessionAttrLoginRedirect(ctx));
             ctx.render("templates/login.html.pebble", model);
         }
     };
@@ -40,10 +46,11 @@ public class LoginController extends App {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
             model.put("authenticationSucceeded", true);
             model.put("currentUser", getQueryUserEmail(ctx));
-            if (getQueryLoginRedirect(ctx) != null) {
-                ctx.redirect(getQueryLoginRedirect(ctx));
+            if (ctx.sessionAttribute("loginRedirect") == null){
+                ctx.redirect("http://localhost:7000/admin/home");
+            }else {
+                ctx.redirect(ctx.sessionAttribute("loginRedirect"));
             }
-            ctx.redirect("http://localhost:7000/admin/home");
         }
     };
 
@@ -73,6 +80,7 @@ public class LoginController extends App {
 
     public static Handler handleLogoutPost = ctx -> {
         ctx.sessionAttribute("currentUser", null);
+        ctx.sessionAttribute("loginRedirect", null);
         ctx.sessionAttribute("loggedOut", "true");
         ctx.redirect("http://localhost:7000/login");
     };

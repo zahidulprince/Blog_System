@@ -1,11 +1,11 @@
 {% extends "templates/admin/adminBase.html.pebble" %}
+
 {% block content %}
 <div class="main-panel">
 	<div class="content">
 		<div class="page-inner">
 			<h4 class="page-title">Manage Articles</h4>
 			<div class="page-category">Delete Articles from the Categories and the blog.</div>
-
 			<div class="card">
 				<div class="card-header">
 					<div class="card-title">All Articles</div>
@@ -21,7 +21,6 @@
 								<col span="1" style="width: 12%;">
 								<col span="1" style="width: 12%;">
 							</colgroup>
-
 							<thead>
 							<tr>
 								<th scope="col">ID</th>
@@ -87,11 +86,12 @@
 							</tbody>
 						</table>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
+
 	{{ block("footer") }}
+
 </div>
 {% endblock %}

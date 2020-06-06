@@ -9,7 +9,6 @@
                         style="font-weight: 300;">Welcome back,</span>&nbsp; Prince!</h2>
                 <h5> Here's a generated report for your Blog.</h5>
             </div>
-
             <div class="row">
                 <div class="col-sm-6 col-md-3">
                     <div class="card card-stats card-round">
@@ -81,7 +80,6 @@
                                     <div class="numbers">
                                         <p class="card-category">Total Subscribers</p>
                                         <h4 class="card-title">100</h4>
-
                                     </div>
                                 </div>
                             </div>
@@ -89,12 +87,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 
     {{ block("footer") }}
+
 </div>
 {% endblock %}
 

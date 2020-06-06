@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Atlantis Lite - Bootstrap 4 Admin Dashboard</title>
+
+    <title>Admin of ZIP's Blog</title>
+
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
+
     <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon"/>
 
     <!-- Fonts and icons -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
     {% block tinymceAPI %}{% endblock tinymceAPI %}
+
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
             rel="stylesheet"
     />
+
     <script>
         WebFont.load({
             google: {"families": ["Lato:300,400,700,900"]}
@@ -24,12 +31,13 @@
     <link rel="stylesheet" href="../assets/css/atlantis.min.css">
 
 </head>
+
 <body data-background-color="dark">
+
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark2">
-
             <a href="http://localhost:7000/admin/home" class="logo">
                 <img src="../assets/img/myLogo.svg" alt="navbar brand" class="navbar-brand" style="height: 35px;">
             </a>
@@ -50,7 +58,6 @@
 
         <!-- Navbar Header -->
         <nav class="navbar navbar-header navbar-expand-lg" data-background-color="dark">
-
             <div class="container-fluid">
                 <div class="collapse" id="search-nav">
                     <form class="navbar-left navbar-form nav-search mr-md-3">
@@ -76,8 +83,6 @@
                             <i class="fas fa-rss-square"></i>
                         </a>
                     </li>
-
-
                     <li class="nav-item dropdown hidden-caret">
                         <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -138,7 +143,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item dropdown hidden-caret">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                             <div class="avatar-sm">
@@ -183,10 +187,10 @@
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" aria-expanded="true">
-								<span>
-									Zahidul Islam Prince
-									<span class="user-level">Administrator</span>
-								</span>
+                            <span>
+                                Zahidul Islam Prince
+                                <span class="user-level">Administrator</span>
+                            </span>
                         </a>
                         <div class="clearfix"></div>
                     </div>
@@ -264,7 +268,6 @@
     {% block content %}
 
     {% block "footer" %}
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -288,9 +291,7 @@
                 </nav>
             </div>
         </footer>
-
     {% endblock %}
-
 
     {% endblock %}
 
@@ -307,6 +308,8 @@
 
 <!-- Atlantis JS -->
 <script src="../assets/js/atlantis.min.js"></script>
+
 {% block tinymcelocal %}{% endblock tinymcelocal %}
+
 </body>
 </html>
