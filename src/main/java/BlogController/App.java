@@ -28,10 +28,10 @@ public class App {
                 get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/addUser", AddUserController::getAddUser);
                 get("/manageUsers", ManageUserController::getManageUser);
+                post("/createCategory", AddCategoryController::addCategory);
             });
 
             path("/blog", () -> {
-                get("/addData", DatabaseController::addData);
                 get("/:pn", BlogController::getBlogHome);
                 get("/categories/:pn", CategoriesController::getCategories);
                 get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);

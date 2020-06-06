@@ -12,10 +12,11 @@ public class AdminHome extends App {
 
     public static void getBlogHome(Context ctx) {
 
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
         HashMap<String, Object> renderData = new HashMap<>();
 
         Session session = DatabaseController.sf.openSession();
-        ctx.sessionAttribute("loginRedirect", ctx.path());
 
         Query queryArticleNumber = session.createQuery("select count(*) from Articles");
         Query queryCategoryNumber = session.createQuery("select count(*) from Category");
