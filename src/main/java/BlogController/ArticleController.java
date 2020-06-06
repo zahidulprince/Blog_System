@@ -21,13 +21,10 @@ public class ArticleController extends App {
 
             String originalDomain = domain;
 
-            String descriptions = "check";
-
             Session session = DatabaseController.sf.openSession();
             articles = session.load(Articles.class, pn);
 
             renderData.put("post", articles);
-            renderData.put("des", descriptions);
             renderData.put("originalDomain", originalDomain);
 
             ctx.render("templates/post.html.pebble", renderData);

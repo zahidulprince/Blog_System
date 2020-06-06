@@ -19,7 +19,7 @@ public class DatabaseController{
 
     static Configuration config = new Configuration().configure().addAnnotatedClass(Category.class).addAnnotatedClass(User.class).addAnnotatedClass(Articles.class).addAnnotatedClass(Email.class);
 
-    static SessionFactory sf = config.buildSessionFactory();
+    public static SessionFactory sf = config.buildSessionFactory();
 
     static Faker faker = new Faker();
     static Random random = new Random();

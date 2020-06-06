@@ -22,7 +22,7 @@
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Total Articles</p>
-                                        <h4 class="card-title">50</h4>
+                                        <h4 class="card-title">{{ totalArticles }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Total Categories</p>
-                                        <h4 class="card-title">10</h4>
+                                        <h4 class="card-title">{{ totalCategories }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Total Users</p>
-                                        <h4 class="card-title">10</h4>
+                                        <h4 class="card-title">{{ totalUsers }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
                                         <p class="card-category">Total Subscribers</p>
-                                        <h4 class="card-title">100</h4>
+                                        <h4 class="card-title">{{ totalSubscribers }}</h4>
                                     </div>
                                 </div>
                             </div>

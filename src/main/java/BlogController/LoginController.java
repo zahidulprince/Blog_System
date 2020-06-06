@@ -2,6 +2,7 @@ package BlogController;
 
 import BlogArchitecture.User;
 
+import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
 import org.hibernate.Session;
@@ -19,13 +20,11 @@ public class LoginController extends App {
 
     public static Handler serveLoginPage = ctx -> {
 
-        if (ctx.sessionAttribute("currentUser") != null) {
-            if (ctx.sessionAttribute("loginRedirect") == null){
-                System.out.println((String) ctx.sessionAttribute("loginRedirect"));
+        if (getSessionCurrentUser(ctx) != null) {
+            if (getQueryLoginRedirect(ctx) == null){
                 ctx.redirect("http://localhost:7000/admin/home");
             }else {
-                ctx.redirect(ctx.sessionAttribute("loginRedirect"));
-                System.out.println((String) ctx.sessionAttribute("loginRedirect"));
+                ctx.redirect(getQueryLoginRedirect(ctx));
             }
 
         } else {
@@ -46,10 +45,10 @@ public class LoginController extends App {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
             model.put("authenticationSucceeded", true);
             model.put("currentUser", getQueryUserEmail(ctx));
-            if (ctx.sessionAttribute("loginRedirect") == null){
+            if (getQueryLoginRedirect(ctx) == null){
                 ctx.redirect("http://localhost:7000/admin/home");
             }else {
-                ctx.redirect(ctx.sessionAttribute("loginRedirect"));
+                ctx.redirect(getQueryLoginRedirect(ctx));
             }
         }
     };
@@ -89,7 +88,7 @@ public class LoginController extends App {
         if (!ctx.path().startsWith("/admin")) {
             return;
         }
-        if (ctx.sessionAttribute("currentUser") == null) {
+        if (getSessionCurrentUser(ctx) == null) {
             ctx.sessionAttribute("loginRedirect", ctx.path());
             ctx.redirect("http://localhost:7000/login");
         }

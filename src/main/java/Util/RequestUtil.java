@@ -16,6 +16,10 @@ public class RequestUtil {
         return (String) ctx.sessionAttribute("currentUser");
     }
 
+    public static String getQueryLoginRedirect(Context ctx) {
+        return ctx.sessionAttribute("loginRedirect");
+    }
+
     public static boolean removeSessionAttrLoggedOut(Context ctx) {
         String loggedOut = ctx.sessionAttribute("loggedOut");
         ctx.sessionAttribute("loggedOut", null);

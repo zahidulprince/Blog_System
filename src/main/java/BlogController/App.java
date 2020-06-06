@@ -1,5 +1,6 @@
 package BlogController;
 
+import AdminController.*;
 import io.javalin.Javalin;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -20,34 +21,13 @@ public class App {
             post("/wrong/credentials", LoginController.handleLoginPost);
 
             path("/admin", () -> {
-                get("/home", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/index.html.pebble");
-                });
-                get("/addCategory", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/Category/addCategory.html.pebble");
-                });
-                get("/manageCategories", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/Category/manageCategories.html.pebble");
-                });
-                get("/addArticle", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/Article/addArticle.html.pebble");
-                });
-                get("/manageArticles", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/Article/manageArticles.html.pebble");
-                });
-                get("/addUser", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/User/addUser.html.pebble");
-                });
-                get("/manageUsers", ctx -> {
-                    ctx.sessionAttribute("loginRedirect", ctx.path());
-                    ctx.render("templates/admin/User/manageUsers.html.pebble");
-                });
+                get("/home", AdminHome::getBlogHome);
+                get("/addCategory", AddCategoryController::getAddCategory);
+                get("/manageCategories", ManageCategoriesController::getManageCategories);
+                get("/addArticle", AddArticleController::getAddArticle);
+                get("/manageArticles", ManageArticlesController::getManageArticles);
+                get("/addUser", AddUserController::getAddUser);
+                get("/manageUsers", ManageUserController::getManageUser);
             });
 
             path("/blog", () -> {
