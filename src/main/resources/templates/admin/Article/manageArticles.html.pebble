@@ -9,6 +9,9 @@
 			<div class="card">
 				<div class="card-header">
 					<div class="card-title">All Articles</div>
+					{% if deleted is defined %}
+						<div class="page-category" style="color: #2bb930">Succesfully deleted</div>
+					{% endif %}
 				</div>
 				<div class="col-md-12">
 					<div class="card-body table-responsive">
@@ -32,57 +35,27 @@
 							</tr>
 							</thead>
 							<tbody>
+
+							{% for article in articles %}
 							<tr>
-								<td>1</td>
-								<td>Mark</td>
-								<td>Cumque perspiciatis illo aut velit doloremque esse dolore occaecati recusandae voluptatem in.</td>
-								<td>Thornton</td>
-								<td>Thornton</td>
+								<td>{{ article.getId() }}</td>
+								<td>{{ article.getDate() }}</td>
+								<td>{{ article.getTitle() }}</td>
+								<td>{{ article.getCategory().getName() }}</td>
+								<td>{{ article.getUser().getName() }}</td>
 								<td>
 									<div class="form-button-action">
-										<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Article" style="padding-left: 0;">
+										<a href="#">
 											<i class="fa fa-edit"></i>
-										</button>
-										<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+										</a>
+										<a style="color: red; margin-left: 40px;" href="http://localhost:7000/admin/deleteArticle/{{ + article.getId()}}">
 											<i class="fa fa-times"></i>
-										</button>
+										</a>
 									</div>
 								</td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>Thornton</td>
-								<td>Thornton</td>
-								<td>
-									<div class="form-button-action">
-										<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Article" style="padding-left: 0;">
-											<i class="fa fa-edit"></i>
-										</button>
-										<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
-											<i class="fa fa-times"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Larry the Bird</td>
-								<td>@twitter</td>
-								<td>Thornton</td>
-								<td>Thornton</td>
-								<td>
-									<div class="form-button-action">
-										<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Article" style="padding-left: 0;">
-											<i class="fa fa-edit"></i>
-										</button>
-										<button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
-											<i class="fa fa-times"></i>
-										</button>
-									</div>
-								</td>
-							</tr>
+							{% endfor %}
+
 							</tbody>
 						</table>
 					</div>

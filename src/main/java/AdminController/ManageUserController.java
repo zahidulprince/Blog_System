@@ -37,7 +37,6 @@ public class ManageUserController {
 
         String str = ctx.pathParam("un");
         int userId = Integer.parseInt(str);
-        System.out.println(userId);
 
         User user = s.get(User.class, userId);
 

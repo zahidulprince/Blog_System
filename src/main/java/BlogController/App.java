@@ -33,6 +33,7 @@ public class App {
 
                 get("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
                 get("/deleteUser/:un", ManageUserController::deleteUser);
+                get("/deleteArticle/:an", ManageArticlesController::deleteArticle);
 
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);
