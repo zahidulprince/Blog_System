@@ -28,6 +28,7 @@ public class App {
                 get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/addUser", AddUserController::getAddUser);
                 get("/manageUsers", ManageUserController::getManageUser);
+                get("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
                 post("/createCategory", AddCategoryController::addCategory);
             });
 

@@ -22,6 +22,8 @@ public class AddCategoryController {
 
     public static void addCategory(Context ctx) {
 
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
         HashMap<String, Object> renderData = new HashMap<>();
         List<Category> allCategories;
 
