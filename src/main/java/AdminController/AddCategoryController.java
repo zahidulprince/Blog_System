@@ -30,20 +30,14 @@ public class AddCategoryController {
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
 
-        String categoryName = ctx.formParam("inputFloatingLabel");
+        String categoryName = ctx.formParam("addCat");
 
         boolean isThere = false;
 
         allCategories = s.createQuery("FROM Category", Category.class).getResultList();
 
         if (allCategories.isEmpty()) {
-            Category category = new Category();
-            category.setName(categoryName);
-            s.save(category);
-            tx.commit();
-            s.close();
-            renderData.put("added", true);
-            ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
+            createCategory(ctx, renderData, s, tx, categoryName);
         } else {
 
             for (Category allCategory : allCategories) {
@@ -54,17 +48,21 @@ public class AddCategoryController {
             }
 
             if (!isThere) {
-                Category category = new Category();
-                category.setName(categoryName);
-                s.save(category);
-                tx.commit();
-                s.close();
-                renderData.put("added", true);
-                ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
+                createCategory(ctx, renderData, s, tx, categoryName);
             } else {
                 renderData.put("addedAlready", true);
                 ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
             }
         }
+    }
+
+    private static void createCategory(Context ctx, HashMap<String, Object> renderData, Session s, Transaction tx, String categoryName) {
+        Category category = new Category();
+        category.setName(categoryName);
+        s.save(category);
+        tx.commit();
+        s.close();
+        renderData.put("added", true);
+        ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
     }
 }

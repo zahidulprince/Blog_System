@@ -23,13 +23,14 @@ public class App {
             path("/admin", () -> {
                 get("/home", AdminHome::getBlogHome);
                 get("/addCategory", AddCategoryController::getAddCategory);
-                get("/manageCategories", ManageCategoriesController::getManageCategories);
                 get("/addArticle", AddArticleController::getAddArticle);
-                get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/addUser", AddUserController::getAddUser);
+                get("/manageCategories", ManageCategoriesController::getManageCategories);
+                get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/manageUsers", ManageUserController::getManageUser);
                 get("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
                 post("/createCategory", AddCategoryController::addCategory);
+                post("/createUser", AddUserController::addUser);
             });
 
             path("/blog", () -> {

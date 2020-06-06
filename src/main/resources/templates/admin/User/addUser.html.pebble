@@ -1,23 +1,25 @@
 {% extends "templates/admin/adminBase.html.pebble" %}
 
 {% block content %}
+
+{% if form is defined %}
 <div class="main-panel">
 	<div class="content">
 		<div class="page-inner">
 			<h4 class="page-title">Add an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form action="#">
+				<form method="post" action="http://localhost:7000/admin/createUser">
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" type="text" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userName" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">Name</label>
 					</div>
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" type="email" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userEmail" type="email" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">Email</label>
 					</div>
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" type="password" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userPass" type="password" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">Password</label>
 					</div>
 					<button class="btn btn-primary btn-round mt-3">Add</button>
@@ -25,6 +27,34 @@
 			</div>
 		</div>
 	</div>
+{% endif %}
+
+{% if added is defined %}
+
+	<div class="main-panel">
+		<div class="content">
+			<div class="page-inner">
+				<h4 class="page-title">User created</h4>
+				<div class="page-category">Welcome to ZIP's Blog! Thank you!</div>
+			</div>
+		</div>
+	</div>
+
+{% endif %}
+
+{% if addedAlready is defined %}
+
+	<div class="main-panel">
+		<div class="content">
+			<div class="page-inner">
+				<h4 class="page-title">User already registered</h4>
+				<div class="page-category">Please try again or login to this user account. Thank you!</div>
+			</div>
+		</div>
+	</div>
+
+{% endif %}
+
 
 	{{ block("footer") }}
 

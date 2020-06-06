@@ -5,6 +5,7 @@ import BlogArchitecture.Email;
 import io.javalin.http.Context;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,32 +29,21 @@ public class SubscriberController extends App {
 
         try {
             Session session = DatabaseController.sf.openSession();
+            Transaction tx = session.beginTransaction();
 
             allEmails = session.createQuery("FROM Email", Email.class).getResultList();
 
             if (allEmails.isEmpty()) {
-                DatabaseController.addEmail(emailID);
-                renderData.put("subVar1", subVar1);
-                renderData.put("subVar2", subVar2);
-                renderData.put("subscribed", true);
-                ctx.render("templates/subscribed.html.pebble", renderData);
-                session.close();
+                createSubscriber(ctx, renderData, session, tx, subVar1, subVar2, emailID);
             } else {
-
                 for (Email allEmail : allEmails) {
                     if (emailID.equals(allEmail.getEmailID())) {
                         isThere = true;
                         break;
                     }
                 }
-
                 if (!isThere) {
-                    DatabaseController.addEmail(emailID);
-                    renderData.put("subVar1", subVar1);
-                    renderData.put("subVar2", subVar2);
-                    renderData.put("subscribed", true);
-                    ctx.render("templates/subscribed.html.pebble", renderData);
-                    session.close();
+                    createSubscriber(ctx, renderData, session, tx, subVar1, subVar2, emailID);
                 } else {
                     renderData.put("alreadySubVar1", alreadySubVar1);
                     renderData.put("alreadySubVar2", alreadySubVar2);
@@ -66,5 +56,15 @@ public class SubscriberController extends App {
             System.out.println("Check Again");
             e.printStackTrace();
         }
+    }
+
+    private static void createSubscriber(Context ctx, HashMap<String, Object> renderData, Session session, Transaction tx, String subVar1, String subVar2, String emailID) {
+        DatabaseController.addEmail(emailID);
+        renderData.put("subVar1", subVar1);
+        renderData.put("subVar2", subVar2);
+        renderData.put("subscribed", true);
+        ctx.render("templates/subscribed.html.pebble", renderData);
+        tx.commit();
+        session.close();
     }
 }

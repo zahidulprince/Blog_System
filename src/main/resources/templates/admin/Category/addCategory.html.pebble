@@ -11,7 +11,7 @@
             <div class="col-md-6 col-lg-4 mt-5">
                 <form method="post" action="http://localhost:7000/admin/createCategory">
                     <div class="form-group form-floating-label">
-                        <input id="inputFloatingLabel" name="inputFloatingLabel" type="text" class="form-control input-border-bottom"
+                        <input id="inputFloatingLabel" name="addCat" type="text" class="form-control input-border-bottom"
                                required>
                         <label for="inputFloatingLabel" class="placeholder">Category name</label>
                     </div>
