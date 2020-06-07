@@ -53,4 +53,8 @@ public class ManageCategoriesController {
         tx.commit();
         s.close();
     }
+
+    public static void editCategory(Context ctx) {
+
+    }
 }

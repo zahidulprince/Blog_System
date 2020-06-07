@@ -44,7 +44,7 @@
     <div class="mt-2 animated fadeIn" style="font-size: 1.24rem; line-height: 1.7;">
         <!-- Post Body -->
 
-        <img class="post-image" src="https://images.hdqwalls.com/download/breaking-bad-fan-art-1280x960.jpg"
+        <img class="post-image" src="{{ post.getLink() }}"
              alt="post-background">
 
         <div class="article-body">

@@ -35,6 +35,10 @@ public class App {
                 get("/deleteUser/:un", ManageUserController::deleteUser);
                 get("/deleteArticle/:an", ManageArticlesController::deleteArticle);
 
+                get("/editCategory/:cn", ManageCategoriesController::editCategory);
+                get("/editUser/:un", ManageUserController::editUser);
+                get("/editArticle/:an", ManageArticlesController::editArticle);
+
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);
                 post("/createArticle", AddArticleController::addArticle);

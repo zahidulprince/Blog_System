@@ -44,6 +44,7 @@ public class AddArticleController {
         String articleCategory = ctx.formParam("articleCategory");
         String articleWriterEmail = ctx.formParam("articleWriter");
         String articleDescription = ctx.formParam("tinymcetext");
+        String articleImageLink = ctx.formParam("articleHeroImageLink");
 
         boolean isThere = false;
         boolean categoryCheckedRight = false;
@@ -75,7 +76,7 @@ public class AddArticleController {
             ctx.redirect("http://localhost:7000/admin/addArticle");
         } else {
             if (articlesList.isEmpty()) {
-                createArticle(ctx, renderData, s, tx, articleDescription, articleTitle,  categoryToSet, userToSet);
+                createArticle(ctx, renderData, s, tx,articleImageLink, articleDescription, articleTitle,  categoryToSet, userToSet);
             } else {
 
                 for (Articles articles : articlesList) {
@@ -86,7 +87,7 @@ public class AddArticleController {
                 }
 
                 if (!isThere) {
-                    createArticle(ctx, renderData, s, tx, articleDescription, articleTitle,  categoryToSet, userToSet);
+                    createArticle(ctx, renderData, s, tx, articleDescription, articleImageLink, articleTitle,  categoryToSet, userToSet);
                 } else {
                     renderData.put("addedAlready", true);
                     ctx.render("templates/admin/Article/addArticle.html.pebble", renderData);
@@ -95,13 +96,14 @@ public class AddArticleController {
         }
     }
 
-    private static void createArticle(Context ctx, HashMap<String, Object> renderData, Session s, Transaction tx, String articleDescription, String articleTitle,  Category categoryToSet, User userToSet) {
+    private static void createArticle(Context ctx, HashMap<String, Object> renderData, Session s, Transaction tx, String articleImageLink, String articleDescription, String articleTitle,  Category categoryToSet, User userToSet) {
         Articles articles = new Articles();
         articles.setTitle(articleTitle);
         articles.setDate(new Date());
-        articles.setDescription(articleDescription);
+        articles.setDescription(articleImageLink);
         articles.setCategory(categoryToSet);
         articles.setUser(userToSet);
+        articles.setLink(articleDescription);
         s.save(articles);
         tx.commit();
         s.close();

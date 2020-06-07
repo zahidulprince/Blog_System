@@ -22,7 +22,7 @@ public class ManageArticlesController {
         renderArticle = session.createQuery("FROM Articles order by id", Articles.class).getResultList();
 
         renderData.put("articles", renderArticle);
-        if (ctx.sessionAttribute("isRedirected") == "true") {
+        if (ctx.sessionAttribute("isRedirected") == "delete") {
             renderData.put("deleted", true);
         }
 
@@ -42,9 +42,12 @@ public class ManageArticlesController {
         s.delete(articles);
 
         ctx.redirect("http://localhost:7000/admin/manageArticles");
-        ctx.sessionAttribute("isRedirected", "true");
+        ctx.sessionAttribute("isRedirected", "delete");
 
         tx.commit();
         s.close();
+    }
+
+    public static void editArticle(Context ctx) {
     }
 }

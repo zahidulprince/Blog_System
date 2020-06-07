@@ -52,4 +52,7 @@ public class ManageUserController {
         tx.commit();
         s.close();
     }
+
+    public static void editUser(Context ctx) {
+    }
 }

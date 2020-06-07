@@ -21,8 +21,19 @@ public class Articles {
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    @Lob
+    private String link;
+
     @ManyToOne
     private User user;
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 
     @ManyToOne
     private Category category;
