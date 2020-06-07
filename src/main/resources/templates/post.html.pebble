@@ -47,9 +47,9 @@
         <img class="post-image" src="https://images.hdqwalls.com/download/breaking-bad-fan-art-1280x960.jpg"
              alt="post-background">
 
-        <p class="article-body">
-            <span class="post-first-letter">{{ post.getDescription() | slice(0,1) }}</span>{{ post.getDescription() | slice(1) }}
-        </p>
+        <div class="article-body">
+            <span class="post-first-letter">{{ post.getDescription() | slice(4,5) | raw }}</span>{{ post.getDescription() | slice(5) | raw }}
+        </div>
 
 
     </div>

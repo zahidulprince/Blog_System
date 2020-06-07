@@ -37,6 +37,7 @@ public class App {
 
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);
+                post("/createArticle", AddArticleController::addArticle);
             });
 
             path("/blog", () -> {
