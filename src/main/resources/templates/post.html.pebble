@@ -48,7 +48,7 @@
              alt="post-background">
 
         <div class="article-body">
-            <span class="post-first-letter">{{ post.getDescription() | slice(4,5) | raw }}</span>{{ post.getDescription() | slice(5) | raw }}
+            <span class="post-first-letter">{{ post.getDescription() | slice(3,4) | raw }}</span>{{ post.getDescription() | slice(4) | raw }}
         </div>
 
 

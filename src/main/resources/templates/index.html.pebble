@@ -9,8 +9,8 @@
     <div class="row h-100">
         <div class="col-md-6 h-100">
             <!-- Featured Article Cover -->
-            <div>
-                <div class="background" style="margin: 20px; border-radius: 10px; overflow: hidden;">
+            <div class="d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex h-100 align-items-center justify-content-center align-items-center" style="margin: 20px; border-radius: 10px; overflow: hidden;">
                     <img src="{{ latestArticle.getLink() }}" class="background">
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         </h1>
                     </a>
                     <p class="description">
-                    {{ latestArticle.getDescription() | slice(0,300)}}...
+                    {{ latestArticle.getDescription() | slice(0,300) | escape }}...
                     </p>
 
                     <a href=" {{ originalDomain + '/blog/article/' + latestArticle.getID() }}"
@@ -101,7 +101,7 @@
                 <!-- Article 1 -->
                 <div>
                     <div style="margin: 20px; border-radius: 10px;">
-                        <img src=" {{ articlePrint.getLink() }} " style="width: 355px" class="article-background-1">
+                        <img src=" {{ articlePrint.getLink() }} " class="article-background-1">
                     </div>
                 </div>
 
