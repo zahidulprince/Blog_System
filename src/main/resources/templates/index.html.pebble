@@ -100,7 +100,7 @@
             <div class="box">
                 <!-- Article 1 -->
                 <div>
-                    <div style="margin: 20px; border-radius: 10px;">
+                    <div class="d-flex h-100 align-items-center justify-content-center" style="margin: 20px; border-radius: 10px;">
                         <img src=" {{ articlePrint.getLink() }} " class="article-background-1">
                     </div>
                 </div>
