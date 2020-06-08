@@ -60,7 +60,8 @@
                         </h1>
                     </a>
                     <p class="description">
-                    {{ latestArticle.getDescription() | slice(0,300) | escape }}...
+                    {{ latestArticleDescription | slice(0,300) }}...
+{#                    {{ latestArticle.getDescription() | slice(0,300) | escape }}...#}
                     </p>
 
                     <a href=" {{ originalDomain + '/blog/article/' + latestArticle.getID() }}"
@@ -137,7 +138,10 @@
                     </div>
                     <div class="description mb-3">
                         <!-- Article 1 Description -->
+{#                        {% for description in descriptions %}#}
+{#                        {{ description | slice(0,100)}}...#}
                         {{ articlePrint.getDescription() | slice(0,100) }}...
+{#                        {% endfor %}#}
                     </div>
                     <a href=" {{ originalDomain + '/blog/article/' +  articlePrint.getID() }}"
                        class="font-weight-medium card-read-more"

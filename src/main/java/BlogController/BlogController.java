@@ -9,8 +9,22 @@ import org.hibernate.query.Query;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BlogController extends App {
+
+    private static final Pattern REMOVE_TAGS = Pattern.compile("<.+?>");
+
+    public static String removeTags(String string) {
+        if (string == null || string.length() == 0) {
+            return string;
+        }
+
+        Matcher m = REMOVE_TAGS.matcher(string);
+
+        return m.replaceAll("");
+    }
 
     public static void getBlogHome(Context ctx) {
 
@@ -18,7 +32,7 @@ public class BlogController extends App {
 
         HashMap<String, Object> renderData = new HashMap<>();
 
-        Articles articles;
+        Articles latestArticle;
 
         try {
             String str = ctx.pathParam("pn");
@@ -28,9 +42,12 @@ public class BlogController extends App {
 
 //          Getting The Latest Id'd Article
             Query query1 = session.createQuery("select max(id) from Articles");
-            int article = (int) query1.uniqueResult();
+            int latestArticleID = (int) query1.uniqueResult();
 
-            articles = session.load(Articles.class, article);
+            latestArticle = session.load(Articles.class, latestArticleID);
+
+            String latestArticleDescription = latestArticle.getDescription();
+            latestArticleDescription = removeTags(latestArticleDescription);
 
             //Getting how many rows are in there
             Query query = session.createQuery("select count(*) from Articles");
@@ -50,7 +67,25 @@ public class BlogController extends App {
             //showing all the articles
             renderArticles = session.createQuery("FROM Articles order by id desc", Articles.class).setFirstResult(((pn - 1) * 6) + 1).setMaxResults((int) maxTake).getResultList();
 
-            renderData.put("latestArticle", articles);
+            String[] descriptions = new String[6];
+            int iterateDescription = 0;
+
+            for (Articles articles1: renderArticles) {
+                descriptions[iterateDescription]  = articles1.getDescription();
+                iterateDescription++;
+            }
+
+            for (int i = 0; i < descriptions.length; i++) {
+                descriptions[i] = removeTags(descriptions[i]);
+            }
+
+            int test = 0;
+            for (Articles articles: renderArticles) {
+                articles.setDescription(descriptions[test]);
+                test++;
+            }
+
+            renderData.put("latestArticle", latestArticle);
             renderData.put("moreArticles", renderArticles);
             renderData.put("pn", pn);
             renderData.put("lastPageCheck", lastPageCheck);
@@ -59,6 +94,8 @@ public class BlogController extends App {
             renderData.put("subscription", true);
             renderData.put("path", path);
             renderData.put("originalDomain", originalDomain);
+            renderData.put("descriptions", descriptions);
+            renderData.put("latestArticleDescription", latestArticleDescription);
 
             ctx.render("templates/index.html.pebble", renderData);
 
