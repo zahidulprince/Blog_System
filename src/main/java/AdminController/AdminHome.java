@@ -6,7 +6,9 @@ import io.javalin.http.Context;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
-import java.util.HashMap;
+import java.util.Map;
+
+import static Util.ViewUtil.baseModel;
 
 public class AdminHome extends App {
 
@@ -14,7 +16,7 @@ public class AdminHome extends App {
 
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
-        HashMap<String, Object> renderData = new HashMap<>();
+        Map<String, Object> model = baseModel(ctx);
 
         Session session = DatabaseController.sf.openSession();
 
@@ -28,12 +30,11 @@ public class AdminHome extends App {
         long totalUsers = (long) queryUserNumber.uniqueResult();
         long totalSubscribers = (long) querySubscriberNumber.uniqueResult();
 
-        renderData.put("totalArticles", totalArticles);
-        renderData.put("totalCategories", totalCategories);
-        renderData.put("totalUsers", totalUsers);
-        renderData.put("totalSubscribers", totalSubscribers);
-        renderData.put("originalDomain", domain);
+        model.put("totalArticles", totalArticles);
+        model.put("totalCategories", totalCategories);
+        model.put("totalUsers", totalUsers);
+        model.put("totalSubscribers", totalSubscribers);
 
-        ctx.render("templates/admin/index.html.pebble", renderData);
+        ctx.render("templates/admin/index.html.pebble", model);
     }
 }

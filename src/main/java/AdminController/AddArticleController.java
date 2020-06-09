@@ -10,8 +10,10 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static Util.ViewUtil.baseModel;
 
 public class AddArticleController extends App {
 
@@ -21,20 +23,19 @@ public class AddArticleController extends App {
     public static void getAddArticle(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
-        HashMap<String, Object> renderData = new HashMap<>();
-        renderData.put("form", true);
-        renderData.put("originalDomain", domain);
+        Map<String, Object> model = baseModel(ctx);
+        model.put("form", true);
 
         if (ctx.sessionAttribute("isRedirected") == "true") {
-            renderData.put("wrongSubmit", true);
+            model.put("wrongSubmit", true);
         }
-        ctx.render("templates/admin/Article/addArticle.html.pebble", renderData);
+        ctx.render("templates/admin/Article/addArticle.html.pebble", model);
     }
 
     public static void addArticle(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
-        HashMap<String, Object> renderData = new HashMap<>();
+        Map<String, Object> model = baseModel(ctx);
         List<Articles> articlesList;
         List<Category> categoryList;
         List<User> userList;
@@ -78,40 +79,38 @@ public class AddArticleController extends App {
             ctx.redirect(domain + "/admin/addArticle");
         } else {
             if (articlesList.isEmpty()) {
-                createArticle(ctx, renderData, s, tx,articleImageLink, articleDescription, articleTitle,  categoryToSet, userToSet);
+                createArticle(ctx, model, s, tx,articleImageLink, articleDescription, articleTitle,  categoryToSet, userToSet);
             } else {
 
-                for (Articles articles : articlesList) {
-                    if (articleTitle.equals(articles.getTitle())) {
+                for (Articles checkArticles : articlesList) {
+                    if (articleTitle.equals(checkArticles.getTitle())) {
                         isThere = true;
                         break;
                     }
                 }
 
                 if (!isThere) {
-                    createArticle(ctx, renderData, s, tx, articleDescription, articleImageLink, articleTitle,  categoryToSet, userToSet);
+                    createArticle(ctx, model, s, tx, articleDescription, articleImageLink, articleTitle,  categoryToSet, userToSet);
                 } else {
-                    renderData.put("addedAlready", true);
-                    renderData.put("originalDomain", domain);
-                    ctx.render("templates/admin/Article/addArticle.html.pebble", renderData);
+                    model.put("addedAlready", true);
+                    ctx.render("templates/admin/Article/addArticle.html.pebble", model);
                 }
             }
         }
     }
 
-    private static void createArticle(Context ctx, HashMap<String, Object> renderData, Session s, Transaction tx, String articleImageLink, String articleDescription, String articleTitle,  Category categoryToSet, User userToSet) {
-        Articles articles = new Articles();
-        articles.setTitle(articleTitle);
-        articles.setDate(new Date());
-        articles.setDescription(articleImageLink);
-        articles.setCategory(categoryToSet);
-        articles.setUser(userToSet);
-        articles.setLink(articleDescription);
-        s.save(articles);
+    private static void createArticle(Context ctx, Map<String, Object> model, Session s, Transaction tx, String articleImageLink, String articleDescription, String articleTitle,  Category categoryToSet, User userToSet) {
+        Articles articleToCreate = new Articles();
+        articleToCreate.setTitle(articleTitle);
+        articleToCreate.setDate(new Date());
+        articleToCreate.setDescription(articleImageLink);
+        articleToCreate.setCategory(categoryToSet);
+        articleToCreate.setUser(userToSet);
+        articleToCreate.setLink(articleDescription);
+        s.save(articleToCreate);
         tx.commit();
         s.close();
-        renderData.put("added", true);
-        renderData.put("originalDomain", domain);
-        ctx.render("templates/admin/Article/addArticle.html.pebble", renderData);
+        model.put("added", true);
+        ctx.render("templates/admin/Article/addArticle.html.pebble", model);
     }
 }

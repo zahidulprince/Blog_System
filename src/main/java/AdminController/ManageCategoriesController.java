@@ -10,6 +10,9 @@ import org.hibernate.Transaction;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static Util.ViewUtil.baseModel;
 
 public class ManageCategoriesController extends App {
     public static void getManageCategories(Context ctx) {
@@ -17,18 +20,17 @@ public class ManageCategoriesController extends App {
 
         Session session = DatabaseController.sf.openSession();
 
-        List<Category> renderCategory;
-        HashMap<String, Object> renderData = new HashMap<>();
+        List<Category> categoryList;
+        Map<String, Object> model = baseModel(ctx);
 
-        renderCategory = session.createQuery("FROM Category order by id", Category.class).getResultList();
+        categoryList = session.createQuery("FROM Category order by id", Category.class).getResultList();
 
-        renderData.put("categories", renderCategory);
-        renderData.put("originalDomain", domain);
+        model.put("categories", categoryList);
         if (ctx.sessionAttribute("isRedirected") == "fromManageCategories") {
-            renderData.put("deleted", true);
+            model.put("deleted", true);
         }
 
-        ctx.render("templates/admin/Category/manageCategories.html.pebble", renderData);
+        ctx.render("templates/admin/Category/manageCategories.html.pebble", model);
     }
 
 
@@ -38,16 +40,15 @@ public class ManageCategoriesController extends App {
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
 
-        String str = ctx.pathParam("cn");
-        int categoryID = Integer.parseInt(str);
+        int categoryID = Integer.parseInt(ctx.pathParam("cn"));
 
-        Category category = s.get(Category.class, categoryID);
+        Category categoryToDelete = s.get(Category.class, categoryID);
 
-        for (Articles articles: category.getArticles()){
+        for (Articles articles: categoryToDelete.getArticles()){
             s.delete(articles);
         }
 
-        s.delete(category);
+        s.delete(categoryToDelete);
 
         ctx.redirect(domain + "/admin/manageCategories");
         ctx.sessionAttribute("isRedirected", "fromManageCategories");
@@ -57,6 +58,72 @@ public class ManageCategoriesController extends App {
     }
 
     public static void editCategory(Context ctx) {
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
+        Session s = DatabaseController.sf.openSession();
+        Transaction tx = s.beginTransaction();
+
+        Map<String, Object> model = baseModel(ctx);
+        List<Category> categoryList;
+
+        int categoryID = 0;
+        String matchCategoryName = ctx.formParam("oldCatName");
+        String updateCategoryName = ctx.formParam("newCatName");
+
+        boolean oldOneIsThere = false;
+        boolean newOneIsThere = false;
+
+        categoryList = s.createQuery("FROM Category", Category.class).getResultList();
+
+        if (categoryList.isEmpty()) {
+            model.put("noCat", true);
+            ctx.render("templates/admin/Category/addCategory.html.pebble", model);
+        } else {
+
+            for (Category categoryCheckForOld : categoryList) {
+                if (matchCategoryName.equals(categoryCheckForOld.getName())) {
+                    categoryID = categoryCheckForOld.getId();
+                    oldOneIsThere = true;
+                    break;
+                }
+            }
+
+            for (Category categoryCheckForNew: categoryList) {
+                if (updateCategoryName.equals(categoryCheckForNew.getName())) {
+                    newOneIsThere = true;
+                    break;
+                }
+            }
+
+            if (newOneIsThere) {
+                model.put("addedAlready", true);
+                ctx.render("templates/admin/Category/addCategory.html.pebble", model);
+            } else {
+                if (oldOneIsThere) {
+                    updateCategory(ctx, model, s, tx, updateCategoryName, categoryID);
+                }
+            }
+        }
+    }
+
+    private static void updateCategory(Context ctx, Map<String, Object> model, Session s, Transaction tx, String updateCategoryName, int categoryID) {
+        Category categoryToUpdate = s.get(Category.class, categoryID);
+        categoryToUpdate.setName(updateCategoryName);
+        s.update(categoryToUpdate);
+        s.save(categoryToUpdate);
+        tx.commit();
+        s.close();
+        model.put("updated", true);
+        ctx.render("templates/admin/Category/addCategory.html.pebble", model);
+    }
+
+    public static void getEditForm(Context ctx) {
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
+        Map<String, Object> model = baseModel(ctx);
+        model.put("updateForm", true);
+
+        ctx.render("templates/admin/Category/addCategory.html.pebble", model);
 
     }
 }

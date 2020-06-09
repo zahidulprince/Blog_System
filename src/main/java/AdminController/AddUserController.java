@@ -7,25 +7,26 @@ import io.javalin.http.Context;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static Util.ViewUtil.baseModel;
 
 public class AddUserController extends App {
     public static void getAddUser(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
-        HashMap<String, Object> renderData = new HashMap<>();
-        renderData.put("form", true);
-        renderData.put("originalDomain", domain);
+        Map<String, Object> model = baseModel(ctx);
+        model.put("form", true);
 
-        ctx.render("templates/admin/User/addUser.html.pebble", renderData);
+        ctx.render("templates/admin/User/addUser.html.pebble", model);
     }
 
     public static void addUser(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
-        HashMap<String, Object> renderData = new HashMap<>();
-        List<User> allUsers;
+        Map<String, Object> model = baseModel(ctx);
+        List<User> userList;
 
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
@@ -36,28 +37,27 @@ public class AddUserController extends App {
 
         boolean isThere = false;
 
-        allUsers = s.createQuery("FROM User", User.class).getResultList();
+        userList = s.createQuery("FROM User", User.class).getResultList();
 
-        if (allUsers.isEmpty()) {
-            createUser(ctx, renderData, s, tx, userName, userEmail, userPass);
+        if (userList.isEmpty()) {
+            createUser(ctx, model, s, tx, userName, userEmail, userPass);
         }else {
-            for (User allUser : allUsers) {
+            for (User allUser : userList) {
                 if (userEmail.equals(allUser.getEmail())) {
                     isThere = true;
                     break;
                 }
             }
             if (!isThere) {
-                createUser(ctx, renderData, s, tx, userName, userEmail, userPass);
+                createUser(ctx, model, s, tx, userName, userEmail, userPass);
             } else {
-                renderData.put("addedAlready", true);
-                renderData.put("originalDomain", domain);
-                ctx.render("templates/admin/User/addUser.html.pebble", renderData);
+                model.put("addedAlready", true);
+                ctx.render("templates/admin/User/addUser.html.pebble", model);
             }
         }
     }
 
-    private static void createUser(Context ctx, HashMap<String, Object> renderData, Session s, Transaction tx, String userName, String userEmail, String userPass) {
+    private static void createUser(Context ctx, Map<String, Object> model, Session s, Transaction tx, String userName, String userEmail, String userPass) {
         User user = new User();
         user.setName(userName);
         user.setEmail(userEmail);
@@ -65,8 +65,7 @@ public class AddUserController extends App {
         s.save(user);
         tx.commit();
         s.close();
-        renderData.put("added", true);
-        renderData.put("originalDomain", domain);
-        ctx.render("templates/admin/User/addUser.html.pebble", renderData);
+        model.put("added", true);
+        ctx.render("templates/admin/User/addUser.html.pebble", model);
     }
 }

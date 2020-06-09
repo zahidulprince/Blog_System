@@ -5,7 +5,6 @@ import BlogArchitecture.Email;
 import io.javalin.http.Context;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.util.HashMap;
 import java.util.List;

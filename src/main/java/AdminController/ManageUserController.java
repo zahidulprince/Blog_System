@@ -8,8 +8,10 @@ import io.javalin.http.Context;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static Util.ViewUtil.baseModel;
 
 public class ManageUserController extends App {
     public static void getManageUser(Context ctx) {
@@ -17,18 +19,17 @@ public class ManageUserController extends App {
 
         Session session = DatabaseController.sf.openSession();
 
-        List<User> renderUser;
-        HashMap<String, Object> renderData = new HashMap<>();
+        List<User> userList;
+        Map<String, Object> model = baseModel(ctx);
 
-        renderUser = session.createQuery("FROM User order by id", User.class).getResultList();
+        userList = session.createQuery("FROM User order by id", User.class).getResultList();
 
-        renderData.put("users", renderUser);
-        renderData.put("originalDomain", domain);
+        model.put("users", userList);
         if (ctx.sessionAttribute("isRedirected") == "fromManageUsers") {
-            renderData.put("deleted", true);
+            model.put("deleted", true);
         }
 
-        ctx.render("templates/admin/User/manageUsers.html.pebble", renderData);
+        ctx.render("templates/admin/User/manageUsers.html.pebble", model);
     }
 
     public static void deleteUser(Context ctx) {
@@ -37,8 +38,7 @@ public class ManageUserController extends App {
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
 
-        String str = ctx.pathParam("un");
-        int userId = Integer.parseInt(str);
+        int userId = Integer.parseInt(ctx.pathParam("un"));
 
         User user = s.get(User.class, userId);
 

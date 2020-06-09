@@ -37,8 +37,7 @@ public class BlogController extends App {
         Articles latestArticle;
 
         try {
-            String str = ctx.pathParam("pn");
-            int pn = Integer.parseInt(str);
+            int pn = Integer.parseInt(ctx.pathParam("pn"));
 
             Session session = DatabaseController.sf.openSession();
 

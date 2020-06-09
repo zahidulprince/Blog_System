@@ -30,7 +30,7 @@
 								<td>{{ category.getId() }}</td>
 								<td>{{ category.getName() }}</td>
 								<td>
-									<a style="margin-left: 7px;" href="#">
+									<a style="margin-left: 7px;" href="{{ originalDomain + '/admin/updateCategory/'}}">
 										<i class="fa fa-edit"></i>
 									</a>
 								</td>

@@ -45,7 +45,7 @@
 								<td>{{ article.getUser().getName() }}</td>
 								<td>
 									<div class="form-button-action">
-										<a href="#">
+										<a href="{{ originalDomain + '/admin/editArticle/' + article.getId()}}">
 											<i class="fa fa-edit"></i>
 										</a>
 										<a style="color: red; margin-left: 40px;" href="{{ originalDomain + '/admin/deleteArticle/' + article.getId()}}">

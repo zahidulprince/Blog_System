@@ -1,15 +1,16 @@
 package AdminController;
 
 import BlogArchitecture.Articles;
-import BlogArchitecture.User;
 import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static Util.ViewUtil.baseModel;
 
 public class ManageArticlesController extends App {
     public static void getManageArticles(Context ctx) {
@@ -17,18 +18,17 @@ public class ManageArticlesController extends App {
 
         Session session = DatabaseController.sf.openSession();
 
-        List<Articles> renderArticle;
-        HashMap<String, Object> renderData = new HashMap<>();
+        List<Articles> articlesList;
+        Map<String, Object> model = baseModel(ctx);
 
-        renderArticle = session.createQuery("FROM Articles order by id", Articles.class).getResultList();
+        articlesList = session.createQuery("FROM Articles order by id", Articles.class).getResultList();
 
-        renderData.put("articles", renderArticle);
-        renderData.put("originalDomain", domain);
+        model.put("articles", articlesList);
         if (ctx.sessionAttribute("isRedirected") == "fromManageArticles") {
-            renderData.put("deleted", true);
+            model.put("deleted", true);
         }
 
-        ctx.render("templates/admin/Article/manageArticles.html.pebble", renderData);
+        ctx.render("templates/admin/Article/manageArticles.html.pebble", model);
     }
 
     public static void deleteArticle(Context ctx) {
@@ -37,11 +37,10 @@ public class ManageArticlesController extends App {
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
 
-        String str = ctx.pathParam("an");
-        int articleId = Integer.parseInt(str);
+        int articleId = Integer.parseInt(ctx.pathParam("an"));
 
-        Articles articles = s.get(Articles.class, articleId);
-        s.delete(articles);
+        Articles articleToDelete = s.get(Articles.class, articleId);
+        s.delete(articleToDelete);
 
         ctx.redirect(domain + "/admin/manageArticles");
         ctx.sessionAttribute("isRedirected", "fromManageArticles");

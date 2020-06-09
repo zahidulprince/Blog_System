@@ -9,7 +9,6 @@ import org.hibernate.Session;
 import static Util.RequestUtil.*;
 import static Util.ViewUtil.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,18 +28,16 @@ public class LoginController extends App {
         } else {
             Map<String, Object> model = baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
-            model.put("originalDomain", domain);
             ctx.render("templates/login.html.pebble", model);
         }
     };
 
     public static Handler handleLoginPost = ctx -> {
         Map<String, Object> model = baseModel(ctx);
-        HashMap<String, Object> renderData = new HashMap<>();
         if (!authenticate(getQueryUserEmail(ctx), getQueryPassword(ctx))) {
             model.put("authenticationFailed", true);
-            renderData.put("wrong", true);
-            ctx.render("templates/login.html.pebble", renderData);
+            model.put("wrong", true);
+            ctx.render("templates/login.html.pebble", model);
         } else {
             ctx.sessionAttribute("currentUser", getQueryUserEmail(ctx));
             model.put("authenticationSucceeded", true);

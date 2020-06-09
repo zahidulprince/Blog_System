@@ -16,8 +16,7 @@ public class ArticleController extends App {
         Articles articles;
 
         try {
-            String str = ctx.pathParam("pn");
-            int pn = Integer.parseInt(str);
+            int pn = Integer.parseInt(ctx.pathParam("pn"));
 
             Session session = DatabaseController.sf.openSession();
             articles = session.load(Articles.class, pn);
