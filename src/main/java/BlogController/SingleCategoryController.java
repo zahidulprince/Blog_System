@@ -15,15 +15,11 @@ public class SingleCategoryController extends App {
 
         List<Articles> renderArticles;
         List<Articles> numOfArticles;
-
         HashMap<String, Object> renderData = new HashMap<>();
 
         try {
-            String ctgn = ctx.pathParam("ctgn");
-            int ctgID = Integer.parseInt(ctgn);
-
-            String str = ctx.pathParam("pn");
-            int pn = Integer.parseInt(str);
+            int ctgID = Integer.parseInt(ctx.pathParam("ctgn"));
+            int pn = Integer.parseInt(ctx.pathParam("pn"));
 
             Session session = DatabaseController.sf.openSession();
 
@@ -34,19 +30,16 @@ public class SingleCategoryController extends App {
 
             double listSize = numOfArticles.size();
             double maxTake = 6;
-            double lastPageCheck = Math.ceil(listSize / maxTake);
-            int LastPage = (int) lastPageCheck;
+            int LastPage = (int) Math.ceil(listSize / maxTake);
 
             String path = String.format("%s/category/%d/", domain, ctgID);
-            String originalDomain = domain;
 
             renderData.put("pn", pn);
             renderData.put("moreArticles", renderArticles);
             renderData.put("path", path);
             renderData.put("goToLastPage", LastPage);
-            renderData.put("lastPageCheck", lastPageCheck);
             renderData.put("listSize", listSize);
-            renderData.put("originalDomain", originalDomain);
+            renderData.put("originalDomain", domain);
 
             ctx.render("templates/index.html.pebble", renderData);
 

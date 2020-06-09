@@ -38,7 +38,7 @@
     <div class="main-header">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark2">
-            <a href="http://localhost:7000/admin/home" class="logo">
+            <a href="{{ originalDomain + '/admin/home'}}" class="logo">
                 <img src="../assets/img/myLogo.svg" alt="navbar brand" class="navbar-brand" style="height: 35px;">
             </a>
             <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -79,7 +79,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="http://localhost:7000/blog/1">
+                        <a class="nav-link" target="_blank" href="{{ originalDomain + '/blog/1' }}">
                             <i class="fas fa-rss-square"></i>
                         </a>
                     </li>
@@ -166,7 +166,7 @@
                                 </li>
                                 <li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="http://localhost:7000/logout">Logout</a>
+                                    <a class="dropdown-item" href="{{ originalDomain + '/logout' }}">Logout</a>
                                 </li>
                             </div>
                         </ul>
@@ -205,12 +205,12 @@
                         <div class="collapse" id="categories">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="http://localhost:7000/admin/addCategory">
+                                    <a href="{{ originalDomain + '/admin/addCategory'}}">
                                         <span class="sub-item">Add Category</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:7000/admin/manageCategories">
+                                    <a href="{{ originalDomain + '/admin/manageCategories'}}">
                                         <span class="sub-item">manage Categories</span>
                                     </a>
                                 </li>
@@ -226,12 +226,12 @@
                         <div class="collapse" id="articles">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="http://localhost:7000/admin/addArticle">
+                                    <a href="{{ originalDomain + '/admin/addArticle' }}">
                                         <span class="sub-item">Add Article</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:7000/admin/manageArticles">
+                                    <a href="{{ originalDomain + '/admin/manageArticles' }}">
                                         <span class="sub-item">Manage Articles</span>
                                     </a>
                                 </li>
@@ -247,12 +247,12 @@
                         <div class="collapse" id="users">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="http://localhost:7000/admin/addUser">
+                                    <a href="{{ originalDomain + '/admin/addUser' }}">
                                         <span class="sub-item">Add User</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://localhost:7000/admin/manageUsers">
+                                    <a href="{{ originalDomain + '/admin/manageUsers' }}">
                                         <span class="sub-item">Manage Users</span>
                                     </a>
                                 </li>
@@ -273,7 +273,7 @@
                 <nav class="pull-left">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="http://localhost:7000/blog/1">
+                            <a class="nav-link" target="_blank" href="{{ originalDomain + '/blog/1' }}">
                                 Blog
                             </a>
                         </li>

@@ -3,6 +3,7 @@ package AdminController;
 import BlogArchitecture.Articles;
 import BlogArchitecture.Category;
 import BlogArchitecture.User;
+import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
@@ -12,7 +13,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class AddArticleController {
+public class AddArticleController extends App {
 
     static Category categoryToSet;
     static User userToSet;
@@ -22,6 +23,7 @@ public class AddArticleController {
 
         HashMap<String, Object> renderData = new HashMap<>();
         renderData.put("form", true);
+        renderData.put("originalDomain", domain);
 
         if (ctx.sessionAttribute("isRedirected") == "true") {
             renderData.put("wrongSubmit", true);
@@ -73,7 +75,7 @@ public class AddArticleController {
 
         if (!categoryCheckedRight || !userCheckedRight) {
             ctx.sessionAttribute("isRedirected", "true");
-            ctx.redirect("http://localhost:7000/admin/addArticle");
+            ctx.redirect(domain + "/admin/addArticle");
         } else {
             if (articlesList.isEmpty()) {
                 createArticle(ctx, renderData, s, tx,articleImageLink, articleDescription, articleTitle,  categoryToSet, userToSet);

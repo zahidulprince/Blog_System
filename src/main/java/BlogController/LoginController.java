@@ -2,7 +2,6 @@ package BlogController;
 
 import BlogArchitecture.User;
 
-import io.javalin.http.Context;
 import io.javalin.http.Handler;
 
 import org.hibernate.Session;
@@ -22,7 +21,7 @@ public class LoginController extends App {
 
         if (getSessionCurrentUser(ctx) != null) {
             if (getQueryLoginRedirect(ctx) == null){
-                ctx.redirect("http://localhost:7000/admin/home");
+                ctx.redirect(domain + "admin/home");
             }else {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
@@ -30,6 +29,7 @@ public class LoginController extends App {
         } else {
             Map<String, Object> model = baseModel(ctx);
             model.put("loggedOut", removeSessionAttrLoggedOut(ctx));
+            model.put("originalDomain", domain);
             ctx.render("templates/login.html.pebble", model);
         }
     };
@@ -46,7 +46,7 @@ public class LoginController extends App {
             model.put("authenticationSucceeded", true);
             model.put("currentUser", getQueryUserEmail(ctx));
             if (getQueryLoginRedirect(ctx) == null){
-                ctx.redirect("http://localhost:7000/admin/home");
+                ctx.redirect(domain + "/admin/home");
             }else {
                 ctx.redirect(getQueryLoginRedirect(ctx));
             }
@@ -81,7 +81,7 @@ public class LoginController extends App {
         ctx.sessionAttribute("currentUser", null);
         ctx.sessionAttribute("loginRedirect", null);
         ctx.sessionAttribute("loggedOut", "true");
-        ctx.redirect("http://localhost:7000/login");
+        ctx.redirect(domain + "/login");
     };
 
     public static Handler ensureLoginBeforeViewingEditor = ctx -> {
@@ -90,7 +90,7 @@ public class LoginController extends App {
         }
         if (getSessionCurrentUser(ctx) == null) {
             ctx.sessionAttribute("loginRedirect", ctx.path());
-            ctx.redirect("http://localhost:7000/login");
+            ctx.redirect(domain + "/login");
         }
     };
 }

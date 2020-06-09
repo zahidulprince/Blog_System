@@ -32,6 +32,7 @@ public class AdminHome extends App {
         renderData.put("totalCategories", totalCategories);
         renderData.put("totalUsers", totalUsers);
         renderData.put("totalSubscribers", totalSubscribers);
+        renderData.put("originalDomain", domain);
 
         ctx.render("templates/admin/index.html.pebble", renderData);
     }

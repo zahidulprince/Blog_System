@@ -19,13 +19,11 @@ public class ArticleController extends App {
             String str = ctx.pathParam("pn");
             int pn = Integer.parseInt(str);
 
-            String originalDomain = domain;
-
             Session session = DatabaseController.sf.openSession();
             articles = session.load(Articles.class, pn);
 
             renderData.put("post", articles);
-            renderData.put("originalDomain", originalDomain);
+            renderData.put("originalDomain", domain);
 
             ctx.render("templates/post.html.pebble", renderData);
             session.close();

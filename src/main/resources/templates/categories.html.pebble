@@ -69,8 +69,8 @@
                 {{ pn }}
                 </div>
 
-                <a href=" {{ (lastPageCheck==pn) ? '#' : originalDomain + '/blog/categories/' + (pn+1) }}"
-                   class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
+                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/blog/categories/' + (pn+1) }}"
+                   class="{{ (goToLastPage==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
                             style="right: -8px;"
@@ -79,8 +79,8 @@
                     </div>
                 </a>
 
-                <a href=" {{ (lastPageCheck==pn) ? '#' : originalDomain + '/blog/categories/' + (goToLastPage) }}"
-                   class="{{ (lastPageCheck==pn) ? 'isDisabled' : ""}}">
+                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/blog/categories/' + (goToLastPage) }}"
+                   class="{{ (goToLastPage==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
                             style="right: -12px; font-size: 1rem; color: #838383;"

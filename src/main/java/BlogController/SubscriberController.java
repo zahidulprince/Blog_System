@@ -29,12 +29,11 @@ public class SubscriberController extends App {
 
         try {
             Session session = DatabaseController.sf.openSession();
-            Transaction tx = session.beginTransaction();
 
             allEmails = session.createQuery("FROM Email", Email.class).getResultList();
 
             if (allEmails.isEmpty()) {
-                createSubscriber(ctx, renderData, session, tx, subVar1, subVar2, emailID);
+                createSubscriber(ctx, renderData, session, subVar1, subVar2, emailID);
             } else {
                 for (Email allEmail : allEmails) {
                     if (emailID.equals(allEmail.getEmailID())) {
@@ -43,11 +42,12 @@ public class SubscriberController extends App {
                     }
                 }
                 if (!isThere) {
-                    createSubscriber(ctx, renderData, session, tx, subVar1, subVar2, emailID);
+                    createSubscriber(ctx, renderData, session, subVar1, subVar2, emailID);
                 } else {
                     renderData.put("alreadySubVar1", alreadySubVar1);
                     renderData.put("alreadySubVar2", alreadySubVar2);
                     renderData.put("alreadySubscribed", true);
+                    renderData.put("originalDomain", domain);
                     ctx.render("templates/subscribed.html.pebble", renderData);
                 }
             }
@@ -58,13 +58,13 @@ public class SubscriberController extends App {
         }
     }
 
-    private static void createSubscriber(Context ctx, HashMap<String, Object> renderData, Session session, Transaction tx, String subVar1, String subVar2, String emailID) {
+    private static void createSubscriber(Context ctx, HashMap<String, Object> renderData, Session session, String subVar1, String subVar2, String emailID) {
         DatabaseController.addEmail(emailID);
         renderData.put("subVar1", subVar1);
         renderData.put("subVar2", subVar2);
         renderData.put("subscribed", true);
+        renderData.put("originalDomain", domain);
         ctx.render("templates/subscribed.html.pebble", renderData);
-        tx.commit();
         session.close();
     }
 }

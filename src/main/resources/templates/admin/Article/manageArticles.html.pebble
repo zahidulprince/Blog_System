@@ -48,7 +48,7 @@
 										<a href="#">
 											<i class="fa fa-edit"></i>
 										</a>
-										<a style="color: red; margin-left: 40px;" href="http://localhost:7000/admin/deleteArticle/{{ + article.getId()}}">
+										<a style="color: red; margin-left: 40px;" href="{{ originalDomain + '/deleteArticle/' + article.getId()}}">
 											<i class="fa fa-times"></i>
 										</a>
 									</div>

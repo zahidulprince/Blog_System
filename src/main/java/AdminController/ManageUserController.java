@@ -2,6 +2,7 @@ package AdminController;
 
 import BlogArchitecture.Articles;
 import BlogArchitecture.User;
+import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
@@ -10,7 +11,7 @@ import org.hibernate.Transaction;
 import java.util.HashMap;
 import java.util.List;
 
-public class ManageUserController {
+public class ManageUserController extends App {
     public static void getManageUser(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
@@ -22,6 +23,7 @@ public class ManageUserController {
         renderUser = session.createQuery("FROM User order by id", User.class).getResultList();
 
         renderData.put("users", renderUser);
+        renderData.put("originalDomain", domain);
         if (ctx.sessionAttribute("isRedirected") == "true") {
             renderData.put("deleted", true);
         }
@@ -46,7 +48,7 @@ public class ManageUserController {
 
         s.delete(user);
 
-        ctx.redirect("http://localhost:7000/admin/manageUsers");
+        ctx.redirect(domain + "/admin/manageUsers");
         ctx.sessionAttribute("isRedirected", "true");
 
         tx.commit();

@@ -2,6 +2,7 @@ package AdminController;
 
 import BlogArchitecture.Articles;
 import BlogArchitecture.Category;
+import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
@@ -10,7 +11,7 @@ import org.hibernate.Transaction;
 import java.util.HashMap;
 import java.util.List;
 
-public class ManageCategoriesController {
+public class ManageCategoriesController extends App {
     public static void getManageCategories(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
@@ -22,6 +23,7 @@ public class ManageCategoriesController {
         renderCategory = session.createQuery("FROM Category order by id", Category.class).getResultList();
 
         renderData.put("categories", renderCategory);
+        renderData.put("originalDomain", domain);
         if (ctx.sessionAttribute("isRedirected") == "true") {
             renderData.put("deleted", true);
         }
@@ -47,7 +49,7 @@ public class ManageCategoriesController {
 
         s.delete(category);
 
-        ctx.redirect("http://localhost:7000/admin/manageCategories");
+        ctx.redirect(domain + "/admin/manageCategories");
         ctx.sessionAttribute("isRedirected", "true");
 
         tx.commit();

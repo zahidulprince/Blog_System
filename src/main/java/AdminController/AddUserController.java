@@ -1,6 +1,7 @@
 package AdminController;
 
 import BlogArchitecture.User;
+import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
@@ -9,12 +10,13 @@ import org.hibernate.Transaction;
 import java.util.HashMap;
 import java.util.List;
 
-public class AddUserController {
+public class AddUserController extends App {
     public static void getAddUser(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
         HashMap<String, Object> renderData = new HashMap<>();
         renderData.put("form", true);
+        renderData.put("originalDomain", domain);
 
         ctx.render("templates/admin/User/addUser.html.pebble", renderData);
     }

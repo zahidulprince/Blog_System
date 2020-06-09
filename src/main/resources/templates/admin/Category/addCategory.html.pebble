@@ -9,7 +9,7 @@
             <h4 class="page-title">Add a Category</h4>
             <div class="page-category">A Category must have at least one Article with an User (writer).</div>
             <div class="col-md-6 col-lg-4 mt-5">
-                <form method="post" action="http://localhost:7000/admin/createCategory">
+                <form method="post" action="{{ originalDomain + '/admin/createCategory' }}">
                     <div class="form-group form-floating-label">
                         <input id="inputFloatingLabel" name="addCat" type="text" class="form-control input-border-bottom"
                                required>

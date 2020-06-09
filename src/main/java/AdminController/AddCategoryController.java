@@ -1,6 +1,7 @@
 package AdminController;
 
 import BlogArchitecture.Category;
+import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
@@ -9,13 +10,14 @@ import org.hibernate.Transaction;
 import java.util.HashMap;
 import java.util.List;
 
-public class AddCategoryController {
+public class AddCategoryController extends App {
     public static void getAddCategory(Context ctx) {
 
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
         HashMap<String, Object> renderData = new HashMap<>();
         renderData.put("form", true);
+        renderData.put("originalDomain", domain);
 
         ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
     }

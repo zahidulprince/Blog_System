@@ -26,20 +26,16 @@ public class CategoriesController extends App {
             Query query = session.createQuery("select count(*) from Category");
             long maxRow = (long) query.uniqueResult();
 
-            String originalDomain = domain;
-
             double maxTake = 2;
 
-            double lastPageCheck = Math.ceil(maxRow / maxTake);
-            int LastPage = (int) lastPageCheck;
+            int LastPage = (int) Math.ceil(maxRow / maxTake);
 
             renderCategory = session.createQuery("FROM Category order by id desc", Category.class).setFirstResult(((pn - 1) * 2)).setMaxResults((int) maxTake).getResultList();
 
             renderData.put("categories", renderCategory);
             renderData.put("pn", pn);
-            renderData.put("lastPageCheck", lastPageCheck);
             renderData.put("goToLastPage", LastPage);
-            renderData.put("originalDomain", originalDomain);
+            renderData.put("originalDomain", domain);
 
             ctx.render("templates/categories.html.pebble", renderData);
 

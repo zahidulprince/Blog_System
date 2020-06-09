@@ -6,7 +6,7 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
 
-    static String domain = "http://localhost:7000";
+    public static String domain = "http://localhost:7000";
 
     public static void main(String[] args) {
 

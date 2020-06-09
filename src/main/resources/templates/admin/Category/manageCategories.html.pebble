@@ -35,7 +35,7 @@
 									</a>
 								</td>
 								<td>
-									<a style="color: red; margin-left: 20px;" href="http://localhost:7000/admin/deleteCategory/{{ + category.getId()}}">
+									<a style="color: red; margin-left: 20px;" href="{{ originalDomain + '/admin/deleteCategory/' + category.getId()}}">
 										<i class="fa fa-times"></i>
 									</a>
 								</td>

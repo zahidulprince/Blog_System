@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 
 public class BlogController extends App {
 
+//  Start --- Removing HTML Tags
     private static final Pattern REMOVE_TAGS = Pattern.compile("<.+?>");
 
     public static String removeTags(String string) {
@@ -25,12 +26,13 @@ public class BlogController extends App {
 
         return m.replaceAll("");
     }
+//  End
 
     public static void getBlogHome(Context ctx) {
 
         List<Articles> renderArticles;
-
         HashMap<String, Object> renderData = new HashMap<>();
+        String path = String.format("%s/blog/", domain);
 
         Articles latestArticle;
 
@@ -40,7 +42,7 @@ public class BlogController extends App {
 
             Session session = DatabaseController.sf.openSession();
 
-//          Getting The Latest Id'd Article
+//          Start --- Getting The Latest Id'd Article
             Query query1 = session.createQuery("select max(id) from Articles");
             int latestArticleID = (int) query1.uniqueResult();
 
@@ -48,53 +50,39 @@ public class BlogController extends App {
 
             String latestArticleDescription = latestArticle.getDescription();
             latestArticleDescription = removeTags(latestArticleDescription);
+//          End
 
-            //Getting how many rows are in there
+            //Getting how many rows are in there and counting last page
             Query query = session.createQuery("select count(*) from Articles");
-            long maxRowNT = (long) query.uniqueResult();
-            long maxRow = maxRowNT - 1;
 
+            long maxRow = (long) query.uniqueResult() - 1;
             double maxTake = 6;
+            int LastPage = (int) Math.ceil(maxRow / maxTake);
+//          End
 
-            double lastPageCheck = Math.ceil(maxRow / maxTake);
-
-            int LastPage = (int) lastPageCheck;
-
-            String originalDomain = domain;
-
-            String path = String.format("%s/blog/", domain);
-
-            //showing all the articles
+//          showing all the articles
             renderArticles = session.createQuery("FROM Articles order by id desc", Articles.class).setFirstResult(((pn - 1) * 6) + 1).setMaxResults((int) maxTake).getResultList();
 
+//          start --- removing HTML Tags by calling removeTags
             String[] descriptions = new String[6];
             int iterateDescription = 0;
 
-            for (Articles articles1: renderArticles) {
-                descriptions[iterateDescription]  = articles1.getDescription();
+            for (Articles articles : renderArticles) {
+                descriptions[iterateDescription] = articles.getDescription();
+                descriptions[iterateDescription] = removeTags(descriptions[iterateDescription]);
+                articles.setDescription(descriptions[iterateDescription]);
                 iterateDescription++;
             }
-
-            for (int i = 0; i < descriptions.length; i++) {
-                descriptions[i] = removeTags(descriptions[i]);
-            }
-
-            int test = 0;
-            for (Articles articles: renderArticles) {
-                articles.setDescription(descriptions[test]);
-                test++;
-            }
+//          End
 
             renderData.put("latestArticle", latestArticle);
             renderData.put("moreArticles", renderArticles);
             renderData.put("pn", pn);
-            renderData.put("lastPageCheck", lastPageCheck);
             renderData.put("goToLastPage", LastPage);
             renderData.put("index", true);
             renderData.put("subscription", true);
             renderData.put("path", path);
-            renderData.put("originalDomain", originalDomain);
-            renderData.put("descriptions", descriptions);
+            renderData.put("originalDomain", domain);
             renderData.put("latestArticleDescription", latestArticleDescription);
 
             ctx.render("templates/index.html.pebble", renderData);
