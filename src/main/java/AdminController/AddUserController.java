@@ -51,6 +51,7 @@ public class AddUserController extends App {
                 createUser(ctx, renderData, s, tx, userName, userEmail, userPass);
             } else {
                 renderData.put("addedAlready", true);
+                renderData.put("originalDomain", domain);
                 ctx.render("templates/admin/User/addUser.html.pebble", renderData);
             }
         }
@@ -65,6 +66,7 @@ public class AddUserController extends App {
         tx.commit();
         s.close();
         renderData.put("added", true);
+        renderData.put("originalDomain", domain);
         ctx.render("templates/admin/User/addUser.html.pebble", renderData);
     }
 }

@@ -92,6 +92,7 @@ public class AddArticleController extends App {
                     createArticle(ctx, renderData, s, tx, articleDescription, articleImageLink, articleTitle,  categoryToSet, userToSet);
                 } else {
                     renderData.put("addedAlready", true);
+                    renderData.put("originalDomain", domain);
                     ctx.render("templates/admin/Article/addArticle.html.pebble", renderData);
                 }
             }
@@ -110,6 +111,7 @@ public class AddArticleController extends App {
         tx.commit();
         s.close();
         renderData.put("added", true);
+        renderData.put("originalDomain", domain);
         ctx.render("templates/admin/Article/addArticle.html.pebble", renderData);
     }
 }

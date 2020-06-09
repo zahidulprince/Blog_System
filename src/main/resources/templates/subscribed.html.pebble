@@ -21,7 +21,7 @@
 
 
 <div class="d-flex align-items-center justify-content-center animated fadeInUp" style="margin: 60px;">
-    <a href="{{ originalDomain + 'blog/1' }}" style="padding-right: 20px;" class="noHoverColorChangeWhite">
+    <a href="{{ originalDomain + '/blog/1' }}" style="padding-right: 20px;" class="noHoverColorChangeWhite">
         <div class="btn-custom d-flex align-items-center justify-content-center" >
             Home
         </div>

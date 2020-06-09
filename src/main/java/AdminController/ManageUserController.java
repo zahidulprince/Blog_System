@@ -24,7 +24,7 @@ public class ManageUserController extends App {
 
         renderData.put("users", renderUser);
         renderData.put("originalDomain", domain);
-        if (ctx.sessionAttribute("isRedirected") == "true") {
+        if (ctx.sessionAttribute("isRedirected") == "fromManageUsers") {
             renderData.put("deleted", true);
         }
 
@@ -49,7 +49,7 @@ public class ManageUserController extends App {
         s.delete(user);
 
         ctx.redirect(domain + "/admin/manageUsers");
-        ctx.sessionAttribute("isRedirected", "true");
+        ctx.sessionAttribute("isRedirected", "fromManageUsers");
 
         tx.commit();
         s.close();

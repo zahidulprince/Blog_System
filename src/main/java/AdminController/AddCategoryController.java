@@ -53,6 +53,7 @@ public class AddCategoryController extends App {
                 createCategory(ctx, renderData, s, tx, categoryName);
             } else {
                 renderData.put("addedAlready", true);
+                renderData.put("originalDomain", domain);
                 ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
             }
         }
@@ -65,6 +66,7 @@ public class AddCategoryController extends App {
         tx.commit();
         s.close();
         renderData.put("added", true);
+        renderData.put("originalDomain", domain);
         ctx.render("templates/admin/Category/addCategory.html.pebble", renderData);
     }
 }

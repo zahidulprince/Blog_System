@@ -24,7 +24,7 @@ public class ManageCategoriesController extends App {
 
         renderData.put("categories", renderCategory);
         renderData.put("originalDomain", domain);
-        if (ctx.sessionAttribute("isRedirected") == "true") {
+        if (ctx.sessionAttribute("isRedirected") == "fromManageCategories") {
             renderData.put("deleted", true);
         }
 
@@ -50,7 +50,7 @@ public class ManageCategoriesController extends App {
         s.delete(category);
 
         ctx.redirect(domain + "/admin/manageCategories");
-        ctx.sessionAttribute("isRedirected", "true");
+        ctx.sessionAttribute("isRedirected", "fromManageCategories");
 
         tx.commit();
         s.close();

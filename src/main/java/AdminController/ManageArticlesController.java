@@ -24,7 +24,7 @@ public class ManageArticlesController extends App {
 
         renderData.put("articles", renderArticle);
         renderData.put("originalDomain", domain);
-        if (ctx.sessionAttribute("isRedirected") == "delete") {
+        if (ctx.sessionAttribute("isRedirected") == "fromManageArticles") {
             renderData.put("deleted", true);
         }
 
@@ -44,7 +44,7 @@ public class ManageArticlesController extends App {
         s.delete(articles);
 
         ctx.redirect(domain + "/admin/manageArticles");
-        ctx.sessionAttribute("isRedirected", "delete");
+        ctx.sessionAttribute("isRedirected", "fromManageArticles");
 
         tx.commit();
         s.close();
