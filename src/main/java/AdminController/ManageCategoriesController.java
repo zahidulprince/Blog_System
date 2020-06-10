@@ -8,13 +8,13 @@ import io.javalin.http.Context;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static Util.ViewUtil.baseModel;
 
 public class ManageCategoriesController extends App {
+
     public static void getManageCategories(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
@@ -33,6 +33,14 @@ public class ManageCategoriesController extends App {
         ctx.render("templates/admin/Category/manageCategories.html.pebble", model);
     }
 
+    public static void getCategoryEditForm(Context ctx) {
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
+        Map<String, Object> model = baseModel(ctx);
+        model.put("updateForm", true);
+
+        ctx.render("templates/admin/Category/addCategory.html.pebble", model);
+    }
 
     public static void deleteCategory(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
@@ -115,15 +123,5 @@ public class ManageCategoriesController extends App {
         s.close();
         model.put("updated", true);
         ctx.render("templates/admin/Category/addCategory.html.pebble", model);
-    }
-
-    public static void getEditForm(Context ctx) {
-        ctx.sessionAttribute("loginRedirect", ctx.path());
-
-        Map<String, Object> model = baseModel(ctx);
-        model.put("updateForm", true);
-
-        ctx.render("templates/admin/Category/addCategory.html.pebble", model);
-
     }
 }

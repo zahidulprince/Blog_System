@@ -17,7 +17,7 @@ public class App {
             before(LoginController.ensureLoginBeforeViewingEditor);
 
             get("/login", LoginController.serveLoginPage);
-            get("/logout", LoginController.handleLogoutPost);
+            post("/logout", LoginController.handleLogoutPost);
             post("/wrong/credentials", LoginController.handleLoginPost);
 
             path("/admin", () -> {
@@ -31,15 +31,18 @@ public class App {
                 get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/manageUsers", ManageUserController::getManageUser);
 
-                get("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
-                get("/deleteUser/:un", ManageUserController::deleteUser);
-                get("/deleteArticle/:an", ManageArticlesController::deleteArticle);
+                post("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
+                post("/deleteUser/:un", ManageUserController::deleteUser);
+                post("/deleteArticle/:an", ManageArticlesController::deleteArticle);
 
                 post("/editCategory", ManageCategoriesController::editCategory);
-                get("/editUser/:un", ManageUserController::editUser);
-                get("/editArticle/:an", ManageArticlesController::editArticle);
+                post("/editUser", ManageUserController::editUser);
+//                post("/editArticle/", ManageArticlesController::editArticle);
 
-                get("/updateCategory", ManageCategoriesController::getEditForm);
+                get("/updateCategory", ManageCategoriesController::getCategoryEditForm);
+                get("/select", ManageUserController::askToSelectOptionsToUpdate);
+                get("/updateUser", ManageUserController::getUserEditForm);
+//                get("/updateArticle", ManageArticlesController::getArticleEditForm);
 
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);

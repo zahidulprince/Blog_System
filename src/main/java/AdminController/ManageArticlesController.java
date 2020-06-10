@@ -51,4 +51,7 @@ public class ManageArticlesController extends App {
 
     public static void editArticle(Context ctx) {
     }
+
+    public static void getArticleEditForm(Context context) {
+    }
 }

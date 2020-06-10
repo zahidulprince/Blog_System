@@ -23,13 +23,72 @@ public class ManageUserController extends App {
         Map<String, Object> model = baseModel(ctx);
 
         userList = session.createQuery("FROM User order by id", User.class).getResultList();
-
         model.put("users", userList);
+
         if (ctx.sessionAttribute("isRedirected") == "fromManageUsers") {
             model.put("deleted", true);
         }
 
         ctx.render("templates/admin/User/manageUsers.html.pebble", model);
+    }
+
+    public static void askToSelectOptionsToUpdate(Context ctx) {
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
+        Map<String, Object> model = baseModel(ctx);
+        model.put("askForm", true);
+
+        ctx.render("templates/admin/User/addUser.html.pebble", model);
+    }
+
+    public static void getUserEditForm(Context ctx) {
+        ctx.sessionAttribute("loginRedirect", ctx.path());
+
+        Map<String, Object> model = baseModel(ctx);
+
+        String name = ctx.queryParam("name");
+        String email = ctx.queryParam("email");
+        String password = ctx.queryParam("password");
+
+        System.out.println(name);
+        System.out.println(email);
+        System.out.println(password);
+
+        if (name == null && email == null && password == null) {
+            model.put("nothingSelected", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+//---------------------------------------------------------------------
+        if (name != null && email == null && password == null) {
+            model.put("nameUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+        if (name == null && email != null && password == null) {
+            model.put("emailUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+        if (name == null && email == null && password != null) {
+            model.put("passwordUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+//----------------------------------------------------------------------
+        if (name != null && email != null && password == null) {
+            model.put("nameAndEmailUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+        if (name != null && email == null && password != null) {
+            model.put("nameAndPasswordUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+        if (name == null && email != null && password != null) {
+            model.put("emailAndPasswordUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
+//----------------------------------------------------------------------
+        if (name != null && email != null && password != null) {
+            model.put("allUpdateForm", true);
+            ctx.render("templates/admin/User/addUser.html.pebble", model);
+        }
     }
 
     public static void deleteUser(Context ctx) {
@@ -56,5 +115,6 @@ public class ManageUserController extends App {
     }
 
     public static void editUser(Context ctx) {
+        ctx.result("You are in edit user");
     }
 }

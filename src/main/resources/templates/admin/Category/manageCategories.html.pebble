@@ -35,9 +35,14 @@
 									</a>
 								</td>
 								<td>
-									<a style="color: red; margin-left: 20px;" href="{{ originalDomain + '/admin/deleteCategory/' + category.getId()}}">
-										<i class="fa fa-times"></i>
-									</a>
+									<form style="margin-left: 7px;" method="post" action="{{ originalDomain + '/admin/deleteCategory/' + category.getId()}}">
+										<button style="background-color: transparent; border: none; color: #c40000;">
+											<i class="fa fa-edit"></i>
+										</button>
+									</form>
+{#									<a style="color: red; margin-left: 20px;" href="{{ originalDomain + '/admin/deleteCategory/' + category.getId()}}">#}
+{#										<i class="fa fa-times"></i>#}
+{#									</a>#}
 								</td>
 							</tr>
 							{% endfor %}

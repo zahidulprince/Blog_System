@@ -65,7 +65,6 @@ public class AddArticleController extends App {
             }
         }
 
-
         for (User user : userList) {
             if (articleWriterEmail.equals(user.getEmail())) {
                 userToSet = user;

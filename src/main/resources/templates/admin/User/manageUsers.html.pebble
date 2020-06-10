@@ -32,14 +32,19 @@
 								<td>{{ user.getName() }}</td>
 								<td>{{ user.getEmail() }}</td>
 								<td>
-									<a style="margin-left: 7px;" href="{{ originalDomain + '/admin/editUser/' + user.getId()}}">
+									<a style="margin-left: 7px;" href="{{ originalDomain + '/admin/select'}}">
 										<i class="fa fa-edit"></i>
 									</a>
 								</td>
 								<td>
-									<a style="color: red; margin-left: 20px;" href="{{ originalDomain + '/admin/deleteUser/' + user.getId()}}">
-										<i class="fa fa-times"></i>
-									</a>
+									<form method="post" action="{{ originalDomain + '/admin/deleteUser/' + user.getId()}}">
+										<button style="background-color: transparent; border: none; color: #b40101">
+											<i class="fa fa-times"></i>
+										</button>
+									</form>
+{#									<a style="color: red; margin-left: 20px;" href="{{ originalDomain + '/admin/deleteUser/' + user.getId()}}">#}
+{#										<i class="fa fa-times"></i>#}
+{#									</a>#}
 								</td>
 							</tr>
 							{% endfor %}

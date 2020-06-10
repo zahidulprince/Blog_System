@@ -66,7 +66,7 @@
 <div class="main-panel">
     <div class="content">
         <div class="page-inner">
-            <h4 class="page-title">Add a Category</h4>
+            <h4 class="page-title">Update a Category</h4>
             <div class="page-category">A Category must have at least one Article with an User (writer).</div>
             <div class="col-md-6 col-lg-4 mt-5">
                 <form method="post" action="{{ originalDomain + '/admin/editCategory' }}">

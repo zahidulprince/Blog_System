@@ -48,9 +48,11 @@
 										<a href="{{ originalDomain + '/admin/editArticle/' + article.getId()}}">
 											<i class="fa fa-edit"></i>
 										</a>
-										<a style="color: red; margin-left: 40px;" href="{{ originalDomain + '/admin/deleteArticle/' + article.getId()}}">
-											<i class="fa fa-times"></i>
-										</a>
+										<form method="post" action="{{ originalDomain + '/admin/deleteArticle/' + article.getId()}}">
+											<button style="background-color: transparent; border: none; color: red; margin-left: 40px;">
+												<i class="fa fa-times"></i>
+											</button>
+										</form>
 									</div>
 								</td>
 							</tr>
