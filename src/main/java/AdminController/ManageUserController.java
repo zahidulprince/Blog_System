@@ -1,7 +1,6 @@
 package AdminController;
 
 import BlogArchitecture.Articles;
-import BlogArchitecture.Category;
 import BlogArchitecture.User;
 import BlogController.App;
 import BlogController.DatabaseController;
@@ -29,13 +28,12 @@ public class ManageUserController extends App {
         if (ctx.sessionAttribute("isRedirected") == "fromManageUsers") {
             model.put("deleted", true);
         }
-        if (ctx.sessionAttribute("isRedirectedAfterUpdate") == "fromManageUsers") {
+        if (ctx.sessionAttribute("isRedirected") == "isRedirectedAfterUpdate") {
             model.put("updated", true);
         }
-        if (ctx.sessionAttribute("isRedirectedUserExists") == "fromManageUsers") {
+        if (ctx.sessionAttribute("isRedirected") == "isRedirectedUserExists") {
             model.put("alreadyThere", true);
         }
-
 
         ctx.render("templates/admin/User/manageUsers.html.pebble", model);
     }
@@ -157,12 +155,15 @@ public class ManageUserController extends App {
                     updateUser(ctx, model, s, tx, null, emailNew, null, userId);
                 } else {
                     System.out.println("am at the top");
-                    ctx.sessionAttribute("isRedirectedUserExists", "fromManageUsers");
+                    ctx.sessionAttribute("isRedirected", "isRedirectedUserExists");
                     ctx.redirect(domain + "/admin/manageUsers");
                 }
             }
             if (nameNew == null && emailNew == null && passNew != null) {
                 updateUser(ctx, model, s, tx, null, null, passNew, userId);
+            }
+            if (nameNew != null && emailNew != null && passNew == null) {
+                updateUser(ctx, model, s, tx, nameNew, emailNew, null, userId);
             }
         } else {
             model.put("wrongPass", true);
@@ -208,7 +209,7 @@ public class ManageUserController extends App {
         s.close();
         model.put("updated", true);
         System.out.println("am at the bottom");
-        ctx.sessionAttribute("isRedirectedAfterUpdate", "fromManageUsers");
+        ctx.sessionAttribute("isRedirected", "isRedirectedAfterUpdate");
         ctx.redirect(domain + "/admin/manageUsers");
     }
 }
