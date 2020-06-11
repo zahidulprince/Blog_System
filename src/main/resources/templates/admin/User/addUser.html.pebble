@@ -268,6 +268,19 @@
 
 {% endif %}
 
+{% if wrongPass is defined %}
+
+	<div class="main-panel">
+		<div class="content">
+			<div class="page-inner">
+				<h4 class="page-title" style="color: red;">Wrong password provided. Please, try again.</h4>
+				<div class="page-category">To update User information(s), please provide with correct password for veriication. Thank you.</div>
+			</div>
+		</div>
+	</div>
+
+{% endif %}
+
 {% if addedAlready is defined %}
 
 	<div class="main-panel">

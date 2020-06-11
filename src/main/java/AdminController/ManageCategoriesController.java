@@ -29,6 +29,9 @@ public class ManageCategoriesController extends App {
         if (ctx.sessionAttribute("isRedirected") == "fromManageCategories") {
             model.put("deleted", true);
         }
+        if (ctx.sessionAttribute("isRedirected") == "fromManageCategoriesAfterUpdate") {
+            model.put("updated", true);
+        }
 
         ctx.render("templates/admin/Category/manageCategories.html.pebble", model);
     }
@@ -121,7 +124,7 @@ public class ManageCategoriesController extends App {
         s.save(categoryToUpdate);
         tx.commit();
         s.close();
-        model.put("updated", true);
-        ctx.render("templates/admin/Category/addCategory.html.pebble", model);
+        ctx.redirect(domain + "/admin/manageCategories");
+        ctx.sessionAttribute("isRedirected", "fromManageCategoriesAfterUpdate");
     }
 }

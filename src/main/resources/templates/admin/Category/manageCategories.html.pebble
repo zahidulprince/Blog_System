@@ -12,6 +12,9 @@
 					{% if deleted is defined %}
 						<div class="page-category" style="color: #2bb930">Succesfully deleted</div>
 					{% endif %}
+					{% if updated is defined %}
+						<div class="page-category" style="color: #2bb930">Succesfully updated</div>
+					{% endif %}
 				</div>
 				<div class="col-md-12">
 					<div class="card-body table-responsive">

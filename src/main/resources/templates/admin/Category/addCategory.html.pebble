@@ -35,19 +35,6 @@
 
 {% endif %}
 
-{% if updated is defined %}
-
-    <div class="main-panel">
-        <div class="content">
-            <div class="page-inner">
-                <h4 class="page-title">Category updated successfully.</h4>
-                <div class="page-category">Thank you!</div>
-            </div>
-        </div>
-    </div>
-
-{% endif %}
-
 {% if noCat is defined %}
 
     <div class="main-panel">

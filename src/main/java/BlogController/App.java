@@ -31,22 +31,22 @@ public class App {
                 get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/manageUsers", ManageUserController::getManageUser);
 
-                post("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
-                post("/deleteUser/:un", ManageUserController::deleteUser);
-                post("/deleteArticle/:an", ManageArticlesController::deleteArticle);
-
-                post("/editCategory", ManageCategoriesController::editCategory);
-                post("/editUser", ManageUserController::editUser);
-//                post("/editArticle/", ManageArticlesController::editArticle);
-
                 get("/updateCategory", ManageCategoriesController::getCategoryEditForm);
                 get("/select", ManageUserController::askToSelectOptionsToUpdate);
                 get("/updateUser", ManageUserController::getUserEditForm);
 //                get("/updateArticle", ManageArticlesController::getArticleEditForm);
 
+                post("/editCategory", ManageCategoriesController::editCategory);
+                post("/editUser", ManageUserController::editUser);
+//                post("/editArticle/", ManageArticlesController::editArticle);
+
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);
                 post("/createArticle", AddArticleController::addArticle);
+
+                post("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
+                post("/deleteUser/:un", ManageUserController::deleteUser);
+                post("/deleteArticle/:an", ManageArticlesController::deleteArticle);
             });
 
             path("/blog", () -> {
