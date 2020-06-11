@@ -170,6 +170,9 @@ public class ManageUserController extends App {
             if (nameNew != null && emailNew == null && passNew != null) {
                 updateUser(ctx, model, s, tx, nameNew, null, passNew, userId);
             }
+            if (nameNew == null && emailNew != null && passNew != null) {
+                updateUser(ctx, model, s, tx, null, emailNew, passNew, userId);
+            }
         } else {
             model.put("wrongPass", true);
             ctx.render("templates/admin/User/addUser.html.pebble", model);
