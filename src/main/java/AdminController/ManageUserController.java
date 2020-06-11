@@ -36,6 +36,7 @@ public class ManageUserController extends App {
         }
 
         ctx.render("templates/admin/User/manageUsers.html.pebble", model);
+        ctx.sessionAttribute("isRedirected", "itself");
     }
 
     public static void askToSelectOptionsToUpdate(Context ctx) {
@@ -162,8 +163,12 @@ public class ManageUserController extends App {
             if (nameNew == null && emailNew == null && passNew != null) {
                 updateUser(ctx, model, s, tx, null, null, passNew, userId);
             }
+//            ----------------------------------
             if (nameNew != null && emailNew != null && passNew == null) {
                 updateUser(ctx, model, s, tx, nameNew, emailNew, null, userId);
+            }
+            if (nameNew != null && emailNew == null && passNew != null) {
+                updateUser(ctx, model, s, tx, nameNew, null, passNew, userId);
             }
         } else {
             model.put("wrongPass", true);

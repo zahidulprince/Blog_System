@@ -29,6 +29,7 @@ public class ManageArticlesController extends App {
         }
 
         ctx.render("templates/admin/Article/manageArticles.html.pebble", model);
+        ctx.sessionAttribute("isRedirected", "itself");
     }
 
     public static void deleteArticle(Context ctx) {

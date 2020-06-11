@@ -34,6 +34,7 @@ public class ManageCategoriesController extends App {
         }
 
         ctx.render("templates/admin/Category/manageCategories.html.pebble", model);
+        ctx.sessionAttribute("isRedirected", "itself");
     }
 
     public static void getCategoryEditForm(Context ctx) {
