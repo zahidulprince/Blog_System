@@ -161,6 +161,9 @@ public class ManageUserController extends App {
                     ctx.redirect(domain + "/admin/manageUsers");
                 }
             }
+            if (nameNew == null && emailNew == null && passNew != null) {
+                updateUser(ctx, model, s, tx, null, null, passNew, userId);
+            }
         } else {
             model.put("wrongPass", true);
             ctx.render("templates/admin/User/addUser.html.pebble", model);
