@@ -2,6 +2,8 @@ package BlogController;
 
 import AdminController.*;
 import io.javalin.Javalin;
+
+import static com.sun.deploy.util.BufferUtil.MB;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
@@ -10,7 +12,11 @@ public class App {
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create(Config -> {Config.addStaticFiles("/public");}).start(7000);
+        Javalin app = Javalin.create(Config -> {
+            Config.addStaticFiles("/public");
+            Config.requestCacheSize = MB;
+        }).start(7000);
+
 
         app.routes(() -> {
 
