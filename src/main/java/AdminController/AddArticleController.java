@@ -1,8 +1,6 @@
 package AdminController;
 
-import BlogArchitecture.Articles;
-import BlogArchitecture.Category;
-import BlogArchitecture.User;
+import BlogArchitecture.*;
 import BlogController.App;
 import BlogController.DatabaseController;
 import io.javalin.http.Context;
@@ -16,9 +14,6 @@ import java.util.Map;
 import static Util.ViewUtil.baseModel;
 
 public class AddArticleController extends App {
-
-    static Category categoryToSet;
-    static User userToSet;
 
     public static void getAddArticle(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
@@ -43,11 +38,18 @@ public class AddArticleController extends App {
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
 
+        Category categoryToSet = null;
+        User userToSet = null;
+
         String articleTitle = ctx.formParam("articleTitle");
         String articleCategory = ctx.formParam("articleCategory");
         String articleWriterEmail = ctx.formParam("articleWriter");
         String articleDescription = ctx.formParam("tinymcetext");
         String articleImageLink = ctx.formParam("articleHeroImageLink");
+
+//        ctx.uploadedFiles("files").forEach(file -> {
+//            FileUtil.streamToFile(file.getContent(), "D:/upload/" + file.getFilename());
+//        });
 
         boolean isThere = false;
         boolean categoryCheckedRight = false;

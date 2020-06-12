@@ -17,7 +17,6 @@ public class App {
             Config.requestCacheSize = MB;
         }).start(7000);
 
-
         app.routes(() -> {
 
             before(LoginController.ensureLoginBeforeViewingEditor);
@@ -40,11 +39,11 @@ public class App {
                 get("/updateCategory", ManageCategoriesController::getCategoryEditForm);
                 get("/select", ManageUserController::askToSelectOptionsToUpdate);
                 get("/updateUser", ManageUserController::getUserEditForm);
-//                get("/updateArticle", ManageArticlesController::getArticleEditForm);
+                get("/updateArticle/:an", ManageArticlesController::getArticleEditForm);
 
                 post("/editCategory", ManageCategoriesController::editCategory);
                 post("/editUser", ManageUserController::editUser);
-//                post("/editArticle/", ManageArticlesController::editArticle);
+                post("/editArticle/:an", ManageArticlesController::editArticle);
 
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);
@@ -66,10 +65,10 @@ public class App {
     }
 }
 
-
-
-
-
+//TODO 1. Image automatic resize
+//     2. Multiple User Admin Interface
+//     3. Access Manager
+//     4. Local Image Upload
 
 
 
