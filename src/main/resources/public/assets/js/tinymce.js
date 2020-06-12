@@ -7,11 +7,15 @@ tinymce.init({
     content_css: 'dark',
 
     plugins: [
-		"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+		"advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker",
 		"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
         "save table contextmenu directionality emoticons template paste textcolor code help casechange",
         "lists checklist autosave"
     ],
+
+    mobile: {
+        menubar: true
+    },
 
     
 
@@ -25,7 +29,6 @@ tinymce.init({
     autosave_interval: "20s",
     autosave_restore_when_empty: true,
     autosave_retention: "3000m",
-    autosave_restore_when_empty: true,
 
     /* toolbar */
 

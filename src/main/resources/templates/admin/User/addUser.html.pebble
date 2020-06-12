@@ -15,7 +15,7 @@
 						<label for="inputFloatingLabel" class="placeholder">Name</label>
 					</div>
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" name="userEmail" type="email" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userEmail" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">Email</label>
 					</div>
 					<div class="form-group form-floating-label">
@@ -93,7 +93,7 @@
 			<div class="col-md-6 col-lg-4 mt-5">
 				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">New email</label>
 					</div>
 					<div class="form-group form-floating-label">
@@ -143,7 +143,7 @@
 						<label for="inputFloatingLabel" class="placeholder">New name</label>
 					</div>
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">New email</label>
 					</div>
 					<div class="form-group form-floating-label">
@@ -193,7 +193,7 @@
 			<div class="col-md-6 col-lg-4 mt-5">
 				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">New email</label>
 					</div>
 					<div class="form-group form-floating-label">
@@ -224,7 +224,7 @@
 						<label for="inputFloatingLabel" class="placeholder">New name</label>
 					</div>
 					<div class="form-group form-floating-label">
-						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" required>
+						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">New email</label>
 					</div>
 					<div class="form-group form-floating-label">
