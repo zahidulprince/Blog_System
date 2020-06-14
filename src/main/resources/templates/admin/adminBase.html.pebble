@@ -30,8 +30,8 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-{#    <link rel="stylesheet" href="../../assets/css/atlantis.min.css">#}
-    <link rel="stylesheet" href="../../assets/sass/atlantis.css">
+    <link rel="stylesheet" href="../../assets/css/atlantis.min.css">
+{#    <link rel="stylesheet" href="../../assets/sass/atlantis.css">#}
 
 </head>
 
