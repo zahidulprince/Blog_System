@@ -25,6 +25,8 @@ public class App {
             post("/logout", LoginController.handleLogoutPost);
             post("/wrong/credentials", LoginController.handleLoginPost);
 
+            get("/addData", DatabaseController::addData);
+
             path("/admin", () -> {
                 get("/home", AdminHome::getBlogHome);
 

@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import io.javalin.http.Context;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Date;
 import java.util.Random;
@@ -57,17 +58,29 @@ public class DatabaseController{
         User user1 = new User();
         User user2 = new User();
 
+        String newSaltUser = BCrypt.gensalt();
+        String hashPassUser = BCrypt.hashpw("checkpass", newSaltUser);
+
         user.setName("Zahidul Islam Prince");
         user.setEmail("zahidulisprince@gmail.com");
-        user.setPassword("checkpass");
+        user.setSalt(newSaltUser);
+        user.setPassword(hashPassUser);
+
+        String newSaltUser1 = BCrypt.gensalt();
+        String hashPassUser1 = BCrypt.hashpw("checkpass1", newSaltUser1);
 
         user1.setName("Rafsan Prince");
         user1.setEmail("rafsanprince@gmail.com");
-        user1.setPassword("checkpass1");
+        user1.setSalt(newSaltUser1);
+        user1.setPassword(hashPassUser1);
+
+        String newSaltUser2 = BCrypt.gensalt();
+        String hashPassUser2 = BCrypt.hashpw("checkpass2", newSaltUser2);
 
         user2.setName("Aysha Amin Nishi");
         user2.setEmail("nishiamin00@gmail.com");
-        user2.setPassword("checkpass3");
+        user2.setSalt(newSaltUser2);
+        user2.setPassword(hashPassUser2);
 
         s.save(user);
         s.save(user1);
@@ -80,17 +93,17 @@ public class DatabaseController{
         articles.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles.setDate(new Date());
         articles.setDescription(faker.lorem().sentence(250+random.nextInt(1000)));
-        articles.setLink("https://source.unsplash.com/1600x900");
+        articles.setLink("https://source.unsplash.com/1280x960");
 
         articles2.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles2.setDate(new Date());
         articles2.setDescription(faker.lorem().sentence(250+random.nextInt(1000)));
-        articles2.setLink("https://source.unsplash.com/1600x900");
+        articles2.setLink("https://source.unsplash.com/1280x960");
 
         articles3.setTitle(faker.lorem().sentence(3+random.nextInt(7)));
         articles3.setDate(new Date());
         articles3.setDescription(faker.lorem().sentence(250+random.nextInt(1000)));
-        articles3.setLink("https://source.unsplash.com/1600x900");
+        articles3.setLink("https://source.unsplash.com/1280x960");
 
         articles.setCategory(category);
         articles2.setCategory(category2);

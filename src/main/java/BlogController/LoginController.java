@@ -5,6 +5,7 @@ import BlogArchitecture.User;
 import io.javalin.http.Handler;
 
 import org.hibernate.Session;
+import org.mindrot.jbcrypt.BCrypt;
 
 import static Util.RequestUtil.*;
 import static Util.ViewUtil.*;
@@ -56,22 +57,21 @@ public class LoginController extends App {
         if (email == null || password == null) {
             return false;
         }
-        User user = getUserByUsermail(email);
-        if (user == null) {
-            return false;
-        }
-        boolean passwordMatched = false;
+        User user = null;
+
         for (User user1 : allUsers) {
-            if (password.equals(user1.getPassword())) {
-                passwordMatched = true;
+            if (email.equals(user1.getEmail())) {
+                user = user1;
                 break;
             }
         }
-        return passwordMatched;
-    }
 
-    private static User getUserByUsermail(String email) {
-        return allUsers.stream().filter(b -> b.email.equals(email)).findFirst().orElse(null);
+        if (user == null) {
+            return false;
+        }
+
+        String hashedPassword = BCrypt.hashpw(password, user.getSalt());
+        return hashedPassword.equals(user.getPassword());
     }
 
     public static Handler handleLogoutPost = ctx -> {

@@ -11,7 +11,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    public String name;
+    private String name;
 
     @OneToMany(mappedBy = "category")
     private List<Articles> articles = new ArrayList<>();

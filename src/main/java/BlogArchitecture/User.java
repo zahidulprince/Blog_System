@@ -12,7 +12,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    public String email;
+    private String email;
+    private String salt;
     private String password;
 
     @OneToMany(mappedBy = "user")
@@ -20,6 +21,14 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     public String getName() {
