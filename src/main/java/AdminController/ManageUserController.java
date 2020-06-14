@@ -7,6 +7,7 @@ import BlogController.DatabaseController;
 import io.javalin.http.Context;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
 import java.util.Map;
@@ -41,15 +42,19 @@ public class ManageUserController extends App {
 
     public static void askToSelectOptionsToUpdate(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
+        int userId = Integer.parseInt(ctx.pathParam("un"));
 
         Map<String, Object> model = baseModel(ctx);
         model.put("askForm", true);
+        model.put("userId", userId);
 
         ctx.render("templates/admin/User/addUser.html.pebble", model);
     }
 
     public static void getUserEditForm(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
+
+        int userId = Integer.parseInt(ctx.pathParam("un"));
 
         Map<String, Object> model = baseModel(ctx);
 
@@ -59,39 +64,34 @@ public class ManageUserController extends App {
 
         if (name == null && email == null && password == null) {
             model.put("nothingSelected", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
 //---------------------------------------------------------------------
         if (name != null && email == null && password == null) {
             model.put("nameUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
         if (name == null && email != null && password == null) {
             model.put("emailUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
         if (name == null && email == null && password != null) {
             model.put("passwordUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
 //----------------------------------------------------------------------
         if (name != null && email != null && password == null) {
             model.put("nameAndEmailUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
         if (name != null && email == null && password != null) {
             model.put("nameAndPasswordUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
         if (name == null && email != null && password != null) {
             model.put("emailAndPasswordUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
 //----------------------------------------------------------------------
         if (name != null && email != null && password != null) {
             model.put("allUpdateForm", true);
-            ctx.render("templates/admin/User/addUser.html.pebble", model);
         }
+
+        model.put("userId", userId);
+        ctx.render("templates/admin/User/addUser.html.pebble", model);
     }
 
     public static void deleteUser(Context ctx) {
@@ -120,40 +120,42 @@ public class ManageUserController extends App {
     public static void editUser(Context ctx) {
         ctx.sessionAttribute("loginRedirect", ctx.path());
 
+        int userId = Integer.parseInt(ctx.pathParam("un"));
+
         Session s = DatabaseController.sf.openSession();
         Transaction tx = s.beginTransaction();
 
         Map<String, Object> model = baseModel(ctx);
         List<User> userList;
-        boolean passwordMatched = false;
+        boolean passwordMatched;
         boolean emailIsThere = false;
-        int userId = 0;
 
         String nameNew = ctx.formParam("userNameNew");
         String emailNew = ctx.formParam("userEmailNew");
         String passNew = ctx.formParam("userPassNew");
         String passOld = ctx.formParam("userPassOld");
 
+        User userToUpdate = s.get(User.class, userId);
+
+        String hashedPassword = BCrypt.hashpw(passOld, userToUpdate.getSalt());
+        passwordMatched = hashedPassword.equals(userToUpdate.getPassword());
+
         userList = s.createQuery("FROM User", User.class).getResultList();
 
-        for (User user: userList) {
-            if (emailNew != null && emailNew.equals(user.getEmail())) {
+        for (User userCheck: userList) {
+            if (emailNew != null && emailNew.equals(userCheck.getEmail())) {
                 emailIsThere = true;
-            }
-            if (passOld.equals(user.getPassword())) {
-                passwordMatched = true;
-                userId = user.getId();
                 break;
             }
         }
 
         if (passwordMatched) {
             if (nameNew != null && emailNew == null && passNew == null) {
-                updateUser(ctx, model, s, tx, nameNew, null, null, userId);
+                updateUser(ctx, model, s, tx, nameNew, null, null, userToUpdate);
             }
             if (nameNew == null && emailNew != null && passNew == null) {
                 if (!emailIsThere) {
-                    updateUser(ctx, model, s, tx, null, emailNew, null, userId);
+                    updateUser(ctx, model, s, tx, null, emailNew, null, userToUpdate);
                 } else {
                     System.out.println("am at the top");
                     ctx.sessionAttribute("isRedirected", "isRedirectedUserExists");
@@ -161,21 +163,21 @@ public class ManageUserController extends App {
                 }
             }
             if (nameNew == null && emailNew == null && passNew != null) {
-                updateUser(ctx, model, s, tx, null, null, passNew, userId);
+                updateUser(ctx, model, s, tx, null, null, passNew, userToUpdate);
             }
 //            ----------------------------------
             if (nameNew != null && emailNew != null && passNew == null) {
-                updateUser(ctx, model, s, tx, nameNew, emailNew, null, userId);
+                updateUser(ctx, model, s, tx, nameNew, emailNew, null, userToUpdate);
             }
             if (nameNew != null && emailNew == null && passNew != null) {
-                updateUser(ctx, model, s, tx, nameNew, null, passNew, userId);
+                updateUser(ctx, model, s, tx, nameNew, null, passNew, userToUpdate);
             }
             if (nameNew == null && emailNew != null && passNew != null) {
-                updateUser(ctx, model, s, tx, null, emailNew, passNew, userId);
+                updateUser(ctx, model, s, tx, null, emailNew, passNew, userToUpdate);
             }
 //            ----------------------------------
             if (nameNew != null && emailNew != null && passNew != null) {
-                updateUser(ctx, model, s, tx, nameNew, emailNew, passNew, userId);
+                updateUser(ctx, model, s, tx, nameNew, emailNew, passNew, userToUpdate);
             }
         } else {
             model.put("wrongPass", true);
@@ -183,8 +185,7 @@ public class ManageUserController extends App {
         }
     }
 
-    private static void updateUser(Context ctx, Map<String, Object> model, Session s, Transaction tx, String nameNew, String emailNew, String passNew, int userId) {
-        User userToUpdate = s.get(User.class, userId);
+    private static void updateUser(Context ctx, Map<String, Object> model, Session s, Transaction tx, String nameNew, String emailNew, String passNew, User userToUpdate) {
 
         if (nameNew != null && emailNew == null && passNew == null) {
             userToUpdate.setName(nameNew);
@@ -193,7 +194,10 @@ public class ManageUserController extends App {
             userToUpdate.setEmail(emailNew);
         }
         if (nameNew == null && emailNew == null && passNew != null) {
-            userToUpdate.setPassword(passNew);
+            String newSalt = BCrypt.gensalt();
+            userToUpdate.setSalt(newSalt);
+            String newHashedPassword = BCrypt.hashpw(passNew, newSalt);
+            userToUpdate.setPassword(newHashedPassword);
         }
 //----------------------------------------------------------------------
         if (nameNew != null && emailNew != null && passNew == null) {
@@ -202,17 +206,26 @@ public class ManageUserController extends App {
         }
         if (nameNew != null && emailNew == null && passNew != null) {
             userToUpdate.setName(nameNew);
-            userToUpdate.setPassword(passNew);
+            String newSalt = BCrypt.gensalt();
+            userToUpdate.setSalt(newSalt);
+            String newHashedPassword = BCrypt.hashpw(passNew, newSalt);
+            userToUpdate.setPassword(newHashedPassword);
         }
         if (nameNew == null && emailNew != null && passNew != null) {
             userToUpdate.setEmail(emailNew);
-            userToUpdate.setPassword(passNew);
+            String newSalt = BCrypt.gensalt();
+            userToUpdate.setSalt(newSalt);
+            String newHashedPassword = BCrypt.hashpw(passNew, newSalt);
+            userToUpdate.setPassword(newHashedPassword);
         }
 //----------------------------------------------------------------------
         if (nameNew != null && emailNew != null && passNew != null) {
             userToUpdate.setName(nameNew);
             userToUpdate.setEmail(emailNew);
-            userToUpdate.setPassword(passNew);
+            String newSalt = BCrypt.gensalt();
+            userToUpdate.setSalt(newSalt);
+            String newHashedPassword = BCrypt.hashpw(passNew, newSalt);
+            userToUpdate.setPassword(newHashedPassword);
         }
 
         s.update(userToUpdate);

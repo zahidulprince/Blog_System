@@ -36,7 +36,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="get" action="{{ originalDomain + '/admin/updateUser' }}">
+				<form method="get" action="{{ originalDomain + '/admin/updateUser/' + userId }}">
 					<div class="form-group">
 						<label class="form-label">Select the option(s) that you want to update</label>
 						<div class="selectgroup selectgroup-pills">
@@ -68,7 +68,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userNameNew" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">New name</label>
@@ -91,7 +91,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">New email</label>
@@ -114,7 +114,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userPassOld" type="password" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">Old password</label>
@@ -137,7 +137,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userNameNew" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">New name</label>
@@ -164,7 +164,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userNameNew" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">New name</label>
@@ -191,7 +191,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userEmailNew" type="email" class="form-control input-border-bottom" pattern="([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?(\.[a-z]{2,8})?" required>
 						<label for="inputFloatingLabel" class="placeholder">New email</label>
@@ -218,7 +218,7 @@
 			<h4 class="page-title">Update an User</h4>
 			<div class="page-category">An User can write and publish Articles</div>
 			<div class="col-md-6 col-lg-4 mt-5">
-				<form method="post" action="{{ originalDomain + '/admin/editUser' }}">
+				<form method="post" action="{{ originalDomain + '/admin/editUser/' + userId }}">
 					<div class="form-group form-floating-label">
 						<input id="inputFloatingLabel" name="userNameNew" type="text" class="form-control input-border-bottom" required>
 						<label for="inputFloatingLabel" class="placeholder">New name</label>

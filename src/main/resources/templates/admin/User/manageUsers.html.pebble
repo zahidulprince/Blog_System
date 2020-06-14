@@ -38,7 +38,7 @@
 								<td>{{ user.getName() }}</td>
 								<td>{{ user.getEmail() }}</td>
 								<td>
-									<a style="margin-left: 7px;" href="{{ originalDomain + '/admin/select'}}">
+									<a style="margin-left: 7px;" href="{{ originalDomain + '/admin/select/' + user.getId() }}">
 										<i class="fa fa-edit"></i>
 									</a>
 								</td>

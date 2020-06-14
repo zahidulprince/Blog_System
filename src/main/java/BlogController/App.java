@@ -39,12 +39,12 @@ public class App {
                 get("/manageUsers", ManageUserController::getManageUser);
 
                 get("/updateCategory", ManageCategoriesController::getCategoryEditForm);
-                get("/select", ManageUserController::askToSelectOptionsToUpdate);
-                get("/updateUser", ManageUserController::getUserEditForm);
+                get("/select/:un", ManageUserController::askToSelectOptionsToUpdate);
+                get("/updateUser/:un", ManageUserController::getUserEditForm);
                 get("/updateArticle/:an", ManageArticlesController::getArticleEditForm);
 
                 post("/editCategory", ManageCategoriesController::editCategory);
-                post("/editUser", ManageUserController::editUser);
+                post("/editUser/:un", ManageUserController::editUser);
                 post("/editArticle/:an", ManageArticlesController::editArticle);
 
                 post("/createCategory", AddCategoryController::addCategory);
