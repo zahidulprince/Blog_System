@@ -93,7 +93,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.BlogController.App</mainClass>
+                            <mainClass>BlogController.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -1,1 +1,0 @@
-web: java -jar /target/ziprince-blogsystem-1.0-SNAPSHOT.jar
