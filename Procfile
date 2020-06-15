@@ -1,1 +1,1 @@
-web: java -jar target/zahidblog-1.0-SNAPSHOT.jar
+web: java -jar /target/ziprince-blogsystem-1.0-SNAPSHOT.jar
