@@ -93,7 +93,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.BlogController.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -117,7 +117,7 @@
                     <appName>ziprince-blogsystem</appName>
                     <processTypes>
                         <!-- Tell Heroku how to launch your application -->
-                        <web>java -jar /target/zahidblog-1.0-SNAPSHOT.jar</web>
+                        <web>java -jar /target/ziprince-blogsystem-1.0-SNAPSHOT.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
