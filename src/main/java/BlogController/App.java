@@ -8,14 +8,14 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
 
-    public static String domain = "http://localhost:7000";
+    public static String domain = "https://ziprince-blogsystem.herokuapp.com/";
 
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(Config -> {
             Config.addStaticFiles("/public");
             Config.requestCacheSize = MB;
-        }).start(7000);
+        }).start(getHerokuAssignedPort());
 
         app.routes(() -> {
 
@@ -64,6 +64,14 @@ public class App {
                 post("/subscribed", SubscriberController::addSubscriber);
             });
         });
+    }
+
+    private static int getHerokuAssignedPort() {
+        String herokuPort = System.getenv("PORT");
+        if (herokuPort != null) {
+            return Integer.parseInt(herokuPort);
+        }
+        return 7000;
     }
 }
 

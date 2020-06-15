@@ -157,7 +157,6 @@ public class ManageUserController extends App {
                 if (!emailIsThere) {
                     updateUser(ctx, model, s, tx, null, emailNew, null, userToUpdate);
                 } else {
-                    System.out.println("am at the top");
                     ctx.sessionAttribute("isRedirected", "isRedirectedUserExists");
                     ctx.redirect(domain + "/admin/manageUsers");
                 }
