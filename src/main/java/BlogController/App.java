@@ -3,18 +3,16 @@ package BlogController;
 import AdminController.*;
 import io.javalin.Javalin;
 
-import static com.sun.deploy.util.BufferUtil.MB;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
 
-    public static String domain = "https://ziprince-blogsystem.herokuapp.com/";
+    public static String domain = "https://ziprince-blogsystem.herokuapp.com";
 
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(Config -> {
             Config.addStaticFiles("/public");
-            Config.requestCacheSize = MB;
         }).start(getHerokuAssignedPort());
 
         app.routes(() -> {
