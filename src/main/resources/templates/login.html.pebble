@@ -18,8 +18,8 @@
             rel="stylesheet"
     />
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="../../css/queries.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/queries.css"/>
 
     <title>ZIP's Blog's Admin Login</title>
 </head>
