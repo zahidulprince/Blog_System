@@ -13,7 +13,7 @@
         </div>
         {% for category in categories %}
             <div class="technology-class animated fadeIn">
-                <a href="{{ originalDomain + '/blog/category/' + category.getId() + '/1' }}">
+                <a href="{{ originalDomain + '/category/' + category.getId() + '/1' }}">
                     <div style="font-size: 1.4rem" class="read-more-hover">
                     {{ category.getName() }}
                     </div>
@@ -23,7 +23,7 @@
                         <div class="bullet-point">
                             <div class="point"></div>
                         </div>
-                        <a class="article-title read-more-hover" href="{{ originalDomain + '/blog/article/' + article.getID()}}">
+                        <a class="article-title read-more-hover" href="{{ originalDomain + '/article/' + article.getID()}}">
 
                             {{ article.getTitle() }}
 
@@ -45,7 +45,7 @@
             <div class="inside-pagination d-flex align-items-center">
 
 
-                <a href="{{ pn==1 ? '#' : originalDomain + '/blog/categories/1' }}"
+                <a href="{{ pn==1 ? '#' : originalDomain + '/categories/1' }}"
                    class="{{ pn==1 ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
@@ -54,7 +54,7 @@
                         First
                     </div>
                 </a>
-                <a href="{{ pn==1 ? '#' : originalDomain + '/blog/categories/' + (pn-1) }}"
+                <a href="{{ pn==1 ? '#' : originalDomain + '/categories/' + (pn-1) }}"
                    class="{{ pn==1 ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
@@ -69,7 +69,7 @@
                 {{ pn }}
                 </div>
 
-                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/blog/categories/' + (pn+1) }}"
+                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/categories/' + (pn+1) }}"
                    class="{{ (goToLastPage==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"
@@ -79,7 +79,7 @@
                     </div>
                 </a>
 
-                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/blog/categories/' + (goToLastPage) }}"
+                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/categories/' + (goToLastPage) }}"
                    class="{{ (goToLastPage==pn) ? 'isDisabled' : ""}}">
                     <div
                             class="text-center d-flex align-items-center justify-content-center position-relative"

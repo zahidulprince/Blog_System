@@ -7,7 +7,7 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
 
-    public static String domain = "https://ziprince-blogsystem.herokuapp.com";
+    public static String domain = "blog.zahidprince.com";
 
     public static void main(String[] args) {
 
@@ -24,6 +24,10 @@ public class App {
             post("/wrong/credentials", LoginController.handleLoginPost);
 
             get("/addData", DatabaseController::addData);
+
+            get("", ctx -> {
+                ctx.redirect("blog.zahidprince.com/1");
+            });
 
             path("/admin", () -> {
                 get("/home", AdminHome::getBlogHome);
@@ -54,13 +58,19 @@ public class App {
                 post("/deleteArticle/:an", ManageArticlesController::deleteArticle);
             });
 
-            path("/blog", () -> {
-                get("/:pn", BlogController::getBlogHome);
-                get("/categories/:pn", CategoriesController::getCategories);
-                get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
-                get("/article/:pn", ArticleController::getAricle);
-                post("/subscribed", SubscriberController::addSubscriber);
-            });
+            get("/:pn", BlogController::getBlogHome);
+            get("/categories/:pn", CategoriesController::getCategories);
+            get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
+            get("/article/:pn", ArticleController::getAricle);
+            post("/subscribed", SubscriberController::addSubscriber);
+
+//            path("/blog", () -> {
+//                get("/:pn", BlogController::getBlogHome);
+//                get("/categories/:pn", CategoriesController::getCategories);
+//                get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
+//                get("/article/:pn", ArticleController::getAricle);
+//                post("/subscribed", SubscriberController::addSubscriber);
+//            });
         });
     }
 

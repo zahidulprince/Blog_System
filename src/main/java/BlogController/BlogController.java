@@ -32,12 +32,15 @@ public class BlogController extends App {
 
         List<Articles> renderArticles;
         HashMap<String, Object> renderData = new HashMap<>();
-        String path = String.format("%s/blog/", domain);
+        String path = String.format("%s/", domain);
 
         Articles latestArticle;
 
         try {
-            int pn = Integer.parseInt(ctx.pathParam("pn"));
+            String str = ctx.pathParam("pn");
+            System.out.println(str);
+            int pn = Integer.parseInt(str);
+            System.out.println(pn);
 
             Session session = DatabaseController.sf.openSession();
 

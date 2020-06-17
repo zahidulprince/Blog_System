@@ -34,7 +34,7 @@
 
                     <div class="mb-2 latest-cat-date">
                         <!-- BlogArchitecture.Category and Date -->
-                        <a href="{{ originalDomain + '/blog/category/' + latestArticle.getCategory().getId() + '/1' }}"
+                        <a href="{{ originalDomain + '/category/' + latestArticle.getCategory().getId() + '/1' }}"
                            class="noHoverColorChange">
                             <div>
                                 <i
@@ -53,7 +53,7 @@
                         </div>
                     </div>
 
-                    <a href="{{ originalDomain + '/blog/article/' + latestArticle.getID() }}" class="read-more-hover">
+                    <a href="{{ originalDomain + '/article/' + latestArticle.getID() }}" class="read-more-hover">
                         <h1 class="mb-2 mt-0">
                             <!-- Heading of the Articlle -->
                             {{ latestArticle.getTitle() }}
@@ -64,7 +64,7 @@
 {#                    {{ latestArticle.getDescription() | slice(0,300) | escape }}...#}
                     </p>
 
-                    <a href=" {{ originalDomain + '/blog/article/' + latestArticle.getID() }}"
+                    <a href=" {{ originalDomain + '/article/' + latestArticle.getID() }}"
                        class="read-more-hover font-weight-medium  mt-4">
                         <!-- Read More Link -->
 
@@ -109,7 +109,7 @@
                 <div class="contents mt-4">
                     <div>
                         <div class="card-cat-date-size">
-                            <a href="{{  originalDomain + '/blog/category/' + articlePrint.getCategory().getId() + '/1' }}"
+                            <a href="{{  originalDomain + '/category/' + articlePrint.getCategory().getId() + '/1' }}"
                                class="noHoverColorChange">
                                 <div>
                                     <!-- Article 1 BlogArchitecture.Category -->
@@ -140,7 +140,7 @@
                         <!-- Article 1 Description -->
                         {{ articlePrint.getDescription() | slice(0,100) }}...
                     </div>
-                    <a href=" {{ originalDomain + '/blog/article/' +  articlePrint.getID() }}"
+                    <a href=" {{ originalDomain + '/article/' +  articlePrint.getID() }}"
                        class="font-weight-medium card-read-more"
                     >
                         <!-- Article 1 Read More -->
@@ -221,7 +221,7 @@
             <!-- Subscription Box -->
             <div class="d-flex justify-content-center mb-5 subscription-box-before-margin">
                 <div class="subscriber-container">
-                    <form method="post" action="{{ originalDomain + '/blog/subscribed'}}" class="subscription-form">
+                    <form method="post" action="{{ originalDomain + '/subscribed'}}" class="subscription-form">
                         <div class="row">
                             <div class="col-md-9">
                                 <div

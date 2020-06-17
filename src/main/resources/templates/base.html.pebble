@@ -29,13 +29,13 @@
 <div class="backdrop" id="menu" style="display: none;">
     <ul class="mb-0 hidden-list">
         <li>
-            <a class="read-more-hover" href="{{ originalDomain + '/blog/1' }}"
+            <a class="read-more-hover" href="{{ originalDomain + '/1' }}"
             >HOME
 
             </a>
         </li>
         <li>
-            <a class="read-more-hover" href="{{ originalDomain + '/blog/categories/1'}}"
+            <a class="read-more-hover" href="{{ originalDomain + '/categories/1'}}"
             >CATEGORIES
 
             </a>
@@ -56,7 +56,7 @@
     <!-- Nav Bar -->
     <div>
         <!-- Nav Bar Logo -->
-        <a href="{{ originalDomain + '/blog/1' }}">
+        <a href="{{ originalDomain + '/1' }}">
             <img src="/img/Logo.svg" alt="Blog Logo" class="logo"/>
         </a>
 
@@ -66,13 +66,13 @@
         <!-- Nav Bar Buttons -->
         <ul class="main-nav mb-0">
             <li>
-                <a href="{{ originalDomain + '/blog/1'}}"
+                <a href="{{ originalDomain + '/1'}}"
                 >HOME
                     <div class="circle {% block homeActive %}{% endblock homeActive %}"></div>
                 </a>
             </li>
             <li>
-                <a href="{{ originalDomain + '/blog/categories/1' }}"
+                <a href="{{ originalDomain + '/categories/1' }}"
                 >CATEGORIES
                     <div class="circle {% block categoriesActive %}{% endblock categoriesActive %}"></div>
                 </a>
@@ -96,7 +96,7 @@
             <div class="col-md-6 mt-5 order-1 order-md-0">
                 <div class="footer-section about">
                     <div>
-                        <a href="{{ originalDomain + '/blog/1'}}">
+                        <a href="{{ originalDomain + '/1'}}">
                             <img
                                     src="/img/Logo-footer.svg"
                                     alt="Blog Logo"
@@ -157,13 +157,13 @@
                 <div class="footer-section links">
                     <ul class="footer-nav mb-0">
                         <li>
-                            <a href="{{ originalDomain + '/blog/1'}}"
+                            <a href="{{ originalDomain + '/1'}}"
                             >HOME
                                 <div class="footer-circle {% block FhomeActive %}{% endblock FhomeActive %}"></div>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ originalDomain + '/blog/categories/1'}}"
+                            <a href="{{ originalDomain + '/categories/1'}}"
                             >CATEGORIES
                                 <div class="footer-circle {% block FcategoriesActive %}{% endblock FcategoriesActive %}"></div>
                             </a>
@@ -175,7 +175,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ originalDomain + '/blog/1'}}"
+                            <a href="{{ originalDomain + '/1'}}"
                             >SUBSCRIBE
                                 <div class="footer-circle"></div>
                             </a>
