@@ -117,7 +117,7 @@
                     <appName>ziprince-blogsystem</appName>
                     <processTypes>
                         <!-- Tell Heroku how to launch your application -->
-                        <web>java -jar /target/ziprince-blogsystem-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
+                        <web>java -jar target/ziprince-blogsystem-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
