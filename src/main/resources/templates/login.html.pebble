@@ -5,6 +5,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" style="min-height: 100%;" lang="en"> <!--<![endif]-->
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Blog of Zahid Prince">
     <!--    Animate.css-->
     <link
             rel="stylesheet"
@@ -22,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/queries.css"/>
 
-    <title>ZIP's Blog's Admin Login</title>
+    <title>Login | Blog of Zahid Prince</title>
 </head>
 <body style="background-image: linear-gradient(#11141C, #141720, #191C27);">
 

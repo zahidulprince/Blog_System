@@ -1,5 +1,5 @@
 {% extends "templates/base.html.pebble" %}
-{% block title %}Blog of Zahid Prince{% endblock title %}
+{% block title %}Home | Blog of Zahid Prince{% endblock title %}
 {% block homeActive %}circle-active{% endblock homeActive %}
 {% block FhomeActive %}footer-circle-active{% endblock FhomeActive %}
 {% block content %}

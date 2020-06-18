@@ -3,8 +3,10 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Blog of Zahid Prince">
 
-    <title>Admin of ZIP's Blog</title>
+    <title>{% block title %}{% endblock title %}</title>
 
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,7 +84,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="{{ originalDomain + '/1' }}">
+                        <a class="nav-link" target="_blank" href="{{ originalDomain }}">
                             <i class="fas fa-rss-square"></i>
                         </a>
                     </li>
@@ -280,7 +282,7 @@
                 <nav class="pull-left">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="{{ originalDomain + '/1' }}">
+                            <a class="nav-link" target="_blank" href="{{ originalDomain }}">
                                 Blog
                             </a>
                         </li>

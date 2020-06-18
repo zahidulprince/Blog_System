@@ -1,5 +1,5 @@
 {% extends "templates/base.html.pebble" %}
-{% block title %}Categories{% endblock title %}
+{% block title %}Categories | Blog of Zahid Prince{% endblock title %}
 {% block categoriesActive %}circle-active{% endblock categoriesActive %}
 {% block FcategoriesActive %}footer-circle-active{% endblock FcategoriesActive %}
 {% block content %}

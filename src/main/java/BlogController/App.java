@@ -8,6 +8,7 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 public class App {
 
     public static String domain = "http://blog.zahidprince.com";
+//    public static String domain = "http://localhost:7000";
 
     public static void main(String[] args) {
 
@@ -25,9 +26,8 @@ public class App {
 
             get("/addData", DatabaseController::addData);
 
-            get("", ctx -> {
-                ctx.redirect("http://blog.zahidprince.com/1");
-            });
+            get("", ctx -> { ctx.redirect("http://blog.zahidprince.com/1"); });
+//            get("", ctx -> { ctx.redirect("http://localhost:7000/1"); });
 
             path("/admin", () -> {
                 get("/home", AdminHome::getBlogHome);

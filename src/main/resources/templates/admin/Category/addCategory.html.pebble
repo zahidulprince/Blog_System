@@ -1,4 +1,5 @@
 {% extends "templates/admin/adminBase.html.pebble" %}
+{% block title %}Add a Category | Admin | Blog of Zahid Prince{% endblock title %}
 
 {% block content %}
 

@@ -1,5 +1,5 @@
 {% extends "templates/base.html.pebble" %}
-{% block title %}{{ post.getTitle() }}{% endblock title %}
+{% block title %}{{ post.getTitle() + ' | Blog of Zahid Prince' }}{% endblock title %}
 {% block content %}
 
 <section class="container-c mt-5">
