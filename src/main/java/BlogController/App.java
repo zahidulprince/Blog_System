@@ -20,14 +20,13 @@ public class App {
 
             before(LoginController.ensureLoginBeforeViewingEditor);
 
+            get("", ctx -> { ctx.redirect("http://blog.zahidprince.com/1"); });
+//            get("", ctx -> { ctx.redirect("http://localhost:7000/1"); });
+            get("/addData", DatabaseController::addData);
+
             get("/login", LoginController.serveLoginPage);
             post("/logout", LoginController.handleLogoutPost);
             post("/wrong/credentials", LoginController.handleLoginPost);
-
-            get("/addData", DatabaseController::addData);
-
-            get("", ctx -> { ctx.redirect("http://blog.zahidprince.com/1"); });
-//            get("", ctx -> { ctx.redirect("http://localhost:7000/1"); });
 
             path("/admin", () -> {
                 get("/home", AdminHome::getBlogHome);
@@ -63,14 +62,6 @@ public class App {
             get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
             get("/article/:pn", ArticleController::getAricle);
             post("/subscribed", SubscriberController::addSubscriber);
-
-//            path("/blog", () -> {
-//                get("/:pn", BlogController::getBlogHome);
-//                get("/categories/:pn", CategoriesController::getCategories);
-//                get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
-//                get("/article/:pn", ArticleController::getAricle);
-//                post("/subscribed", SubscriberController::addSubscriber);
-//            });
         });
     }
 
