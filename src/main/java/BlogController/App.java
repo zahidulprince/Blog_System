@@ -20,9 +20,9 @@ public class App {
 
             before(LoginController.ensureLoginBeforeViewingEditor);
 
+            get("/addData", DatabaseController::addData);
             get("", ctx -> { ctx.redirect("http://blog.zahidprince.com/1"); });
 //            get("", ctx -> { ctx.redirect("http://localhost:7000/1"); });
-            get("/addData", DatabaseController::addData);
 
             get("/login", LoginController.serveLoginPage);
             post("/logout", LoginController.handleLogoutPost);
