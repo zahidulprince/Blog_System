@@ -43,7 +43,7 @@
             </a>
         </li>
         <li>
-            <a class="read-more-hover" href="https://zahidprince.com" target="_blank"
+            <a class="read-more-hover" href="https://zahidprince.com" target="_blank" rel="noopener"
             >ABOUT ME
 
             </a>
@@ -80,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://zahidprince.com" target="_blank"
+                <a href="https://zahidprince.com" target="_blank" rel="noopener"
                 >ABOUT ME
                     <div class="circle"></div>
                 </a>
@@ -115,7 +115,7 @@
                             <a
                                     href="https://www.linkedin.com/in/zi-prince-/"
                                     target="_blank"
-                                    referrerpolicy="no-referrer"
+                                    rel="noopener"
                             >
                                 <i class="fab fa-linkedin"></i>
                             </a>
@@ -123,7 +123,7 @@
                             <a
                                     href="https://www.facebook.com/izahidprince"
                                     target="_blank"
-                                    referrerpolicy="no-referrer"
+                                    rel="noopener"
                             >
                                 <i class="fab fa-facebook-square"></i>
                             </a>
@@ -131,7 +131,7 @@
                             <a
                                     href="https://www.instagram.com/zi_prince_/"
                                     target="_blank"
-                                    referrerpolicy="no-referrer"
+                                    rel="noopener"
                             >
                                 <i class="fab fa-instagram"></i>
                             </a>
@@ -139,7 +139,7 @@
                             <a
                                     href="https://twitter.com/zahid_prince_"
                                     target="_blank"
-                                    referrerpolicy="no-referrer"
+                                    rel="noopener"
                             >
                                 <i class="fab fa-twitter-square"></i>
                             </a>
@@ -147,7 +147,7 @@
                             <a
                                     href="mailto: zahidulisprince@gmail.com"
                                     target="_blank"
-                                    referrerpolicy="no-referrer"
+                                    rel="noopener"
                             >
                                 <i class="fas fa-envelope-square"></i>
                             </a>
@@ -171,7 +171,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://zahidprince.com" target="_blank"
+                            <a href="https://zahidprince.com" target="_blank" rel="noopener"
                             >ABOUT ME
                                 <div class="footer-circle"></div>
                             </a>

@@ -21,7 +21,7 @@
 {% endif %}
 
 
-<div class="d-flex align-items-center justify-content-center animated fadeInUp" style="margin: 60px;">
+<div class="d-flex align-items-center justify-content-center animated fadeIn" style="margin: 60px;">
     <a href="{{ originalDomain + '/1' }}" style="padding-right: 20px;" class="noHoverColorChangeWhite">
         <div class="btn-custom d-flex align-items-center justify-content-center" >
             Home

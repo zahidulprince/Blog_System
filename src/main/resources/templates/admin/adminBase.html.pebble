@@ -84,7 +84,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="{{ originalDomain }}">
+                        <a class="nav-link" target="_blank" href="{{ originalDomain }}" rel="noopener">
                             <i class="fas fa-rss-square"></i>
                         </a>
                     </li>
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="u-text">
                                             <h4>Zahidul Islam Prince</h4>
-                                            <p class="text-muted">zahidulisprince@gmail.com</p><a target="_blank" href="https://zahidprince.com"
+                                            <p class="text-muted">zahidulisprince@gmail.com</p><a target="_blank" href="https://zahidprince.com" rel="noopener"
                                                                                                   class="btn btn-xs btn-secondary btn-sm">View
                                             Profile</a>
                                         </div>
@@ -282,17 +282,17 @@
                 <nav class="pull-left">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="{{ originalDomain }}">
+                            <a class="nav-link" target="_blank" href="{{ originalDomain }}" rel="noopener">
                                 Blog
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="http://zahidprince.com">
+                            <a class="nav-link" target="_blank" href="http://zahidprince.com" rel="noopener">
                                 Website
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://github.com/zahidprince">
+                            <a class="nav-link" target="_blank" href="https://github.com/zahidprince" rel="noopener">
                                 Githib
                             </a>
                         </li>
