@@ -38,6 +38,7 @@ public class App {
                 get("/manageCategories", ManageCategoriesController::getManageCategories);
                 get("/manageArticles", ManageArticlesController::getManageArticles);
                 get("/manageUsers", ManageUserController::getManageUser);
+                get("/manageSubscribers", ManageSubscriberController::getSubscriber);
 
                 get("/updateCategory", ManageCategoriesController::getCategoryEditForm);
                 get("/select/:un", ManageUserController::askToSelectOptionsToUpdate);
