@@ -56,6 +56,7 @@ public class App {
                 post("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
                 post("/deleteUser/:un", ManageUserController::deleteUser);
                 post("/deleteArticle/:an", ManageArticlesController::deleteArticle);
+                post("/deleteSubscriber/:eId", ManageSubscriberController::deleteSubscriber);
             });
 
             get("/:pn", BlogController::getBlogHome);

@@ -30,9 +30,11 @@
                                 <td>{{ email.getId() }}</td>
                                 <td>{{ email.getEmailId() }}</td>
                                 <td>
-                                    <a style="margin-left: 7px; color: #c40000;" href="{{ originalDomain + '/admin/updateCategory/'}}">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
+                                    <form style="margin-left: 7px;" method="post" action="{{ originalDomain + '/admin/deleteSubscriber/' + email.getId()}}">
+                                        <button style="background-color: transparent; border: none; color: #c40000;">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             {% endfor %}
