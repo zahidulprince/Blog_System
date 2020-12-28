@@ -9,10 +9,12 @@ public class App {
 
     public static String domain = "https://blog.zahidprince.com";
 //    public static String domain = "http://localhost:7000";
+    public static long newMaxSize = 1000000;
 
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(Config -> {
+            Config.requestCacheSize = newMaxSize;
             Config.addStaticFiles("/public");
         }).start(getHerokuAssignedPort());
 

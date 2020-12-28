@@ -5,7 +5,7 @@
 {% block content %}
 <!-- Featured Article -->
 {% if index is defined %}
-<section class="latest animated fadeIn">
+<section class="latest animated fadeIn" style="padding-top: 40px; padding-bottom: 45px;">
     <div class="row h-100">
         <div class="col-md-6 h-100">
             <!-- Featured Article Cover -->

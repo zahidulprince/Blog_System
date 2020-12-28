@@ -7,7 +7,7 @@ tinymce.init({
     content_css: 'dark',
 
     plugins: [
-		"advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker",
+		"advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker codesample",
 		"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
         "save table contextmenu directionality emoticons template paste textcolor code help casechange",
         "lists checklist autosave"
@@ -32,6 +32,6 @@ tinymce.init({
 
     /* toolbar */
 
-    toolbar: 'undo redo restoredraft | styleselect casechange | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+    toolbar: 'undo redo restoredraft codesample | styleselect casechange | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
 
 });

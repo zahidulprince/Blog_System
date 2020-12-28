@@ -22,6 +22,7 @@
             rel="stylesheet"
     />
     <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="/css/prism.css">
 {#    <link rel="stylesheet" type="text/css" href="/css/style.css"/>#}
     <link rel="stylesheet" type="text/css" href="/css/style.min.css">
 
@@ -190,6 +191,7 @@
 </footer>
 {% block disqus %}
 {% endblock %}
+<script src="/js/prism.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/script.js"></script>
 </body>
