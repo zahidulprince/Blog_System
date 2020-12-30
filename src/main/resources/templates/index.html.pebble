@@ -5,7 +5,7 @@
 {% block content %}
 <!-- Featured Article -->
 {% if index is defined %}
-<section class="latest animated fadeIn" style="padding-top: 40px; padding-bottom: 45px;">
+<section class="latest animated fadeIn">
     <div class="row h-100">
         <div class="col-md-6 h-100">
             <!-- Featured Article Cover -->
@@ -158,7 +158,7 @@
 
 <section class="pagination-subscribe">
     <!-- Pagination And Subscribe -->
-    <div class="d-flex align-items-center justify-content-center" style="margin-top: 50px;">
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: 50px; margin-bottom: 50px;">
         <!-- Pagination -->
         <div
                 class="pagination text-center d-flex align-items-center"
