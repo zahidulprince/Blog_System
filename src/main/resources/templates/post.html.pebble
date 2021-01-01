@@ -43,15 +43,12 @@
 
     <div class="mt-2 animated fadeIn" style="font-size: 1.24rem; line-height: 1.7;">
         <!-- Post Body -->
-
         <img class="post-image" src="{{ post.getLink() }}"
              alt="post-background">
 
         <div class="article-body">
             <span class="post-first-letter">{{ post.getDescription() | slice(3,4) | raw }}</span>{{ post.getDescription() | slice(4) | raw }}
         </div>
-
-
     </div>
 
     <div class="discuss" style="margin-bottom: 55px;">

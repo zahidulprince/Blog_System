@@ -256,5 +256,3 @@
 {#title="Your domain name cannot contain any '+' sign, has to contain at least one letter. There should be only one '@' symbol. The host domain name cannot contain any numbers, should be at least one letter long. There should be a '.' after the domain name. The host domain extention should be in between 2-8 characters and only in letters. If there's a second extention, it also cannot contain any numbers but letters following a '.' For example, yourDomain@hostDomain.extention.secondExtention "#}
 
 {% endblock %}
-
-
