@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import java.util.HashMap;
 import java.util.List;
 
+import static BlogController.BlogController.removeTags;
+
 public class SingleCategoryController extends App {
 
     public static void getDesiredCategory(Context ctx) {
@@ -27,6 +29,18 @@ public class SingleCategoryController extends App {
 
             renderArticles = session.createQuery(query, Articles.class).setFirstResult((pn-1)*6).setMaxResults(6).getResultList();
             numOfArticles = session.createQuery(query, Articles.class).getResultList();
+
+            //          start --- removing HTML Tags by calling removeTags
+            String[] descriptions = new String[6];
+            int iterateDescription = 0;
+
+            for (Articles articles : renderArticles) {
+                descriptions[iterateDescription] = articles.getDescription();
+                descriptions[iterateDescription] = removeTags(descriptions[iterateDescription]);
+                articles.setDescription(descriptions[iterateDescription]);
+                iterateDescription++;
+            }
+//          End
 
             double listSize = numOfArticles.size();
             double maxTake = 6;
