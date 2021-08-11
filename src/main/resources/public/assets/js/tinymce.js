@@ -7,10 +7,10 @@ tinymce.init({
     content_css: 'dark',
 
     plugins: [
-		"advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker codesample",
+		"lists advlist autolink link image imagetools charmap print preview hr anchor pagebreak spellchecker codesample",
 		"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "save table contextmenu directionality emoticons template paste textcolor code help casechange",
-        "lists checklist autosave"
+        "save table contextmenu directionality emoticons template paste textcolor code help",
+        "autosave"
     ],
 
     mobile: {
