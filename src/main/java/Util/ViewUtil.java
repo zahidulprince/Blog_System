@@ -2,7 +2,6 @@ package Util;
 
 import BlogController.App;
 import io.javalin.http.Context;
-import io.javalin.http.ErrorHandler;
 
 import static Util.RequestUtil.*;
 
@@ -18,8 +17,8 @@ public class ViewUtil extends App {
         return model;
     }
 
-    public static ErrorHandler notFound = ctx -> {
-        ctx.result("Not Found");
-    };
+    //public static ErrorHandler notFound = ctx -> {
+    //   ctx.result("Not Found");
+    //};
 
 }

@@ -14,8 +14,12 @@ public class App {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(Config -> {
-            Config.requestCacheSize = newMaxSize;
-            Config.addStaticFiles("/public");
+            Config.addStaticFiles(staticFiles -> {
+                staticFiles.hostedPath = "/";
+                staticFiles.directory = "/public";
+                }
+            );
+            //Config.requestCacheSize = newMaxSize;
         }).start(getHerokuAssignedPort());
 
         app.routes(() -> {
@@ -43,28 +47,28 @@ public class App {
                 get("/manageSubscribers", ManageSubscriberController::getSubscriber);
 
                 get("/updateCategory", ManageCategoriesController::getCategoryEditForm);
-                get("/select/:un", ManageUserController::askToSelectOptionsToUpdate);
-                get("/updateUser/:un", ManageUserController::getUserEditForm);
-                get("/updateArticle/:an", ManageArticlesController::getArticleEditForm);
+                get("/select/{un}", ManageUserController::askToSelectOptionsToUpdate);
+                get("/updateUser/{un}", ManageUserController::getUserEditForm);
+                get("/updateArticle/{an}", ManageArticlesController::getArticleEditForm);
 
                 post("/editCategory", ManageCategoriesController::editCategory);
-                post("/editUser/:un", ManageUserController::editUser);
-                post("/editArticle/:an", ManageArticlesController::editArticle);
+                post("/editUser/{un}", ManageUserController::editUser);
+                post("/editArticle/{an}", ManageArticlesController::editArticle);
 
                 post("/createCategory", AddCategoryController::addCategory);
                 post("/createUser", AddUserController::addUser);
                 post("/createArticle", AddArticleController::addArticle);
 
-                post("/deleteCategory/:cn", ManageCategoriesController::deleteCategory);
-                post("/deleteUser/:un", ManageUserController::deleteUser);
-                post("/deleteArticle/:an", ManageArticlesController::deleteArticle);
-                post("/deleteSubscriber/:eId", ManageSubscriberController::deleteSubscriber);
+                post("/deleteCategory/{cn}", ManageCategoriesController::deleteCategory);
+                post("/deleteUser/{un}", ManageUserController::deleteUser);
+                post("/deleteArticle/{an}", ManageArticlesController::deleteArticle);
+                post("/deleteSubscriber/{eId}", ManageSubscriberController::deleteSubscriber);
             });
 
-            get("/:pn", BlogController::getBlogHome);
-            get("/categories/:pn", CategoriesController::getCategories);
-            get("/category/:ctgn/:pn", SingleCategoryController::getDesiredCategory);
-            get("/article/:pn", ArticleController::getAricle);
+            get("/{pn}", BlogController::getBlogHome);
+            get("/categories/{pn}", CategoriesController::getCategories);
+            get("/category/{ctgn}/{pn}", SingleCategoryController::getDesiredCategory);
+            get("/article/{pn}", ArticleController::getAricle);
             post("/subscribed", SubscriberController::addSubscriber);
         });
     }
