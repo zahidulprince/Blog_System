@@ -13,4 +13,7 @@ src/test/
 
 src/main/resources/public/assets/sass/*
 /src/main/resources/public/assets/sass/
-src/main/resources/public/assets/js/*
+
+*.js
+
+/src/main/resources/public/assets/js/

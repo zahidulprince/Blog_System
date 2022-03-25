@@ -35,7 +35,7 @@
             Hello
         </div>
         <div class="mb-5" style="color: #C9CACB; font-size: 1.4rem; font-weight: bolder;">
-            Zahid Prince
+            Zahidul Prince
         </div>
 
         <form style="width: 100%;" method="post" action="{{ originalDomain + '/wrong/credentials'}}">
