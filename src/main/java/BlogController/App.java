@@ -9,7 +9,7 @@ public class App {
 
     public static String domain = "https://blog.zahidprince.com";
 //    public static String domain = "http://localhost:7000";
-    public static long newMaxSize = 1000000;
+    //public static long newMaxSize = 1000000;
 
     public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class App {
             before(LoginController.ensureLoginBeforeViewingEditor);
 
             get("/addData", DatabaseController::addData);
-            get("", ctx -> { ctx.redirect("https://blog.zahidprince.com/1"); });
+            get("", ctx -> ctx.redirect("https://blog.zahidprince.com/1"));
 //            get("", ctx -> { ctx.redirect("http://localhost:7000/1"); });
 
             get("/login", LoginController.serveLoginPage);
@@ -68,7 +68,7 @@ public class App {
             get("/{pn}", BlogController::getBlogHome);
             get("/categories/{pn}", CategoriesController::getCategories);
             get("/category/{ctgn}/{pn}", SingleCategoryController::getDesiredCategory);
-            get("/article/{pn}", ArticleController::getAricle);
+            get("/article/{pn}", ArticleController::getArticle);
             post("/subscribed", SubscriberController::addSubscriber);
         });
     }

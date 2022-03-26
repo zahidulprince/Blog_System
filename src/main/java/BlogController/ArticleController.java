@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class ArticleController extends App {
 
-    public static void getAricle(Context ctx) {
+    public static void getArticle(Context ctx) {
 
         HashMap<String, Object> renderData = new HashMap<>();
         Articles articles;
