@@ -7,8 +7,6 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
 
-    //comment
-
     public static String domain = "https://blog.zahidprince.com";
 //    public static String domain = "http://localhost:7000";
     //public static long newMaxSize = 1000000;
