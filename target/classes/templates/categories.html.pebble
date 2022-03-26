@@ -1,0 +1,98 @@
+{% extends "templates/base.html.pebble" %}
+{% block title %}Categories | Blog of Zahid Prince{% endblock title %}
+{% block categoriesActive %}circle-active{% endblock categoriesActive %}
+{% block FcategoriesActive %}footer-circle-active{% endblock FcategoriesActive %}
+{% block content %}
+
+
+
+<section class="container-categories" style="max-width: 90%;">
+    <div>
+        <div class="categories-title">
+        Categories
+        </div>
+        {% for category in categories %}
+            <div class="technology-class animated fadeIn">
+                <a href="{{ originalDomain + '/category/' + category.getId() + '/1' }}">
+                    <div style="font-size: 1.4rem" class="read-more-hover">
+                    {{ category.getName() }}
+                    </div>
+                </a>
+                {% for article in category.getArticles() %}
+                    <div class="d-flex" style="margin-top: 10px;">
+                        <div class="bullet-point">
+                            <div class="point"></div>
+                        </div>
+                        <a class="article-title read-more-hover" href="{{ originalDomain + '/article/' + article.getID()}}">
+
+                            {{ article.getTitle() }}
+
+                        </a>
+
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: 50px; margin-bottom: 74px;">
+        <!-- Pagination -->
+        <div
+                class="pagination text-center d-flex align-items-center"
+                style="margin-bottom: 12px;"
+        >
+            <div class="inside-pagination d-flex align-items-center">
+
+
+                <a href="{{ pn==1 ? '#' : originalDomain + '/categories/1' }}"
+                   class="{{ pn==1 ? 'isDisabled' : ""}}">
+                    <div
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="left: -12px; font-size: 1rem; color: #838383;"
+                    >
+                        First
+                    </div>
+                </a>
+                <a href="{{ pn==1 ? '#' : originalDomain + '/categories/' + (pn-1) }}"
+                   class="{{ pn==1 ? 'isDisabled' : ""}}">
+                    <div
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="left: -10px;"
+                    >
+                        <i class="fas fa-caret-left" style="font-size: 1.8rem; color: #0066FF"></i>
+                    </div>
+                </a>
+
+                <div class="pagination-circle text-center d-flex align-items-center justify-content-center"
+                     style="font-size: 1.5rem; font-family: 'Times New Roman', sans-serif">
+                {{ pn }}
+                </div>
+
+                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/categories/' + (pn+1) }}"
+                   class="{{ (goToLastPage==pn) ? 'isDisabled' : ""}}">
+                    <div
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="right: -8px;"
+                    >
+                        <i class="fas fa-caret-right" style="font-size: 1.8rem; color: #0066FF"></i>
+                    </div>
+                </a>
+
+                <a href=" {{ (goToLastPage==pn) ? '#' : originalDomain + '/categories/' + (goToLastPage) }}"
+                   class="{{ (goToLastPage==pn) ? 'isDisabled' : ""}}">
+                    <div
+                            class="text-center d-flex align-items-center justify-content-center position-relative"
+                            style="right: -12px; font-size: 1rem; color: #838383;"
+                    >
+                        Last
+
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

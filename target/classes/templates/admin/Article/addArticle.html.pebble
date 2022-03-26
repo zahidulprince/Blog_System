@@ -1,0 +1,111 @@
+{% extends "templates/admin/adminBase.html.pebble" %}
+{% block title %}Add an Article | Admin | Blog of Zahid Prince{% endblock title %}
+
+{% block tinymceAPI %}<script src="https://cdn.tiny.cloud/1/lc7p0alwu5wc3o2tjyfvoxz65wk327ralk9y48q59v56atss/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>{% endblock tinymceAPI %}
+
+{% block content %}
+
+{% if form is defined %}
+<div class="main-panel">
+	<div class="content">
+		<div class="page-inner">
+			<h4 class="page-title">Add an Article</h4>
+			<div class="page-category">An Article should have a Category and an User (writer).</div>
+			{% if wrongSubmit is defined %}
+				<div class="page-category" style="color: #e80c0c">Wrong Category or User name. Please, check again for the Category and User's name. Thank you!</div>
+			{% endif %}
+			<div class="col-md-12 mt-5">
+				<form method="post" action="{{ originalDomain + '/admin/createArticle' }}" id="addArticle">
+					<div class="form-group form-floating-label">
+						<input id="inputFloatingLabel" name="articleHeroImageLink" type="text" class="form-control input-border-bottom" required>
+						<label for="inputFloatingLabel" class="placeholder">Image Link</label>
+					</div>
+					<div class="form-group form-floating-label">
+						<input id="inputFloatingLabel" name="articleTitle" type="text" class="form-control input-border-bottom" required>
+						<label for="inputFloatingLabel" class="placeholder">Title</label>
+					</div>
+					<div class="form-group form-floating-label">
+						<input id="inputFloatingLabel" name="articleCategory" type="text" class="form-control input-border-bottom" required>
+						<label for="inputFloatingLabel" class="placeholder">Category</label>
+					</div>
+					<div class="form-group form-floating-label" style="margin-bottom: 25px;">
+						<input id="inputFloatingLabel" name="articleWriter" type="email" class="form-control input-border-bottom" required>
+						<label for="inputFloatingLabel" class="placeholder">Writer Email</label>
+					</div>
+					<textarea class="tinymce" name="tinymcetext" id="mytextarea"></textarea>
+					<button type="submit" class="btn btn-primary btn-round mt-3">Add</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if articleEditTrue is defined %}
+<div class="main-panel">
+	<div class="content">
+		<div class="page-inner">
+			<h4 class="page-title">Update an Article</h4>
+			<div class="page-category">An Article should have a Category and an User (writer).</div>
+			{% if failCategory is defined %}
+				<div class="page-category" style="color: #d40000">Newly provided category name is wrong. Please, create the category first.</div>
+			{% endif %}
+			{% if failArticle is defined %}
+				<div class="page-category" style="color: #d40000">Provided article name matches with another article.</div>
+			{% endif %}
+			{% if failBoth is defined %}
+				<div class="page-category" style="color: #d40000">Provided category doesn't exists and the article name matches with another one.</div>
+			{% endif %}
+			<div class="col-md-12 mt-5">
+				<form method="post" action="{{ originalDomain + '/admin/editArticle/' + articleToEdit.getId() }}" id="addArticle">
+					<div class="form-group form-floating-label">
+						<input id="inputFloatingLabel" name="articleHeroImageLink" type="text" class="form-control input-border-bottom">
+						<label for="inputFloatingLabel" class="placeholder">Image Link (If previous link is fine, skip it)</label>
+					</div>
+					<div class="form-group form-floating-label">
+						<input id="inputFloatingLabel" name="articleTitle" type="text" class="form-control input-border-bottom">
+						<label for="inputFloatingLabel" class="placeholder">Title (If previous title is fine, skip it)</label>
+					</div>
+					<div class="form-group form-floating-label">
+						<input id="inputFloatingLabel" name="articleCategory" type="text" class="form-control input-border-bottom">
+						<label for="inputFloatingLabel" class="placeholder">Category (If previous Category is fine, skip it)</label>
+					</div>
+					<textarea class="tinymce" name="tinymcetext" id="mytextarea"> {{ articleToEdit.getDescription() }} </textarea>
+					<button type="submit" class="btn btn-primary btn-round mt-3">Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if added is defined %}
+
+	<div class="main-panel">
+		<div class="content">
+			<div class="page-inner">
+				<h4 class="page-title">Article Added</h4>
+				<div class="page-category">Thank you!</div>
+			</div>
+		</div>
+	</div>
+
+{% endif %}
+
+{% if addedAlready is defined %}
+
+	<div class="main-panel">
+		<div class="content">
+			<div class="page-inner">
+				<h4 class="page-title">Article already exists</h4>
+				<div class="page-category">You don't need to write this article again rather you can edit the existing Article. Thank you!</div>
+			</div>
+		</div>
+	</div>
+
+{% endif %}
+
+	{{ block("footer") }}
+
+</div>
+{% endblock %}
+
+{% block tinymcelocal %}<script src="/assets/js/tinymce.js"></script>{% endblock tinymcelocal %}

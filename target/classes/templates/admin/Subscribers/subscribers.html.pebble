@@ -1,0 +1,52 @@
+{% extends "templates/admin/adminBase.html.pebble" %}
+{% block title %}Manage Subscribers | Admin | Blog of Zahid Prince{% endblock title %}
+
+{% block content %}
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <h4 class="page-title">Manage Subscribers</h4>
+            <div class="page-category">Review and Delete Subscribers</div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">All Subscribers</div>
+                    {% if deleted is defined %}
+                        <div class="page-category" style="color: #2bb930">Succesfully deleted</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-12">
+                    <div class="card-body table-responsive">
+                        <table class="table table-striped table-striped-bg-default mt-3">
+                            <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Subscriber email</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for email in emails %}
+                            <tr>
+                                <td>{{ email.getId() }}</td>
+                                <td>{{ email.getEmailId() }}</td>
+                                <td>
+                                    <form style="margin-left: 7px;" method="post" action="{{ originalDomain + '/admin/deleteSubscriber/' + email.getId()}}">
+                                        <button style="background-color: transparent; border: none; color: #c40000;">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ block("footer") }}
+
+</div>
+{% endblock %}

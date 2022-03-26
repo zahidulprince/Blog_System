@@ -1,0 +1,84 @@
+{% extends "templates/base.html.pebble" %}
+{% block title %}{{ post.getTitle() + ' | Blog of Zahid Prince' }}{% endblock title %}
+{% block content %}
+
+<section class="container-c mt-5">
+
+    <div class="row h-100 animated fadeIn">
+        <!-- BlogArchitecture.Category and Title -->
+        <div class="col-md-2" style="margin-top: 10px;">
+            <a href="{{ originalDomain + '/category/' + post.getCategory().getId() + '/1' }}"
+               class="read-more-hover category-article">
+            {{ post.getCategory().getName() }}
+            </a>
+        </div>
+        <!-- <span>&#124;</span> -->
+
+        <div class="col-md-10 post-title">
+            <div class="mid-bar"></div>
+            <div class="article-name" style="margin-top: 7px;">
+            {{ post.getTitle() }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="post-date mt-5  animated fadeIn">
+        <!-- Post Date -->
+        <i
+                class="far fa-calendar-alt mr-1 position-relative"
+                style="font-size: 0.9rem; top: -1px; margin-right: 10px;"
+        ></i>
+        {{ post.getDate() | date("MMMM dd, yyyy", existingFormat="yyyy-MM-dd") }}
+    </div>
+
+    <div class="post-date  animated fadeIn">
+        <!-- Post Date -->
+        <i
+                class="fas fa-user-edit mr-1 position-relative"
+                style="font-size: 0.9rem; top: -1px; margin-right: 10px;"
+        ></i>
+        {{ post.getUser().getName() }}
+    </div>
+
+    <div class="mt-2 animated fadeIn" style="font-size: 1.24rem; line-height: 1.7;">
+        <!-- Post Body -->
+        <img class="post-image" src="{{ post.getLink() }}"
+             alt="post-background">
+
+        <div class="article-body">
+            <span class="post-first-letter">{{ post.getDescription() | slice(3,4) | raw }}</span>{{ post.getDescription() | slice(4) | raw }}
+        </div>
+    </div>
+
+    <div class="discuss" style="margin-bottom: 55px;">
+        <div id="disqus_thread"></div>
+
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block disqus %}
+<script>
+
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zahidprince-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+{% endblock %}

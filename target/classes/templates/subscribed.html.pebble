@@ -1,0 +1,37 @@
+{% extends "templates/base.html.pebble" %}
+{% block title %}Subscription | Blog of Zahid Prince{% endblock title %}
+{% block content %}
+
+{% if subscribed is defined %}
+<div class="col-md-12 animated fadeIn d-flex align-items-center justify-content-center" style="min-height: 41.2vh;">
+    <!-- More Article Heading -->
+    <h2 class="congrats-message">
+        <span style="font-size: larger; display: inline-block; ">{{ subVar1 }}</span><br><span style="font-size: 1.3REM">{{ subVar2 }}</span></br>
+    </h2>
+</div>
+{% endif %}
+
+{% if alreadySubscribed is defined %}
+<div class="col-md-12 animated fadeIn d-flex align-items-center justify-content-center" style="min-height: 41.2vh;">
+    <!-- More Article Heading -->
+    <h2 class="congrats-message">
+        <span style="font-size: larger; display: inline-block; ">{{ alreadySubVar1 }}</span><br><span style="font-size: 1.3REM">{{ alreadySubVar2 }}</span></br>
+    </h2>
+</div>
+{% endif %}
+
+
+<div class="d-flex align-items-center justify-content-center animated fadeIn" style="margin: 60px;">
+    <a href="{{ originalDomain + '/1' }}" style="padding-right: 20px;" class="noHoverColorChangeWhite">
+        <div class="btn-custom d-flex align-items-center justify-content-center" >
+            Home
+        </div>
+    </a>
+    <a href="{{ originalDomain + '/categories/1' }}" style="padding-left: 20px;" class="noHoverColorChangeWhite">
+        <div class="btn-custom d-flex align-items-center justify-content-center" >
+            Categories
+        </div>
+    </a>
+</div>
+
+{% endblock %}
